@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kunj's Portfolio - Software Engineer, Python Developer, and Web Developer">
+    <meta name="keywords" content="portfolio, web development, python, software engineering, AI, ML, cybersecurity">
+    <title>Kunj's Portfolio | Software Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon can be added here -->
+    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+    <style>
+        /* Inline styles for highlighted elements */
+        .cv-download-btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cv-download-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+        }
+        
+        .cv-download-btn i {
+            margin-right: 10px;
+        }
+
+        /* Creative Contact Section Styles */
+        .contact-section {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 80px 0;
+            margin: 80px 0 0 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            border: none;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .contact-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-section .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .contact-section .contact-container h2 {
+            width: 100%;
+            color: white;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            padding-bottom: 15px;
+            border-bottom: none;
+        }
+
+        .contact-section .contact-container h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 2px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info p {
+            margin: 20px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+            outline: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #aaa;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 30px auto 0;
+            width: auto;
+            min-width: 200px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(37, 117, 252, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(37, 117, 252, 0.4);
+        }
+
+        /* Floating shapes for creative background */
+        .shape {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .shape-2 {
+            bottom: 20%;
+            right: 10%;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(45deg);
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .shape-3 {
+            top: 40%;
+            right: 20%;
+            width: 80px;
+            height: 80px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 12s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="logo">Kunj</div>
+        <nav class="navbar" aria-label="Main navigation">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link">About Me</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#cv" class="nav-link">CV</a></li>
+                <li class="nav-item"><a href="#languages" class="nav-link">Languages</a></li>
+                <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li class="nav-item"><a href="#social" class="nav-link">Social</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item social-links">
+                    <a href="#" class="social-icon" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+            <div class="dark-mode-toggle">
+                <input type="checkbox" id="dark-mode-btn" class="dark-mode-checkbox">
+                <label for="dark-mode-btn" class="dark-mode-label" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <div class="dark-mode-ball"></div>
+                </label>
+            </div>
+            <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <h1>Kunj's Portfolio</h1>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="profile-img-container">
+                            <!-- Replace with your actual image -->
+                            <img src="https://via.placeholder.com/300" alt="Kunj's Profile Picture" class="profile-img">
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p class="intro-text">Hello! I'm <span class="highlight">Kunj</span>, a passionate Software Engineer specializing in Python Development and Web Technologies.</p>
+                        
+                        <p>With a strong foundation in software engineering principles and a love for creating efficient, scalable solutions, I bring creativity and technical expertise to every project I undertake.</p>
+                        
+                        <p>I'm particularly interested in the intersection of AI/ML and web technologies, constantly exploring new ways to leverage these tools to solve real-world problems.</p>
+                        
+                        <p>When I'm not coding, you can find me contributing to open-source projects, participating in hackathons, or exploring the latest developments in technology.</p>
+                        
+                        <div class="about-cta">
+                            <a href="#contact" class="btn primary-btn">Get In Touch</a>
+                            <a href="#projects" class="btn secondary-btn">View My Work</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <h2>My Experience</h2>
+                <div class="timeline">
+                    <!-- DevFest AI Experience -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3>DevFest AI Participant</h3>
+                            <p class="timeline-location">Global AI Conference</p>
+                            <p>Actively participated in DevFest AI, collaborating with developers worldwide on cutting-edge AI projects. Contributed to workshops and hackathons focused on implementing machine learning solutions for real-world problems.</p>
+                            <ul class="timeline-achievements">
+                                <li>Developed a natural language processing model for sentiment analysis</li>
+                                <li>Collaborated with international teams on AI integration projects</li>
+                                <li>Presented findings on efficient ML model deployment strategies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Hacktoberfest Experience -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022-2023</div>
+                        <div class="timeline-content">
+                            <h3>Open Source Contributor - Hacktoberfest</h3>
+                            <p class="timeline-location">Global Open Source Initiative</p>
+                            <p>Active participant in Hacktoberfest as an open source developer, submitting numerous pull requests for feature enhancements and bug fixes across multiple repositories.</p>
+                            <ul class="timeline-achievements">
+                                <li>Contributed to 15+ open source projects, focusing on Python and JavaScript libraries</li>
+                                <li>Implemented new features for data visualization tools and web frameworks</li>
+                                <li>Fixed critical bugs in popular repositories, improving stability and performance</li>
+                                <li>Collaborated with maintainers to enhance documentation and test coverage</li>
+                            </ul>
+                            <div class="repo-list">
+                                <h4>Notable Repositories:</h4>
+                                <a href="#" class="repo-link">data-science-toolkit</a>
+                                <a href="#" class="repo-link">web-accessibility-framework</a>
+                                <a href="#" class="repo-link">python-ml-utilities</a>
+                                <a href="#" class="repo-link">react-component-library</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Software Engineering Experience -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2021-Present</div>
+                        <div class="timeline-content">
+                            <h3>Software Engineer</h3>
+                            <p class="timeline-location">Tech Innovations Inc.</p>
+                            <p>Working as a full-stack developer focusing on building scalable web applications and data processing systems.</p>
+                            <ul class="timeline-achievements">
+                                <li>Developed and maintained RESTful APIs using Python and Flask</li>
+                                <li>Implemented front-end interfaces with React and modern JavaScript</li>
+                                <li>Optimized database queries and improved application performance by 40%</li>
+                                <li>Collaborated with cross-functional teams to deliver features on schedule</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <h2>My Skills</h2>
+                <div class="skills-container">
+                    <!-- Python Development -->
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-front">
+                                <i class="fas fa-code fa-3x" aria-hidden="true"></i>
+                                <h3>Python Development</h3>
+                            </div>
+                            <div class="skill-card-back">
+                                <p>Experienced in building applications, data analysis, and automation using Python.</p>
+                                <p>Libraries: Pandas, NumPy, Flask, Django</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Software Engineering -->
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-front">
+                                <i class="fas fa-laptop-code fa-3x" aria-hidden="true"></i>
+                                <h3>Software Engineering</h3>
+                            </div>
+                            <div class="skill-card-back">
+                                <p>Proficient in software design patterns, algorithms, and best practices.</p>
+                                <p>Experience with OOP, functional programming, and test-driven development.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Web Development -->
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-front">
+                                <i class="fas fa-globe fa-3x" aria-hidden="true"></i>
+                                <h3>Web Development</h3>
+                            </div>
+                            <div class="skill-card-back">
+                                <p>Full-stack web development with modern frameworks and technologies.</p>
+                                <p>HTML5, CSS3, JavaScript, React, Node.js</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI/ML -->
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-front">
+                                <i class="fas fa-brain fa-3x" aria-hidden="true"></i>
+                                <h3>AI/ML</h3>
+                            </div>
+                            <div class="skill-card-back">
+                                <p>Experience with machine learning algorithms and AI applications.</p>
+                                <p>TensorFlow, PyTorch, scikit-learn</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cybersecurity -->
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-front">
+                                <i class="fas fa-shield-alt fa-3x" aria-hidden="true"></i>
+                                <h3>Cybersecurity</h3>
+                            </div>
+                            <div class="skill-card-back">
+                                <p>Knowledge of security principles, threat analysis, and secure coding practices.</p>
+                                <p>Network security, penetration testing, security audits</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud Computing -->
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-front">
+                                <i class="fas fa-cloud fa-3x" aria-hidden="true"></i>
+                                <h3>Cloud Computing</h3>
+                            </div>
+                            <div class="skill-card-back">
+                                <p>Learning cloud services and architecture for modern applications.</p>
+                                <p>Exploring AWS, Azure, Google Cloud Platform solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="projects-slider">
+                    <div class="slider-container">
+                        <!-- Project 1 -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="https://via.placeholder.com/600x400" alt="Project 1">
+                                </div>
+                                <div class="project-info">
+                                    <h3>AI-Powered Data Analyzer</h3>
+                                    <p>A machine learning application that analyzes large datasets and provides actionable insights through an intuitive dashboard.</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">TensorFlow</span>
+                                        <span class="tech-tag">Flask</span>
+                                        <span class="tech-tag">React</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="#" class="project-btn"><i class="fab fa-github"></i> View Code</a>
+                                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 2 -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="https://via.placeholder.com/600x400" alt="Project 2">
+                                </div>
+                                <div class="project-info">
+                                    <h3>Secure Authentication System</h3>
+                                    <p>A robust authentication framework with multi-factor authentication, role-based access control, and comprehensive security features.</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">MongoDB</span>
+                                        <span class="tech-tag">JWT</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="#" class="project-btn"><i class="fab fa-github"></i> View Code</a>
+                                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 3 -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="https://via.placeholder.com/600x400" alt="Project 3">
+                                </div>
+                                <div class="project-info">
+                                    <h3>Cloud-Based Collaboration Tool</h3>
+                                    <p>A real-time collaboration platform that enables teams to work together seamlessly across different locations and time zones.</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">Firebase</span>
+                                        <span class="tech-tag">WebSockets</span>
+                                        <span class="tech-tag">AWS</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="#" class="project-btn"><i class="fab fa-github"></i> View Code</a>
+                                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slider Controls -->
+                    <div class="slider-controls">
+                        <button class="slider-btn prev-btn" aria-label="Previous project">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="slider-dots">
+                            <span class="slider-dot active" data-slide="0"></span>
+                            <span class="slider-dot" data-slide="1"></span>
+                            <span class="slider-dot" data-slide="2"></span>
+                        </div>
+                        <button class="slider-btn next-btn" aria-label="Next project">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CV Section -->
+        <section id="cv" class="section cv-section">
+            <div class="container">
+                <h2>My CV</h2>
+                <p>Download my comprehensive CV to learn more about my experience, education, and skills.</p>
+                <a href="#" class="cv-download-btn" download>
+                    <i class="fas fa-download" aria-hidden="true"></i> Download CV
+                </a>
+            </div>
+        </section>
+        
+        <!-- Programming Languages Section -->
+        <section id="languages" class="section languages-section">
+            <div class="container">
+                <h2>Programming Languages</h2>
+                <div class="language-badges">
+                    <span class="language-badge">Python</span>
+                    <span class="language-badge">JavaScript</span>
+                    <span class="language-badge">Java</span>
+                    <span class="language-badge">C++</span>
+                    <span class="language-badge">SQL</span>
+                    <span class="language-badge">HTML/CSS</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Certifications Section -->
+        <section id="certifications" class="section certifications-section">
+            <div class="container">
+                <h2>Certifications</h2>
+                <ul class="cert-list">
+                    <li>Google AI Essentials Certificate</li>
+                    <li>AWS Certified Solutions Architect</li>
+                    <li>Microsoft Certified: Azure Developer Associate</li>
+                    <li>Google Professional Cloud Developer</li>
+                    <li>CompTIA Security+</li>
+                    <li>Certified Ethical Hacker (CEH)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Social Media Section -->
+        <section id="social" class="section social-section">
+            <div class="container">
+                <h2>Connect With Me</h2>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="GitHub"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter fa-2x" aria-hidden="true"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram fa-2x" aria-hidden="true"></i></a>
+                    <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube fa-2x" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Section - Creative and Beautiful Design -->
+    <section id="contact" class="section contact-section">
+        <!-- Decorative shapes for creative background -->
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        
+        <div class="container">
+            <div class="contact-container">
+                <h2>Let's Connect</h2>
+                
+                <div class="contact-info">
+                    <p>
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <a href="mailto:email@example.com">email@example.com</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        <a href="tel:+11234567890">+1 (123) 456-7890</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <span>New York, NY, United States</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        <span>Available: 9 AM - 6 PM EST</span>
+                    </p>
+                </div>
+                
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" name="name" id="name" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" name="email" id="email" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" name="subject" id="subject" placeholder="Project Inquiry / Job Opportunity" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea name="message" id="message" rows="6" placeholder="Tell me about your project or opportunity..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <!-- Copyright -->
+            <div class="copyright">
+                <p>&copy; <span id="current-year">2023</span> Kunj's Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
