@@ -30,9 +30,9 @@ export function Hero() {
            transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
            className="space-y-6"
         >
-          <h1 className="text-7xl md:text-[140px] font-black tracking-[-0.05em] text-white uppercase leading-[0.85] italic">
-            Kunj <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary bg-300% animate-beam not-italic">Shah</span>
+          <h1 className="text-7xl md:text-[140px] font-black tracking-[-0.05em] uppercase leading-[0.85]">
+            <span className="text-white">Kunj</span> <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary italic inline-block pr-4">Shah</span>
           </h1>
           
           <p className="max-w-3xl mx-auto text-xs md:text-sm text-muted font-mono uppercase tracking-[0.3em] leading-relaxed pt-8 opacity-60">
