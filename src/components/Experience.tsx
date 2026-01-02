@@ -6,7 +6,7 @@ export function Experience() {
     {
       company: 'PHAZE_AI',
       role: 'AUTOMATION_INTERN',
-      period: 'DEC 2024 — PRESENT',
+      period: 'DEC 2025 — PRESENT',
       description: 'Developing automated agentic workflows for enterprise automation. Engineering autonomous scripts and multi-stage pipeline triggers.',
       skills: ['PYTHON', 'AGENTS', 'WORKFLOWS'],
       id: 'XP0'

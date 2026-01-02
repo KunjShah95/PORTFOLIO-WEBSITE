@@ -10,6 +10,7 @@ export function Projects() {
       desc: 'AI-powered code guard with 13+ specialized analyzers for real-time security scanning and dependency analysis.',
       tech: ['NODE.JS', 'AI_ANALYZERS', 'SECURITY'],
       github: 'https://github.com/KunjShah95/SENTINEL-CLI',
+      demo: 'https://sentinel-cli.vercel.app/',
       impact: 'v1.4_STABLE',
     },
     {
@@ -19,6 +20,7 @@ export function Projects() {
       desc: 'Comprehensive framework for multi-agent orchestration. Built for autonomous task execution and complex chain logic.',
       tech: ['PYTHON', 'LANGCHAIN', 'AGENTS'],
       github: 'https://github.com/KunjShah95/AETHER-AI',
+      demo: 'https://aether-ai-sand.vercel.app/',
       impact: 'BETA_ACTIVE',
     },
     {
@@ -37,6 +39,7 @@ export function Projects() {
       desc: 'Intelligent AI agent for semantic job-resume matching and automated career path optimization.',
       tech: ['PYTHON', 'LLM', 'AUTOMATION'],
       github: 'https://github.com/KunjShah95/job-snipper',
+      demo: 'https://jobsnipper.streamlit.app/',
       impact: 'PROTOTYPE_STABLE',
     }
   ]
@@ -95,12 +98,14 @@ export function Projects() {
                  </div>
 
                  <div className="md:col-span-2 flex justify-end gap-3">
-                    <a href={proj.github} target="_blank" rel="noopener noreferrer" className="p-4 border border-white/5 hover:border-primary/40 text-muted hover:text-white transition-all bg-white/[0.02]">
+                    <a href={proj.github} target="_blank" rel="noopener noreferrer" className="p-4 border border-white/5 hover:border-primary/40 text-muted hover:text-white transition-all bg-white/[0.02] rounded-full">
                        <Github className="w-4 h-4" />
                     </a>
-                    <button className="p-4 border border-white/5 hover:border-primary/40 text-muted hover:text-white transition-all bg-white/[0.02]">
-                       <ExternalLink className="w-4 h-4" />
-                    </button>
+                    {proj.demo && (
+                      <a href={proj.demo} target="_blank" rel="noopener noreferrer" className="p-4 border border-white/5 hover:border-primary/40 text-muted hover:text-white transition-all bg-white/[0.02] rounded-full">
+                         <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
                  </div>
               </div>
 

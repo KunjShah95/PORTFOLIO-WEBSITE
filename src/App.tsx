@@ -9,8 +9,16 @@ import { ResearchLabs } from './components/ResearchLabs'
 import { Experience } from './components/Experience'
 import { Writing } from './components/Writing'
 import { BlogsPage } from './pages/BlogsPage'
+import { ProjectsPage } from './pages/ProjectsPage'
+import { SkillsPage } from './pages/SkillsPage'
+import { LabsPage } from './pages/LabsPage'
+import { EducationPage } from './pages/EducationPage'
+import { ExperiencePage } from './pages/ExperiencePage'
+import { AboutPage } from './pages/AboutPage'
+import { ContactPage } from './pages/ContactPage'
 
 import { ResearcherLive } from './components/ResearcherLive'
+import { Contact } from './components/Contact'
 
 function Home() {
   return (
@@ -23,6 +31,7 @@ function Home() {
        <ResearchLabs />
        <Writing />
        <Education />
+       <Contact />
     </div>
   )
 }
@@ -34,11 +43,14 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/labs" element={<ResearchLabs />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/labs" element={<LabsPage />} />
+            <Route path="/experience" element={<ExperiencePage />} />
             <Route path="/blogs" element={<BlogsPage />} />
-            <Route path="/education" element={<Education />} />
+            <Route path="/education" element={<EducationPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </Layout>
       </Router>

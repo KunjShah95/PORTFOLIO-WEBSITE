@@ -63,7 +63,7 @@ export function ResearchLabs() {
                        <span key={s} className="px-3 py-1 bg-white/[0.02] border border-white/5 text-[8px] font-black font-mono text-muted uppercase tracking-[0.3em]">{s}</span>
                     ))}
                  </div>
-                 <button className="flex items-center gap-3 text-[9px] font-black font-mono text-muted hover:text-primary transition-all uppercase tracking-[0.3em] bg-white/[0.02] px-6 py-4 border border-white/5 hover:border-primary/40">
+                 <button className="flex items-center gap-3 text-[9px] font-black font-mono text-muted hover:text-primary transition-all uppercase tracking-[0.3em] bg-white/[0.02] px-6 py-4 border border-white/5 hover:border-primary/40 rounded-full">
                     <FileText className="w-3.5 h-3.5" />
                     Archive
                  </button>

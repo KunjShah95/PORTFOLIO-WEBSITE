@@ -28,6 +28,7 @@ export function Layout({ children }: LayoutProps) {
     { label: 'SKILLS', href: '/skills' },
     { label: 'LABS', href: '/labs' },
     { label: 'BLOGS', href: '/blogs' },
+    { label: 'CONTACT', href: '/contact' },
   ]
 
   return (
@@ -50,18 +51,18 @@ export function Layout({ children }: LayoutProps) {
               </div>
            </Link>
 
-           <nav className="hidden lg:flex items-center gap-1 bg-surface/20 backdrop-blur-3xl border border-white/5 p-1 px-2">
+           <nav className="hidden lg:flex items-center gap-1 bg-surface/20 backdrop-blur-3xl border border-white/5 p-1 px-2 rounded-full">
               {navLinks.map((link) => (
                  <NavLink 
                     key={link.label} 
                     to={link.href} 
-                    className={({ isActive }: { isActive: boolean }) => `text-[9px] font-black transition-all tracking-[0.2em] font-mono px-5 py-2.5 relative group ${isActive ? 'text-primary' : 'text-muted hover:text-white'}`}
+                    className={({ isActive }: { isActive: boolean }) => `text-[9px] font-black transition-all tracking-[0.2em] font-mono px-5 py-2.5 relative group ${isActive ? 'text-primary' : 'text-muted hover:text-white'} rounded-full`}
                    >
                     <span className="relative z-10">{link.label}</span>
                     {location.pathname === link.href && (
                       <motion.div 
                         layoutId="nav-active"
-                        className="absolute inset-0 bg-primary/5 border-b-2 border-primary"
+                        className="absolute inset-0 bg-primary/5 border-b-2 border-primary rounded-full"
                         transition={{ type: 'spring', bounce: 0, duration: 0.6 }}
                       />
                     )}
@@ -72,7 +73,7 @@ export function Layout({ children }: LayoutProps) {
            <div className="flex items-center gap-4">
                <button 
                  onClick={() => setIsCommandOpen(true)}
-                 className="hidden md:flex items-center gap-3 px-4 py-2 border border-white/5 hover:border-primary/40 transition-all text-[9px] font-mono text-muted hover:text-white uppercase tracking-widest bg-white/[0.02]"
+                 className="hidden md:flex items-center gap-3 px-4 py-2 border border-white/5 hover:border-primary/40 transition-all text-[9px] font-mono text-muted hover:text-white uppercase tracking-widest bg-white/[0.02] rounded-full"
                >
                   <Command className="h-3 w-3" />
                   <span>Search</span>
@@ -156,7 +157,7 @@ export function Layout({ children }: LayoutProps) {
 
               <div className="space-y-10 md:text-right flex flex-col md:items-end">
                  <h4 className="text-[10px] font-black text-white tracking-[0.4em] uppercase">// SYSTEM_STATUS</h4>
-                 <div className="flex items-center gap-3 px-3 py-1.5 border border-primary/20 bg-primary/5 text-primary">
+                 <div className="flex items-center gap-3 px-3 py-1.5 border border-primary/20 bg-primary/5 text-primary rounded-full">
                     <div className="w-1.5 h-1.5 bg-primary animate-pulse"></div>
                     <span className="text-[9px] font-mono tracking-widest font-black uppercase">Active Undergrad Phase</span>
                  </div>

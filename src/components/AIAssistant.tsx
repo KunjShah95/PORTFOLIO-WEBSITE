@@ -185,7 +185,7 @@ export function AIAssistant() {
     <>
       <button 
         onClick={startBoot}
-        className="fixed bottom-8 right-8 z-[110] w-16 h-16 bg-white text-black hover:bg-primary transition-all duration-500 shadow-[0_0_30px_rgba(16,185,129,0.2)] flex items-center justify-center group overflow-hidden border-glow"
+        className="fixed bottom-8 right-8 z-[110] w-16 h-16 bg-white text-black hover:bg-primary transition-all duration-500 shadow-[0_0_30px_rgba(16,185,129,0.2)] flex items-center justify-center group overflow-hidden border-glow rounded-full"
       >
         <div className="absolute inset-0 border-2 border-primary/20 group-hover:scale-110 transition-transform"></div>
         <Cpu className="w-7 h-7 group-hover:rotate-180 transition-transform duration-1000" />
@@ -195,11 +195,11 @@ export function AIAssistant() {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: 50, scale: 0.9, rotate: -1 }}
-            animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
-            exit={{ opacity: 0, y: 50, scale: 0.9, rotate: -1 }}
-            transition={{ type: 'spring', damping: 20, stiffness: 200 }}
-            className="fixed bottom-32 right-8 z-[110] w-full max-w-lg h-[650px] bg-[#070707] border border-primary/20 shadow-[0_0_100px_rgba(16,185,129,0.1)] flex flex-col overflow-hidden"
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            className="fixed bottom-0 right-0 md:bottom-28 md:right-8 z-[110] w-full md:w-[450px] lg:w-[500px] h-[100dvh] md:h-[600px] lg:h-[700px] max-h-[100dvh] md:max-h-[calc(100vh-140px)] bg-[#070707] border-t md:border border-primary/20 shadow-[0_0_100px_rgba(16,185,129,0.1)] flex flex-col overflow-hidden md:rounded-[2rem]"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-8 py-6 border-b border-primary/10 bg-surface/40 backdrop-blur-xl">
@@ -284,7 +284,7 @@ export function AIAssistant() {
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                     placeholder={isBooting ? "SYNC_IN_PROGRESS..." : isThinking ? "INDEXING..." : "QUERY_KUNJ_VAULT..."}
-                    className="w-full bg-[#0A0A0A] border border-primary/10 pl-16 pr-20 py-5 text-[11px] font-black font-mono text-white placeholder:text-muted/20 focus:outline-none focus:border-primary/40 transition-all uppercase tracking-[0.2em] disabled:opacity-50 border-glow italic"
+                    className="w-full bg-[#0A0A0A] border border-primary/10 pl-16 pr-20 py-5 text-[11px] font-black font-mono text-white placeholder:text-muted/20 focus:outline-none focus:border-primary/40 transition-all uppercase tracking-[0.2em] disabled:opacity-50 border-glow italic rounded-full"
                   />
                   <button 
                     onClick={handleSend}

@@ -56,7 +56,7 @@ export function Writing() {
               </div>
 
               <div className="md:col-span-3 flex justify-end">
-                <div className="w-16 h-16 border border-white/5 group-hover:border-primary/40 group-hover:bg-primary/5 flex items-center justify-center transition-all duration-700 rotate-45 group-hover:rotate-0">
+                <div className="w-16 h-16 border border-white/5 group-hover:border-primary/40 group-hover:bg-primary/5 flex items-center justify-center transition-all duration-700 rotate-45 group-hover:rotate-0 rounded-full">
                     <ArrowRight className="h-6 w-6 text-muted group-hover:text-primary -rotate-45 group-hover:rotate-0 transition-all duration-500" />
                 </div>
               </div>
@@ -99,7 +99,7 @@ export function Writing() {
               </div>
 
               <div className="pt-8">
-                 <button className="px-12 py-6 bg-white text-black text-[12px] font-black font-mono uppercase tracking-[0.4em] hover:bg-primary transition-all shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:shadow-primary/30 active:scale-95 italic">
+                 <button className="px-12 py-6 bg-white text-black text-[12px] font-black font-mono uppercase tracking-[0.4em] hover:bg-primary transition-all shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:shadow-primary/30 active:scale-95 italic rounded-full text-center">
                     SYNC_ENTRY_PROTOCOL
                  </button>
               </div>

@@ -9,7 +9,7 @@ export function Hero() {
   ]
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center pt-32 relative overflow-hidden">
+    <section id="about" className="min-h-screen flex flex-col items-center justify-center pt-32 relative overflow-hidden">
       <div className="container-aligned relative z-10 flex flex-col items-center text-center">
         
         {/* Academic Status Badge */}
@@ -47,12 +47,18 @@ export function Hero() {
           transition={{ delay: 0.6, duration: 1 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-20"
         >
-          <button className="w-full sm:w-auto px-12 py-5 bg-white text-black font-black text-[10px] tracking-[0.4em] uppercase transition-all hover:bg-primary hover:scale-105 active:scale-95 shadow-2xl">
+          <a 
+            href="/projects" 
+            className="w-full sm:w-auto px-12 py-5 bg-white text-black font-black text-[10px] tracking-[0.4em] uppercase transition-all rounded-full hover:bg-primary hover:scale-105 active:scale-95 shadow-2xl text-center"
+          >
              Explore_Archive
-          </button>
-          <button className="w-full sm:w-auto px-12 py-5 border border-white/5 bg-white/[0.02] text-white font-black text-[10px] tracking-[0.4em] uppercase transition-all hover:border-primary/40 hover:bg-white/5">
+          </a>
+          <a 
+            href="/blogs" 
+            className="w-full sm:w-auto px-12 py-5 border border-white/5 bg-white/[0.02] text-white font-black text-[10px] tracking-[0.4em] uppercase transition-all rounded-full hover:border-primary/40 hover:bg-white/5 text-center"
+          >
              Research_Log
-          </button>
+          </a>
         </motion.div>
 
         {/* Stats Row */}
