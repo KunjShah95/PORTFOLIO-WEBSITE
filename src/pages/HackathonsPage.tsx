@@ -28,9 +28,9 @@ export function HackathonsPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-20 space-y-12">
-      <div className="flex items-end justify-between border-b border-white/10 pb-6">
+      <div className="flex items-end justify-between border-b border-border pb-6">
         <div className="space-y-2">
-          <h2 className="text-4xl font-display font-bold tracking-tight text-white mb-2">Hackathon_Record</h2>
+          <h2 className="text-4xl font-display font-bold tracking-tight text-txt mb-2">Hackathon_Record</h2>
           <p className="text-muted text-sm font-mono tracking-widest uppercase">// COMPETITIVE_ENGAGEMENTS</p>
         </div>
       </div>
@@ -42,7 +42,7 @@ export function HackathonsPage() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="group relative p-8 bg-surface/50 border border-white/5 hover:border-primary/30 transition-all"
+            className="group relative p-8 bg-surface/50 border border-border hover:border-primary/30 transition-all"
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-4">
@@ -51,22 +51,22 @@ export function HackathonsPage() {
                     <Trophy className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white uppercase tracking-tight">{h.title}</h3>
+                    <h3 className="text-xl font-bold text-txt uppercase tracking-tight">{h.title}</h3>
                     <p className="text-primary text-[10px] font-mono font-bold tracking-widest">{h.award}</p>
                   </div>
                 </div>
-                <div className="space-y-2 border-l border-white/10 pl-4">
+                <div className="space-y-2 border-l border-border pl-4">
                    <p className="text-sm font-mono text-muted uppercase tracking-wider">PROJECT: {h.project}</p>
-                   <p className="text-sm text-txtDim max-w-2xl">{h.description}</p>
+                   <p className="text-sm text-muted max-w-2xl">{h.description}</p>
                 </div>
               </div>
               <div className="text-right">
-                <span className="text-2xl font-mono text-white/10 font-black tracking-tighter group-hover:text-primary/20 transition-colors">{h.date}</span>
+                <span className="text-2xl font-mono text-txt/10 font-black tracking-tighter group-hover:text-primary/20 transition-colors">{h.date}</span>
               </div>
             </div>
             
             {/* Hover Beam Effect */}
-            <div className="absolute inset-0 border border-white/0 group-hover:border-primary/20 transition-all pointer-events-none"></div>
+            <div className="absolute inset-0 border border-transparent group-hover:border-primary/20 transition-all pointer-events-none"></div>
           </motion.div>
         ))}
       </div>

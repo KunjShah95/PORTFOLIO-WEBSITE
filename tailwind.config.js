@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: 'class',
     content: [
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
@@ -15,23 +16,24 @@ export default {
                 'sm': '2px',
                 'DEFAULT': '4px',
                 'surgical': '1px',
+                'full': '9999px',
             },
             colors: {
-                bg: "#020202", // Pure Void
-                surface: "#080808", // Surgical Surface
-                surfaceHighlight: "#121212",
-                border: "#1A1A1A",
-                primary: "#10B981", // Tech Emerald
-                secondary: "#3B82F6", // Research Blue
-                accent: "#10B981",
-                muted: "#737373",
-                txt: "#F5F5F5",
-                txtDim: "#A3A3A3"
+                bg: "rgb(var(--bg-main) / <alpha-value>)",
+                surface: "rgb(var(--surface-main) / <alpha-value>)",
+                surfaceHighlight: "rgb(var(--surface-highlight) / <alpha-value>)",
+                border: "rgb(var(--border-main) / <alpha-value>)",
+                primary: "rgb(var(--primary-rgb) / <alpha-value>)",
+                secondary: "rgb(var(--secondary-rgb) / <alpha-value>)",
+                accent: "rgb(var(--primary-rgb) / <alpha-value>)",
+                muted: "rgb(var(--txt-muted) / <alpha-value>)",
+                txt: "rgb(var(--txt-main) / <alpha-value>)",
+                txtDim: "rgb(var(--txt-dim) / <alpha-value>)"
             },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                'subtle-grid': 'linear-gradient(to right, #1A1A1A 1px, transparent 1px), linear-gradient(to bottom, #1A1A1A 1px, transparent 1px)',
-                'academic-dots': 'radial-gradient(#1A1A1A 1px, transparent 1px)',
+                'subtle-grid': 'linear-gradient(to right, rgb(var(--border-main)) 1px, transparent 1px), linear-gradient(to bottom, rgb(var(--border-main)) 1px, transparent 1px)',
+                'academic-dots': 'radial-gradient(rgb(var(--border-main)) 1px, transparent 1px)',
             },
             animation: {
                 'glitch': 'glitch 1s linear infinite',

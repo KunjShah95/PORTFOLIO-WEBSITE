@@ -4,11 +4,27 @@
 
 @layer base {
   :root {
-    --primary-rgb: 16, 185, 129;
-    --secondary-rgb: 59, 130, 246;
-    --bg-main: #020202;
-    --surface-main: #080808;
-    --border-main: rgba(255, 255, 255, 0.05);
+    /* Light Mode (Premium Academic) */
+    --bg-main: 250 250 250; /* #FAFAFA */
+    --surface-main: 255 255 255; /* #FFFFFF */
+    --surface-highlight: 244 244 245; /* #F4F4F5 */
+    --border-main: 228 228 231; /* #E4E4E7 */
+    --primary-rgb: 16 185 129; /* #10B981 */
+    --secondary-rgb: 59 130 246; /* #3B82F6 */
+    --txt-main: 9 9 11; /* #09090B */
+    --txt-muted: 113 113 122; /* #71717A */
+    --txt-dim: 161 161 170; /* #A1A1AA */
+  }
+
+  .dark {
+    /* Dark Mode (Void Surgical) */
+    --bg-main: 2 2 2; /* #020202 */
+    --surface-main: 8 8 8; /* #080808 */
+    --surface-highlight: 18 18 18; /* #121212 */
+    --border-main: 39 39 42; /* #27272A - Visible dark border */
+    --txt-main: 250 250 250; /* #FAFAFA */
+    --txt-muted: 161 161 170; /* #A1A1AA */
+    --txt-dim: 63 63 70; /* #3F3F46 */
   }
 
   html {
@@ -16,12 +32,12 @@
   }
 
   body {
-    background-color: var(--bg-main);
-    color: #f5f5f5;
-    @apply font-sans antialiased overflow-x-hidden selection:bg-primary/30 selection:text-white;
+    background-color: rgb(var(--bg-main));
+    color: rgb(var(--txt-main));
+    @apply font-sans antialiased overflow-x-hidden selection:bg-primary/30 selection:text-primary;
   }
 
-  /* Academic Grid Backdrop */
+  /* Academic Grid Backdrop - Theme Aware */
   body::before {
     content: "";
     position: fixed;
@@ -29,9 +45,10 @@
     left: 0;
     width: 100%;
     height: 100%;
+    /* Subtle dot grid */
     background-image: radial-gradient(
       circle at 2px 2px,
-      rgba(255, 255, 255, 0.02) 1px,
+      rgb(var(--txt-muted) / 0.1) 1px,
       transparent 0
     );
     background-size: 40px 40px;
@@ -46,9 +63,10 @@
     left: 0;
     width: 100%;
     height: 100%;
+    /* Central glow */
     background: radial-gradient(
       circle at 50% 50%,
-      rgba(16, 185, 129, 0.02) 0%,
+      rgb(var(--primary-rgb) / 0.03) 0%,
       transparent 60%
     );
     pointer-events: none;
@@ -62,10 +80,10 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(var(--border-main));
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #10b981;
+    background: rgb(var(--primary-rgb));
   }
 }
 
@@ -75,15 +93,15 @@
   }
 
   .glass-panel {
-    @apply bg-surface/60 backdrop-blur-3xl border border-white/5;
+    @apply bg-surface/60 backdrop-blur-3xl border border-border;
   }
 
   .surgical-border {
-    @apply border border-white/5 hover:border-primary/30 transition-all duration-500;
+    @apply border border-border hover:border-primary/30 transition-all duration-500;
   }
 
   .text-glow {
-    text-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+    text-shadow: 0 0 30px rgb(var(--primary-rgb) / 0.2);
   }
 
   .container-aligned {
@@ -95,7 +113,7 @@
   }
 
   .academic-line {
-    @apply absolute h-[1px] bg-white/5 w-full;
+    @apply absolute h-[1px] bg-border w-full;
   }
 }
 

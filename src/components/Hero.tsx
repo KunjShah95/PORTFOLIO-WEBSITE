@@ -31,12 +31,12 @@ export function Hero() {
            className="space-y-6"
         >
           <h1 className="text-7xl md:text-[140px] font-black tracking-[-0.05em] uppercase leading-[0.85]">
-            <span className="text-white">Kunj</span> <br />
+            <span className="text-txt">Kunj</span> <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary italic inline-block pr-4">Shah</span>
           </h1>
           
           <p className="max-w-3xl mx-auto text-xs md:text-sm text-muted font-mono uppercase tracking-[0.3em] leading-relaxed pt-8 opacity-60">
-             Building <span className="text-white">autonomous systems</span> and <span className="text-white">neural architectures</span>. 3rd Year Computer Science student at Indus University exploring the frontiers of <span className="text-primary">MLOps</span> and <span className="text-white">Agentic Intelligence</span>.
+             Building <span className="text-txt">autonomous systems</span> and <span className="text-txt">neural architectures</span>. 3rd Year Computer Science student at Indus University exploring the frontiers of <span className="text-primary">MLOps</span> and <span className="text-txt">Agentic Intelligence</span>.
           </p>
         </motion.div>
 
@@ -49,13 +49,13 @@ export function Hero() {
         >
           <a 
             href="/projects" 
-            className="w-full sm:w-auto px-12 py-5 bg-white text-black font-black text-[10px] tracking-[0.4em] uppercase transition-all rounded-full hover:bg-primary hover:scale-105 active:scale-95 shadow-2xl text-center"
+            className="w-full sm:w-auto px-12 py-5 bg-txt text-bg font-black text-[10px] tracking-[0.4em] uppercase transition-all rounded-full hover:bg-primary hover:text-white hover:scale-105 active:scale-95 shadow-2xl text-center"
           >
              Explore_Archive
           </a>
           <a 
             href="/blogs" 
-            className="w-full sm:w-auto px-12 py-5 border border-white/5 bg-white/[0.02] text-white font-black text-[10px] tracking-[0.4em] uppercase transition-all rounded-full hover:border-primary/40 hover:bg-white/5 text-center"
+            className="w-full sm:w-auto px-12 py-5 border border-border bg-txt/5 text-txt font-black text-[10px] tracking-[0.4em] uppercase transition-all rounded-full hover:border-primary/40 hover:bg-txt/10 text-center"
           >
              Research_Log
           </a>
@@ -66,14 +66,14 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="mt-32 w-full max-w-4xl grid grid-cols-3 gap-8 border-t border-white/5 pt-12"
+          className="mt-32 w-full max-w-4xl grid grid-cols-3 gap-8 border-t border-border pt-12"
         >
           {stats.map((s, i) => (
             <div key={i} className="flex flex-col items-center space-y-4 group">
               <s.icon className="w-4 h-4 text-primary opacity-20 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" />
               <div className="space-y-1">
                  <div className="text-[8px] font-mono text-muted uppercase tracking-widest font-black">{s.label}</div>
-                 <div className="text-xl font-black text-white group-hover:text-primary transition-colors tracking-tighter italic">{s.value}</div>
+                 <div className="text-xl font-black text-txt group-hover:text-primary transition-colors tracking-tighter italic">{s.value}</div>
               </div>
             </div>
           ))}

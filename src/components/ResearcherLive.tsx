@@ -220,23 +220,23 @@ export function ResearcherLive() {
   return (
     <section id="live" className="py-32">
       <div className="container-aligned space-y-20">
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-10 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-10 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-primary font-mono text-[10px] tracking-[0.6em] font-black uppercase">
               <Activity className="w-4 h-4" />
               LIVE_DATA_SYNC
             </div>
-            <h2 className="text-6xl font-black tracking-tighter text-white uppercase italic">SYSTEM <span className="text-secondary opacity-60 not-italic">VITALITY</span></h2>
+            <h2 className="text-6xl font-black tracking-tighter text-txt uppercase italic">SYSTEM <span className="text-secondary opacity-60 not-italic">VITALITY</span></h2>
           </div>
           <div className="flex items-center gap-4">
             {userStats && (
               <div className="flex items-center gap-6 text-sm text-muted">
                 <div className="flex items-center gap-2">
-                  <span className="text-white font-bold">{userStats.public_repos}</span>
+                  <span className="text-txt font-bold">{userStats.public_repos}</span>
                   <span>repos</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-white font-bold">{userStats.followers}</span>
+                  <span className="text-txt font-bold">{userStats.followers}</span>
                   <span>followers</span>
                 </div>
               </div>
@@ -250,7 +250,7 @@ export function ResearcherLive() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-8 group bg-surface/20 border border-white/5 p-8 lg:p-10 border-glow space-y-8 relative overflow-hidden rounded-2xl"
+            className="lg:col-span-8 group bg-surface/20 border border-border p-8 lg:p-10 border-glow space-y-8 relative overflow-hidden rounded-2xl"
           >
             {/* Header with Year Filter */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -260,7 +260,7 @@ export function ResearcherLive() {
                 </div>
                 <div className="space-y-1">
                   <span className="text-[10px] font-mono text-muted uppercase tracking-[0.4em] font-black">CONTRIBUTION GRAPH</span>
-                  <h3 className="text-2xl font-black text-white tracking-tight">GitHub Activity</h3>
+                  <h3 className="text-2xl font-black text-txt tracking-tight">GitHub Activity</h3>
                 </div>
               </div>
 
@@ -269,7 +269,7 @@ export function ResearcherLive() {
                 <div className="relative">
                   <button
                     onClick={() => setIsYearDropdownOpen(!isYearDropdownOpen)}
-                    className="flex items-center gap-2 px-4 py-2.5 bg-surface/50 border border-white/10 hover:border-secondary/40 transition-all rounded-full text-sm font-medium"
+                    className="flex items-center gap-2 px-4 py-2.5 bg-surface/50 border border-border hover:border-secondary/40 transition-all rounded-full text-sm font-medium"
                   >
                     <Calendar className="w-4 h-4 text-secondary" />
                     <span>{selectedYear}</span>
@@ -277,7 +277,7 @@ export function ResearcherLive() {
                   </button>
                   
                   {isYearDropdownOpen && (
-                    <div className="absolute top-full right-0 mt-2 bg-surface border border-white/10 rounded-xl overflow-hidden z-20 min-w-[120px] shadow-xl">
+                    <div className="absolute top-full right-0 mt-2 bg-surface border border-border rounded-xl overflow-hidden z-20 min-w-[120px] shadow-xl">
                       {years.map(year => (
                         <button
                           key={year}
@@ -286,7 +286,7 @@ export function ResearcherLive() {
                             setIsYearDropdownOpen(false)
                           }}
                           className={`w-full px-4 py-3 text-left text-sm hover:bg-secondary/10 transition-colors ${
-                            year === selectedYear ? 'bg-secondary/20 text-secondary' : 'text-white'
+                            year === selectedYear ? 'bg-secondary/20 text-secondary' : 'text-txt'
                           }`}
                         >
                           {year}
@@ -300,7 +300,7 @@ export function ResearcherLive() {
                   href={`https://github.com/${GITHUB_USERNAME}`}
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3 border border-white/10 hover:border-secondary/40 transition-all rounded-full group/link"
+                  className="p-3 border border-border hover:border-secondary/40 transition-all rounded-full group/link"
                 >
                   <ExternalLink className="w-4 h-4 text-muted group-hover/link:text-secondary transition-colors" />
                 </a>
@@ -313,7 +313,7 @@ export function ResearcherLive() {
                 <GitBranch className="w-5 h-5 text-secondary" />
               </div>
               <div>
-                <div className="text-2xl font-black text-white">
+                <div className="text-2xl font-black text-txt">
                   {isLoading ? (
                     <Loader2 className="w-6 h-6 animate-spin" />
                   ) : (
@@ -407,7 +407,7 @@ export function ResearcherLive() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="lg:col-span-4 group bg-surface/20 border border-white/5 p-8 border-glow space-y-6 relative overflow-hidden rounded-2xl"
+            className="lg:col-span-4 group bg-surface/20 border border-border p-8 border-glow space-y-6 relative overflow-hidden rounded-2xl"
           >
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 bg-primary/10 border border-primary/20 flex items-center justify-center rounded-lg">
@@ -415,7 +415,7 @@ export function ResearcherLive() {
               </div>
               <div className="space-y-0.5">
                 <span className="text-[9px] font-mono text-muted uppercase tracking-[0.3em] font-bold">TOP REPOS</span>
-                <h3 className="text-lg font-bold text-white tracking-tight">Recent Activity</h3>
+                <h3 className="text-lg font-bold text-txt tracking-tight">Recent Activity</h3>
               </div>
             </div>
 
@@ -435,11 +435,11 @@ export function ResearcherLive() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="block p-4 bg-surface/30 border border-white/5 hover:border-primary/30 transition-all rounded-xl group/repo"
+                    className="block p-4 bg-surface/30 border border-border hover:border-primary/30 transition-all rounded-xl group/repo"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1 min-w-0">
-                        <div className="font-medium text-white group-hover/repo:text-primary transition-colors truncate text-sm">
+                        <div className="font-medium text-txt group-hover/repo:text-primary transition-colors truncate text-sm">
                           {repo.name}
                         </div>
                         {repo.description && (
@@ -479,7 +479,7 @@ export function ResearcherLive() {
               href={`https://github.com/${GITHUB_USERNAME}?tab=repositories`}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full py-3 text-center text-sm text-muted hover:text-primary border border-white/5 hover:border-primary/20 rounded-xl transition-all"
+              className="block w-full py-3 text-center text-sm text-muted hover:text-primary border border-border hover:border-primary/20 rounded-xl transition-all"
             >
               View all repositories →
             </a>
@@ -495,7 +495,7 @@ export function ResearcherLive() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="group bg-surface/20 border border-white/5 p-8 border-glow relative overflow-hidden rounded-2xl"
+          className="group bg-surface/20 border border-border p-8 border-glow relative overflow-hidden rounded-2xl"
         >
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-4 flex items-center gap-4">
@@ -504,11 +504,11 @@ export function ResearcherLive() {
               </div>
               <div className="space-y-1">
                 <span className="text-[10px] font-mono text-muted uppercase tracking-[0.4em] font-black">RESEARCH_VIBES</span>
-                <h3 className="text-xl font-bold text-white tracking-tight">Focus Playlist</h3>
+                <h3 className="text-xl font-bold text-txt tracking-tight">Focus Playlist</h3>
               </div>
             </div>
 
-            <div className="lg:col-span-8 h-[152px] bg-black/40 border border-white/5 relative group/spotify rounded-xl overflow-hidden">
+            <div className="lg:col-span-8 h-[152px] bg-bg/40 border border-border relative group/spotify rounded-xl overflow-hidden">
               <iframe 
                 src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Ueb9CjXvhS?utm_source=generator&theme=0" 
                 width="100%" 

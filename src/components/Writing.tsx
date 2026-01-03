@@ -20,13 +20,13 @@ export function Writing() {
   return (
     <section id="writing" className="py-32">
       <div className="container-aligned space-y-24">
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-10 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-10 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-primary font-mono text-[10px] tracking-[0.6em] font-black uppercase">
               <Terminal className="w-4 h-4" />
               INTELLIGENCE_REPORTS
             </div>
-            <h2 className="text-6xl font-black tracking-tighter text-white uppercase italic">TECHNICAL <span className="text-secondary opacity-60 not-italic">JOURNAL</span></h2>
+            <h2 className="text-6xl font-black tracking-tighter text-txt uppercase italic">TECHNICAL <span className="text-secondary opacity-60 not-italic">JOURNAL</span></h2>
           </div>
         </div>
 
@@ -38,7 +38,7 @@ export function Writing() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.8 }}
-              className="group relative bg-surface/20 border border-white/5 p-12 lg:p-16 flex flex-col md:grid md:grid-cols-12 gap-12 items-center hover:bg-white/[0.01] transition-all border-glow cursor-pointer"
+              className="group relative bg-surface/20 border border-border p-12 lg:p-16 flex flex-col md:grid md:grid-cols-12 gap-12 items-center hover:bg-surface/5 transition-all border-glow cursor-pointer"
             >
               <div className="md:col-span-3 space-y-2">
                  <div className="text-[10px] font-mono text-primary font-black uppercase tracking-[0.4em] mb-4 bg-primary/5 px-3 py-1.5 w-fit border border-primary/20 italic">{post.date}</div>
@@ -49,14 +49,14 @@ export function Writing() {
               </div>
 
               <div className="md:col-span-6 space-y-4">
-                 <h3 className="text-3xl font-black text-white italic tracking-tighter uppercase group-hover:text-primary transition-colors leading-none">{post.title}</h3>
+                 <h3 className="text-3xl font-black text-txt italic tracking-tighter uppercase group-hover:text-primary transition-colors leading-none">{post.title}</h3>
                  <p className="text-xs text-muted font-mono leading-relaxed uppercase tracking-tight italic opacity-40 group-hover:opacity-100 transition-opacity border-l-2 border-primary/10 pl-6">
                     {post.excerpt}
                  </p>
               </div>
 
               <div className="md:col-span-3 flex justify-end">
-                <div className="w-16 h-16 border border-white/5 group-hover:border-primary/40 group-hover:bg-primary/5 flex items-center justify-center transition-all duration-700 rotate-45 group-hover:rotate-0 rounded-full">
+                <div className="w-16 h-16 border border-border group-hover:border-primary/40 group-hover:bg-primary/5 flex items-center justify-center transition-all duration-700 rotate-45 group-hover:rotate-0 rounded-full">
                     <ArrowRight className="h-6 w-6 text-muted group-hover:text-primary -rotate-45 group-hover:rotate-0 transition-all duration-500" />
                 </div>
               </div>
@@ -77,29 +77,29 @@ export function Writing() {
                     <span className="text-[10px] font-mono text-primary uppercase tracking-[0.6em] font-black">LOG_ORCHESTRATION_V2</span>
                     <div className="h-[1px] w-12 bg-primary/20"></div>
                  </div>
-                 <h2 className="text-5xl font-black text-white italic tracking-tighter uppercase leading-none">INITIATE <span className="text-primary">NEW_JOURNAL_STREAM</span></h2>
+                 <h2 className="text-5xl font-black text-txt italic tracking-tighter uppercase leading-none">INITIATE <span className="text-primary">NEW_JOURNAL_STREAM</span></h2>
                  <p className="text-xs text-muted font-mono uppercase max-w-2xl mx-auto leading-loose opacity-60 tracking-wider">
                     DECODING_THOUGHT_PATTERNS_INTO_STRUCTURED_TECHNICAL_LEDGERS. ACCESS_TERMINAL_FOR_DRAFTING_AND_SYNCING_NEW_RESEARCH_BLOGS.
                  </p>
               </div>
 
               <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                 <div className="p-8 border border-white/5 bg-white/[0.01] space-y-4 hover:border-primary/20 transition-all cursor-pointer group/card">
+                 <div className="p-8 border border-border bg-surface/5 space-y-4 hover:border-primary/20 transition-all cursor-pointer group/card">
                     <div className="text-[10px] font-mono text-primary uppercase tracking-[0.4em] mb-2 font-black">DRAFT_MODE</div>
                     <div className="text-xs text-muted font-mono italic uppercase opacity-40 group-hover/card:opacity-100 transition-opacity">LOCAL_SYNC_ONLY</div>
                  </div>
                  <div className="p-8 border border-primary/40 bg-primary/5 space-y-4 hover:bg-primary/10 transition-all cursor-pointer group/card">
                     <div className="text-[10px] font-mono text-primary uppercase tracking-[0.4em] mb-2 font-black italic">COMPOSE_STREAM</div>
-                    <div className="text-xs text-white font-mono italic uppercase opacity-80 animate-pulse">TERMINAL_ACTIVE</div>
+                    <div className="text-xs text-txt font-mono italic uppercase opacity-80 animate-pulse">TERMINAL_ACTIVE</div>
                  </div>
-                 <div className="p-8 border border-white/5 bg-white/[0.01] space-y-4 hover:border-primary/20 transition-all cursor-pointer group/card">
+                 <div className="p-8 border border-border bg-surface/5 space-y-4 hover:border-primary/20 transition-all cursor-pointer group/card">
                     <div className="text-[10px] font-mono text-primary uppercase tracking-[0.4em] mb-2 font-black">PUBLISH_RELAY</div>
                     <div className="text-xs text-muted font-mono italic uppercase opacity-40 group-hover/card:opacity-100 transition-opacity">GLOBAL_DEFAULTS</div>
                  </div>
               </div>
 
               <div className="pt-8">
-                 <button className="px-12 py-6 bg-white text-black text-[12px] font-black font-mono uppercase tracking-[0.4em] hover:bg-primary transition-all shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:shadow-primary/30 active:scale-95 italic rounded-full text-center">
+                 <button className="px-12 py-6 bg-txt text-bg text-[12px] font-black font-mono uppercase tracking-[0.4em] hover:bg-primary/80 transition-all shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:shadow-primary/30 active:scale-95 italic rounded-full text-center">
                     SYNC_ENTRY_PROTOCOL
                  </button>
               </div>

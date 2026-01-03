@@ -48,13 +48,13 @@ export function Projects() {
     <section id="projects" className="py-32">
       <div className="container-aligned space-y-24">
         {/* Aligned Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-10 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-10 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-primary font-mono text-[10px] tracking-[0.6em] font-black uppercase">
               <Boxes className="w-4 h-4" />
               DEPLOYMENT_REGISTRY
             </div>
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase italic">
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-txt uppercase italic">
               ENGINEERED <span className="text-secondary opacity-60 not-italic">WORKS</span>
             </h2>
           </div>
@@ -72,17 +72,17 @@ export function Projects() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.8 }}
-              className="group relative p-12 border border-white/5 bg-surface/20 hover:border-primary/20 transition-all duration-700 flex flex-col lg:grid lg:grid-cols-12 gap-12 items-center"
+              className="group relative p-12 border border-border bg-surface/20 hover:border-primary/20 transition-all duration-700 flex flex-col lg:grid lg:grid-cols-12 gap-12 items-center"
             >
-              <div className="lg:col-span-1 border-r border-white/5 pr-10 hidden lg:block">
-                 <span className="text-4xl font-black text-white/5 group-hover:text-primary transition-colors italic tracking-tighter">{proj.id}</span>
+              <div className="lg:col-span-1 border-r border-border pr-10 hidden lg:block">
+                 <span className="text-4xl font-black text-txt/10 group-hover:text-primary transition-colors italic tracking-tighter">{proj.id}</span>
               </div>
 
               <div className="lg:col-span-11 w-full grid md:grid-cols-12 gap-12 items-center">
                  <div className="md:col-span-6 space-y-6">
                     <div className="space-y-2">
                        <div className="text-[9px] font-mono text-primary uppercase tracking-[0.4em] font-black">{proj.category}</div>
-                       <h3 className="text-4xl font-black text-white group-hover:text-primary transition-colors tracking-tighter uppercase italic">{proj.title}</h3>
+                       <h3 className="text-4xl font-black text-txt group-hover:text-primary transition-colors tracking-tighter uppercase italic">{proj.title}</h3>
                     </div>
                     <p className="text-sm text-muted font-mono leading-relaxed uppercase tracking-tight italic opacity-60 border-l-2 border-primary/10 pl-6 group-hover:border-primary/40 transition-colors">
                       {proj.desc}
@@ -91,18 +91,18 @@ export function Projects() {
 
                  <div className="md:col-span-4 flex flex-wrap gap-2 justify-center lg:justify-start">
                     {proj.tech.map(t => (
-                      <span key={t} className="px-4 py-1.5 border border-white/5 bg-white/[0.02] text-[9px] font-black font-mono text-muted group-hover:text-primary group-hover:border-primary/20 transition-all uppercase tracking-[0.2em]">
+                      <span key={t} className="px-4 py-1.5 border border-border bg-surface/5 text-[9px] font-black font-mono text-muted group-hover:text-primary group-hover:border-primary/20 transition-all uppercase tracking-[0.2em]">
                          {t}
                       </span>
                     ))}
                  </div>
 
                  <div className="md:col-span-2 flex justify-end gap-3">
-                    <a href={proj.github} target="_blank" rel="noopener noreferrer" className="p-4 border border-white/5 hover:border-primary/40 text-muted hover:text-white transition-all bg-white/[0.02] rounded-full">
+                    <a href={proj.github} target="_blank" rel="noopener noreferrer" className="p-4 border border-border hover:border-primary/40 text-muted hover:text-txt transition-all bg-surface/5 rounded-full">
                        <Github className="w-4 h-4" />
                     </a>
                     {proj.demo && (
-                      <a href={proj.demo} target="_blank" rel="noopener noreferrer" className="p-4 border border-white/5 hover:border-primary/40 text-muted hover:text-white transition-all bg-white/[0.02] rounded-full">
+                      <a href={proj.demo} target="_blank" rel="noopener noreferrer" className="p-4 border border-border hover:border-primary/40 text-muted hover:text-txt transition-all bg-surface/5 rounded-full">
                          <ExternalLink className="w-4 h-4" />
                       </a>
                     )}

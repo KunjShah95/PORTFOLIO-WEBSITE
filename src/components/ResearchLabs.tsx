@@ -27,7 +27,7 @@ export function ResearchLabs() {
              <Microscope className="w-4 h-4" />
              EXPERIMENTAL_INTEL
           </div>
-          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase italic text-center leading-none">
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-txt uppercase italic text-center leading-none">
             INVESTIGATION <span className="text-secondary opacity-60 not-italic">ARCHIVE</span>
           </h2>
         </div>
@@ -40,18 +40,18 @@ export function ResearchLabs() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.8 }}
-              className="group relative bg-surface/20 border border-white/5 p-16 flex flex-col md:grid md:grid-cols-12 gap-12 items-center hover:border-primary/20 transition-all border-glow"
+              className="group relative bg-surface/20 border border-border p-16 flex flex-col md:grid md:grid-cols-12 gap-12 items-center hover:border-primary/20 transition-all border-glow"
             >
-              <div className="md:col-span-1 border-r border-white/5 pr-12 hidden md:block">
+              <div className="md:col-span-1 border-r border-border pr-12 hidden md:block">
                  <Binary className="w-8 h-8 text-primary opacity-20 group-hover:opacity-100 transition-opacity" />
               </div>
 
               <div className="md:col-span-7 space-y-4">
                  <div className="flex items-center gap-4">
                     <span className="text-[9px] font-mono text-muted uppercase tracking-[0.4em] font-black group-hover:text-primary transition-colors">LAB_{exp.id}</span>
-                    <div className="px-3 py-1 bg-white/5 border border-white/5 text-[8px] font-black font-mono text-muted uppercase tracking-[0.2em] group-hover:text-primary transition-all">{exp.status}</div>
+                    <div className="px-3 py-1 bg-surface/5 border border-border text-[8px] font-black font-mono text-muted uppercase tracking-[0.2em] group-hover:text-primary transition-all">{exp.status}</div>
                  </div>
-                 <h3 className="text-3xl font-black text-white italic tracking-tighter uppercase group-hover:text-primary transition-colors leading-none">{exp.title}</h3>
+                 <h3 className="text-3xl font-black text-txt italic tracking-tighter uppercase group-hover:text-primary transition-colors leading-none">{exp.title}</h3>
                  <p className="text-xs text-muted font-mono leading-relaxed uppercase tracking-tight italic opacity-60 border-l-2 border-primary/10 pl-6 group-hover:border-primary/40 transition-colors">
                     {exp.desc}
                  </p>
@@ -60,10 +60,10 @@ export function ResearchLabs() {
               <div className="md:col-span-4 flex justify-end gap-3 w-full">
                  <div className="flex items-center gap-2 mr-auto md:mr-0">
                     {exp.stack.map(s => (
-                       <span key={s} className="px-3 py-1 bg-white/[0.02] border border-white/5 text-[8px] font-black font-mono text-muted uppercase tracking-[0.3em]">{s}</span>
+                       <span key={s} className="px-3 py-1 bg-surface/5 border border-border text-[8px] font-black font-mono text-muted uppercase tracking-[0.3em]">{s}</span>
                     ))}
                  </div>
-                 <button className="flex items-center gap-3 text-[9px] font-black font-mono text-muted hover:text-primary transition-all uppercase tracking-[0.3em] bg-white/[0.02] px-6 py-4 border border-white/5 hover:border-primary/40 rounded-full">
+                 <button className="flex items-center gap-3 text-[9px] font-black font-mono text-muted hover:text-primary transition-all uppercase tracking-[0.3em] bg-surface/5 px-6 py-4 border border-border hover:border-primary/40 rounded-full">
                     <FileText className="w-3.5 h-3.5" />
                     Archive
                  </button>
@@ -72,8 +72,8 @@ export function ResearchLabs() {
           ))}
 
           {/* Symmetrical Add Hook */}
-          <div className="group border border-dashed border-white/5 p-16 flex flex-col items-center justify-center text-center space-y-6 hover:bg-white/[0.01] transition-all cursor-pointer">
-             <div className="w-16 h-16 border border-white/5 flex items-center justify-center group-hover:border-primary transition-all">
+          <div className="group border border-dashed border-border p-16 flex flex-col items-center justify-center text-center space-y-6 hover:bg-surface/5 transition-all cursor-pointer">
+             <div className="w-16 h-16 border border-border flex items-center justify-center group-hover:border-primary transition-all">
                 <Zap className="w-5 h-5 text-muted group-hover:text-primary animate-pulse" />
              </div>
              <div className="space-y-1">

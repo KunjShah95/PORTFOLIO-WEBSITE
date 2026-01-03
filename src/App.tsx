@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { ThemeProvider } from './components/ThemeProvider'
 import { Layout } from './components/Layout'
 import { Hero } from './components/Hero'
 import { Projects } from './components/Projects'
@@ -40,8 +41,9 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
-        <Layout>
-          <Routes>
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+          <Layout>
+            <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
@@ -52,7 +54,8 @@ function App() {
             <Route path="/education" element={<EducationPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
-        </Layout>
+          </Layout>
+        </ThemeProvider>
       </Router>
     </HelmetProvider>
   )

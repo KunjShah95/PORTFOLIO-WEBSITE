@@ -185,7 +185,7 @@ export function AIAssistant() {
     <>
       <button 
         onClick={startBoot}
-        className="fixed bottom-8 right-8 z-[110] w-16 h-16 bg-white text-black hover:bg-primary transition-all duration-500 shadow-[0_0_30px_rgba(16,185,129,0.2)] flex items-center justify-center group overflow-hidden border-glow rounded-full"
+        className="fixed bottom-8 right-8 z-[110] w-16 h-16 bg-txt text-bg hover:bg-primary transition-all duration-500 shadow-[0_0_30px_rgba(16,185,129,0.2)] flex items-center justify-center group overflow-hidden border-glow rounded-full"
       >
         <div className="absolute inset-0 border-2 border-primary/20 group-hover:scale-110 transition-transform"></div>
         <Cpu className="w-7 h-7 group-hover:rotate-180 transition-transform duration-1000" />
@@ -199,7 +199,7 @@ export function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-0 right-0 md:bottom-28 md:right-8 z-[110] w-full md:w-[450px] lg:w-[500px] h-[100dvh] md:h-[600px] lg:h-[700px] max-h-[100dvh] md:max-h-[calc(100vh-140px)] bg-[#070707] border-t md:border border-primary/20 shadow-[0_0_100px_rgba(16,185,129,0.1)] flex flex-col overflow-hidden md:rounded-[2rem]"
+            className="fixed bottom-0 right-0 md:bottom-28 md:right-8 z-[110] w-full md:w-[450px] lg:w-[500px] h-[100dvh] md:h-[600px] lg:h-[700px] max-h-[100dvh] md:max-h-[calc(100vh-140px)] bg-bg border-t md:border border-primary/20 shadow-[0_0_100px_rgba(16,185,129,0.1)] flex flex-col overflow-hidden md:rounded-[2rem]"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-8 py-6 border-b border-primary/10 bg-surface/40 backdrop-blur-xl">
@@ -208,7 +208,7 @@ export function AIAssistant() {
                     <BrainCircuit className="w-5 h-5 text-primary animate-pulse" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[11px] font-black font-mono tracking-[0.3em] text-white uppercase">NEURAL_PROXY // V.2.9</span>
+                    <span className="text-[11px] font-black font-mono tracking-[0.3em] text-txt uppercase">NEURAL_PROXY // V.2.9</span>
                     <span className="text-[8px] font-mono text-primary uppercase tracking-[0.2em] font-bold">STATUS: FULL_KNOWLEDGE_SYNC</span>
                   </div>
                </div>
@@ -217,7 +217,7 @@ export function AIAssistant() {
                     <div className="w-2 h-2 bg-primary animate-pulse"></div>
                     <Activity className="w-4 h-4 text-primary" />
                   </div>
-                  <button onClick={() => setIsOpen(false)} className="text-muted hover:text-white transition-all transform hover:rotate-90">
+                  <button onClick={() => setIsOpen(false)} className="text-muted hover:text-txt transition-all transform hover:rotate-90">
                      <X className="w-6 h-6" />
                   </button>
                </div>
@@ -229,13 +229,13 @@ export function AIAssistant() {
                  <div key={i} className={`flex flex-col ${m.role === 'user' ? 'items-end' : 'items-start'}`}>
                     <div className="flex items-center gap-3 mb-2 opacity-30">
                       <div className="h-[1px] w-4 bg-primary"></div>
-                      <span className="text-[9px] text-white font-black uppercase tracking-[0.3em]">{m.role === 'system' ? 'PROTOCOL' : m.role}</span>
+                      <span className="text-[9px] text-txt font-black uppercase tracking-[0.3em]">{m.role === 'system' ? 'PROTOCOL' : m.role}</span>
                     </div>
                     <div className={`max-w-[92%] p-6 border relative group/msg ${
                       m.role === 'system' ? 'bg-primary/5 text-primary border-primary/20 italic font-bold' :
-                      m.role === 'user' ? 'bg-secondary/5 text-white border-secondary/20 font-bold' :
-                      m.role === 'assistant' ? 'bg-surface/80 text-txt border-white/10 shadow-xl backdrop-blur-md' :
-                      'bg-surface/60 text-txtDim border-white/5 shadow-xl backdrop-blur-md'
+                      m.role === 'user' ? 'bg-secondary/5 text-txt border-secondary/20 font-bold' :
+                      m.role === 'assistant' ? 'bg-surface/80 text-txt border-border shadow-xl backdrop-blur-md' :
+                      'bg-surface/60 text-muted border-border shadow-xl backdrop-blur-md'
                     }`}>
                        {m.isLive && (
                           <div className="flex items-center gap-2 text-[8px] text-primary mb-2 tracking-[0.2em] font-black">
@@ -272,9 +272,9 @@ export function AIAssistant() {
             </div>
 
             {/* Input Area */}
-            <div className="p-8 border-t border-primary/10 bg-black">
+            <div className="p-8 border-t border-primary/10 bg-bg">
                <div className="relative flex items-center group">
-                  <div className="absolute left-6 text-primary group-focus-within:text-white transition-colors">
+                  <div className="absolute left-6 text-primary group-focus-within:text-txt transition-colors">
                     <Search className="w-4 h-4" />
                   </div>
                   <input 
@@ -284,7 +284,7 @@ export function AIAssistant() {
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                     placeholder={isBooting ? "SYNC_IN_PROGRESS..." : isThinking ? "INDEXING..." : "QUERY_KUNJ_VAULT..."}
-                    className="w-full bg-[#0A0A0A] border border-primary/10 pl-16 pr-20 py-5 text-[11px] font-black font-mono text-white placeholder:text-muted/20 focus:outline-none focus:border-primary/40 transition-all uppercase tracking-[0.2em] disabled:opacity-50 border-glow italic rounded-full"
+                    className="w-full bg-surface/50 border border-primary/10 pl-16 pr-20 py-5 text-[11px] font-black font-mono text-txt placeholder:text-muted/20 focus:outline-none focus:border-primary/40 transition-all uppercase tracking-[0.2em] disabled:opacity-50 border-glow italic rounded-full"
                   />
                   <button 
                     onClick={handleSend}

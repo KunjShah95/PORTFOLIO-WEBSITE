@@ -40,12 +40,12 @@ export function Contact() {
       <div className="container-aligned px-4 md:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Header Area */}
-          <div className="lg:col-span-12 border-b border-white/5 pb-16 space-y-6">
+          <div className="lg:col-span-12 border-b border-border pb-16 space-y-6">
             <div className="flex items-center gap-4 text-primary font-mono text-[10px] tracking-[0.6em] font-black uppercase">
                <MessageSquare className="w-4 h-4" />
                COMMUNICATION_RELAY
             </div>
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase italic leading-none">
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-txt uppercase italic leading-none">
               INITIATE <span className="text-secondary opacity-60 not-italic">CONTACT</span>
             </h2>
           </div>
@@ -62,13 +62,13 @@ export function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.8 }}
-                className="group p-8 md:p-10 border border-white/5 bg-surface/20 flex items-center justify-between hover:border-primary/30 transition-all duration-500 border-glow rounded-[2rem]"
+                className="group p-8 md:p-10 border border-border bg-surface/20 flex items-center justify-between hover:border-primary/30 transition-all duration-500 border-glow rounded-[2rem]"
               >
                 <div className="space-y-2 max-w-[70%]">
                   <div className="text-[9px] md:text-[10px] font-mono text-muted group-hover:text-primary transition-colors tracking-widest font-black italic">{social.label}</div>
-                  <div className="text-xl md:text-2xl font-black text-white group-hover:text-primary transition-colors italic tracking-tighter truncate md:whitespace-normal">{social.name}</div>
+                  <div className="text-xl md:text-2xl font-black text-txt group-hover:text-primary transition-colors italic tracking-tighter truncate md:whitespace-normal">{social.name}</div>
                 </div>
-                <div className="w-10 h-10 md:w-12 md:h-12 border border-white/5 flex items-center justify-center group-hover:border-primary/40 group-hover:bg-primary/5 transition-all flex-shrink-0">
+                <div className="w-10 h-10 md:w-12 md:h-12 border border-border flex items-center justify-center group-hover:border-primary/40 group-hover:bg-primary/5 transition-all flex-shrink-0">
                    <social.icon className="w-4 h-4 md:w-5 md:h-5 text-muted group-hover:text-primary" />
                 </div>
               </motion.a>
@@ -91,7 +91,7 @@ export function Contact() {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight leading-none">
+                  <h3 className="text-3xl md:text-4xl font-black text-txt tracking-tight leading-none">
                     Let's <span className="text-primary">Connect</span>
                   </h3>
                   <p className="text-sm text-muted/80 font-light leading-relaxed max-w-[280px]">
@@ -103,7 +103,7 @@ export function Contact() {
               <div className="pt-8 md:pt-10 relative z-10 space-y-4">
                 <a 
                   href="mailto:kunjkshah05@gmail.com" 
-                  className="group/btn flex items-center justify-center gap-3 w-full py-4 md:py-5 bg-primary text-black font-bold text-sm tracking-wide hover:bg-white transition-all duration-300 rounded-full shadow-lg shadow-primary/20"
+                  className="group/btn flex items-center justify-center gap-3 w-full py-4 md:py-5 bg-primary text-bg font-bold text-sm tracking-wide hover:bg-txt transition-all duration-300 rounded-full shadow-lg shadow-primary/20"
                 >
                   <Mail className="w-5 h-5 group-hover/btn:scale-110 transition-transform" />
                   <span>Send Message</span>

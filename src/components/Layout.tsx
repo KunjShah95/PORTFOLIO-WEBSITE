@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import { Menu, X, Command } from 'lucide-react'
 import { CommandMenu } from './CommandMenu'
+import { ThemeToggle } from './ThemeToggle'
 import { AIAssistant } from './AIAssistant'
 import { Helmet } from 'react-helmet-async'
 
@@ -44,19 +45,19 @@ export function Layout({ children }: LayoutProps) {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${scrolled ? 'py-4' : 'py-10'}`}>
         <div className="container-aligned flex items-center justify-between">
            <Link to="/" className="flex items-center gap-4 group">
-              <div className="w-9 h-9 bg-white text-black flex items-center justify-center font-black text-xl transition-all group-hover:bg-primary group-hover:text-black shadow-glow">K</div>
+              <div className="w-9 h-9 bg-txt text-bg flex items-center justify-center font-black text-xl transition-all group-hover:bg-primary group-hover:text-white shadow-glow">K</div>
               <div className="flex flex-col">
-                 <span className="text-[10px] font-black tracking-[0.4em] text-white">KUNJ_SHAH</span>
+                 <span className="text-[10px] font-black tracking-[0.4em] text-txt">KUNJ_SHAH</span>
                  <span className="text-[8px] font-mono text-primary/40 uppercase tracking-widest group-hover:text-primary transition-colors">Technical Researcher</span>
               </div>
            </Link>
 
-           <nav className="hidden lg:flex items-center gap-1 bg-surface/20 backdrop-blur-3xl border border-white/5 p-1 px-2 rounded-full">
+           <nav className="hidden lg:flex items-center gap-1 bg-surface/20 backdrop-blur-3xl border border-border p-1 px-2 rounded-full">
               {navLinks.map((link) => (
                  <NavLink 
                     key={link.label} 
                     to={link.href} 
-                    className={({ isActive }: { isActive: boolean }) => `text-[9px] font-black transition-all tracking-[0.2em] font-mono px-5 py-2.5 relative group ${isActive ? 'text-primary' : 'text-muted hover:text-white'} rounded-full`}
+                    className={({ isActive }: { isActive: boolean }) => `text-[9px] font-black transition-all tracking-[0.2em] font-mono px-5 py-2.5 relative group ${isActive ? 'text-primary' : 'text-muted hover:text-txt'} rounded-full`}
                    >
                     <span className="relative z-10">{link.label}</span>
                     {location.pathname === link.href && (
@@ -73,14 +74,15 @@ export function Layout({ children }: LayoutProps) {
            <div className="flex items-center gap-4">
                <button 
                  onClick={() => setIsCommandOpen(true)}
-                 className="hidden md:flex items-center gap-3 px-4 py-2 border border-white/5 hover:border-primary/40 transition-all text-[9px] font-mono text-muted hover:text-white uppercase tracking-widest bg-white/[0.02] rounded-full"
+                 className="hidden md:flex items-center gap-3 px-4 py-2 border border-border hover:border-primary/40 transition-all text-[9px] font-mono text-muted hover:text-txt uppercase tracking-widest bg-surface/50 rounded-full"
                >
                   <Command className="h-3 w-3" />
                   <span>Search</span>
                   <span className="opacity-20 text-[8px]">⌘K</span>
                </button>
+               <ThemeToggle />
                <button 
-                 className="lg:hidden w-10 h-10 border border-white/5 flex items-center justify-center text-white"
+                 className="lg:hidden w-10 h-10 border border-border flex items-center justify-center text-txt"
                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                >
                   {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -118,7 +120,7 @@ export function Layout({ children }: LayoutProps) {
              </nav>
              <button 
                onClick={() => setIsMobileMenuOpen(false)}
-               className="absolute top-10 right-10 w-12 h-12 border border-white/5 flex items-center justify-center"
+               className="absolute top-10 right-10 w-12 h-12 border border-border flex items-center justify-center text-txt"
              >
                 <X className="w-6 h-6" />
              </button>
@@ -133,13 +135,13 @@ export function Layout({ children }: LayoutProps) {
       <AIAssistant />
 
       {/* Symmetrical Balanced Footer */}
-      <footer className="border-t border-white/5 bg-[#010101] py-32 relative">
+      <footer className="border-t border-border bg-bg py-32 relative">
         <div className="container-aligned">
            <div className="grid md:grid-cols-3 gap-24 items-start">
               <div className="space-y-8">
                  <Link to="/" className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-white text-black flex items-center justify-center font-black text-2xl">K</div>
-                    <span className="text-xs font-black tracking-[0.6em] text-white">SHAH_KUNJ</span>
+                    <div className="w-10 h-10 bg-txt text-bg flex items-center justify-center font-black text-2xl">K</div>
+                    <span className="text-xs font-black tracking-[0.6em] text-txt">SHAH_KUNJ</span>
                  </Link>
                  <p className="text-[11px] text-muted font-mono leading-relaxed uppercase tracking-tight italic opacity-60">
                     Exploring the intersection of autonomous systems and neural architectures. 3rd Year CS Undergrad at Indus University. Specialized in Agentic Flow and MLOps.
@@ -147,7 +149,7 @@ export function Layout({ children }: LayoutProps) {
               </div>
 
               <div className="space-y-10">
-                 <h4 className="text-[10px] font-black text-white tracking-[0.4em] uppercase">// KNOWLEDGE_MAP</h4>
+                 <h4 className="text-[10px] font-black text-txt tracking-[0.4em] uppercase">// KNOWLEDGE_MAP</h4>
                  <div className="grid grid-cols-2 gap-4 font-mono text-[10px] text-muted">
                     {navLinks.map(link => (
                        <Link key={link.label} to={link.href} className="hover:text-primary transition-colors uppercase tracking-widest">{link.label}</Link>
@@ -156,7 +158,7 @@ export function Layout({ children }: LayoutProps) {
               </div>
 
               <div className="space-y-10 md:text-right flex flex-col md:items-end">
-                 <h4 className="text-[10px] font-black text-white tracking-[0.4em] uppercase">// SYSTEM_STATUS</h4>
+                 <h4 className="text-[10px] font-black text-txt tracking-[0.4em] uppercase">// SYSTEM_STATUS</h4>
                  <div className="flex items-center gap-3 px-3 py-1.5 border border-primary/20 bg-primary/5 text-primary rounded-full">
                     <div className="w-1.5 h-1.5 bg-primary animate-pulse"></div>
                     <span className="text-[9px] font-mono tracking-widest font-black uppercase">Active Undergrad Phase</span>

@@ -27,13 +27,13 @@ export function Education() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-transparent via-secondary/10 to-transparent hidden lg:block"></div>
 
       <div className="container-aligned space-y-24 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-10 gap-8 bg-bg/80 backdrop-blur-sm">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-10 gap-8 bg-surface/80 backdrop-blur-sm">
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-primary font-mono text-[10px] tracking-[0.6em] font-black uppercase">
               <Hexagon className="w-4 h-4" />
               ACADEMIC_FLOW
             </div>
-            <h2 className="text-6xl font-black tracking-tighter text-white uppercase italic">ACADEMIC <span className="text-secondary opacity-60 not-italic">JOURNEY</span></h2>
+            <h2 className="text-6xl font-black tracking-tighter text-txt uppercase italic">ACADEMIC <span className="text-secondary opacity-60 not-italic">JOURNEY</span></h2>
           </div>
         </div>
 
@@ -50,7 +50,7 @@ export function Education() {
               {/* Timeline Connector Mobile */}
               <div className="absolute left-[22px] top-0 bottom-0 w-[1px] bg-secondary/10 lg:hidden"></div>
 
-              <div className="group relative grid lg:grid-cols-12 gap-12 p-12 lg:p-16 bg-surface/20 border border-white/5 hover:border-secondary/20 transition-all border-glow overflow-hidden items-center">
+              <div className="group relative grid lg:grid-cols-12 gap-12 p-12 lg:p-16 bg-surface/20 border border-border hover:border-secondary/20 transition-all border-glow overflow-hidden items-center">
                 <div className="lg:col-span-3 space-y-8 relative">
                    {/* Node Marker */}
                    <div className="absolute -left-[54px] lg:-left-[18px] top-1/2 -translate-y-1/2 w-3 h-3 bg-secondary border-4 border-bg group-hover:scale-150 transition-all z-20"></div>
@@ -69,14 +69,14 @@ export function Education() {
 
                 <div className="lg:col-span-9 grid md:grid-cols-12 gap-12 items-center">
                    <div className="md:col-span-7 space-y-4">
-                      <h3 className="text-4xl font-black text-white uppercase tracking-tighter group-hover:text-secondary transition-colors duration-500 leading-none italic">
+                      <h3 className="text-4xl font-black text-txt uppercase tracking-tighter group-hover:text-secondary transition-colors duration-500 leading-none italic">
                         {edu.school}
                       </h3>
                       <div className="text-[10px] font-mono text-primary uppercase tracking-[0.3em] font-black opacity-80 italic">
                         {edu.degree}
                       </div>
                    </div>
-                   <div className="md:col-span-5 border-l border-white/5 pl-10">
+                   <div className="md:col-span-5 border-l border-border pl-10">
                       <p className="text-xs text-muted font-mono leading-loose uppercase tracking-tight italic opacity-60 group-hover:opacity-100 transition-opacity">
                         {edu.summary}
                       </p>
@@ -85,7 +85,7 @@ export function Education() {
 
                 {/* Minimal Aesthetic Icon */}
                 <div className="absolute -top-10 -right-10 opacity-[0.02] group-hover:opacity-5 transition-opacity pointer-events-none">
-                   <Binary className="w-64 h-64 text-white -rotate-12" />
+                   <Binary className="w-64 h-64 text-txt -rotate-12" />
                 </div>
 
                 {/* Hover Glow Effect */}
