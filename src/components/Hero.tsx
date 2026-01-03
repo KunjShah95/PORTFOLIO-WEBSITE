@@ -31,7 +31,7 @@ export function Hero() {
            className="space-y-6"
         >
           <h1 className="text-7xl md:text-[140px] font-black tracking-[-0.05em] uppercase leading-[0.85]">
-            <span className="text-txt">Kunj</span> <br />
+            <span className="text-txt italic">Kunj</span> <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary italic inline-block pr-4">Shah</span>
           </h1>
           
