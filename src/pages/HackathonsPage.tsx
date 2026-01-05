@@ -27,41 +27,41 @@ export function HackathonsPage() {
   ]
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-20 space-y-12">
-      <div className="flex items-end justify-between border-b border-border pb-6">
-        <div className="space-y-2">
-          <h2 className="text-4xl font-display font-bold tracking-tight text-txt mb-2">Hackathon_Record</h2>
-          <p className="text-muted text-sm font-mono tracking-widest uppercase">// COMPETITIVE_ENGAGEMENTS</p>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-8 sm:space-y-12">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-border pb-4 sm:pb-6 gap-3">
+        <div className="space-y-1 sm:space-y-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight text-txt mb-1 sm:mb-2">Hackathon_Record</h2>
+          <p className="text-muted text-xs sm:text-sm font-mono tracking-wider sm:tracking-widest uppercase">// COMPETITIVE_ENGAGEMENTS</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6">
         {hackathons.map((h, i) => (
           <motion.div 
             key={i}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="group relative p-8 bg-surface/50 border border-border hover:border-primary/30 transition-all"
+            className="group relative p-5 sm:p-6 md:p-8 bg-surface/50 border border-border hover:border-primary/30 transition-all"
           >
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <Trophy className="w-5 h-5 text-primary" />
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                    <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-txt uppercase tracking-tight">{h.title}</h3>
-                    <p className="text-primary text-[10px] font-mono font-bold tracking-widest">{h.award}</p>
+                  <div className="min-w-0">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-txt uppercase tracking-tight truncate">{h.title}</h3>
+                    <p className="text-primary text-[9px] sm:text-[10px] font-mono font-bold tracking-wider sm:tracking-widest">{h.award}</p>
                   </div>
                 </div>
-                <div className="space-y-2 border-l border-border pl-4">
-                   <p className="text-sm font-mono text-muted uppercase tracking-wider">PROJECT: {h.project}</p>
-                   <p className="text-sm text-muted max-w-2xl">{h.description}</p>
+                <div className="space-y-1.5 sm:space-y-2 border-l border-border pl-3 sm:pl-4">
+                   <p className="text-xs sm:text-sm font-mono text-muted uppercase tracking-wide sm:tracking-wider">PROJECT: {h.project}</p>
+                   <p className="text-xs sm:text-sm text-muted max-w-2xl">{h.description}</p>
                 </div>
               </div>
-              <div className="text-right">
-                <span className="text-2xl font-mono text-txt/10 font-black tracking-tighter group-hover:text-primary/20 transition-colors">{h.date}</span>
+              <div className="text-left md:text-right flex-shrink-0">
+                <span className="text-xl sm:text-2xl font-mono text-txt/10 font-black tracking-tighter group-hover:text-primary/20 transition-colors">{h.date}</span>
               </div>
             </div>
             

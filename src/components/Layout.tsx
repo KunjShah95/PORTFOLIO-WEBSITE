@@ -42,13 +42,13 @@ export function Layout({ children }: LayoutProps) {
       <CommandMenu open={isCommandOpen} setOpen={setIsCommandOpen} />
       
       {/* Centered Premium Navbar */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${scrolled ? 'py-4' : 'py-10'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${scrolled ? 'py-3 sm:py-4' : 'py-4 sm:py-6 md:py-10'}`}>
         <div className="container-aligned flex items-center justify-between">
-           <Link to="/" className="flex items-center gap-4 group">
-              <div className="w-9 h-9 bg-txt text-bg flex items-center justify-center font-black text-xl transition-all group-hover:bg-primary group-hover:text-white shadow-glow">K</div>
+           <Link to="/" className="flex items-center gap-2 sm:gap-4 group">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 bg-txt text-bg flex items-center justify-center font-black text-lg sm:text-xl transition-all group-hover:bg-primary group-hover:text-white shadow-glow">K</div>
               <div className="flex flex-col">
-                 <span className="text-[10px] font-black tracking-[0.4em] text-txt">KUNJ_SHAH</span>
-                 <span className="text-[8px] font-mono text-primary/40 uppercase tracking-widest group-hover:text-primary transition-colors">Technical Researcher</span>
+                 <span className="text-[8px] sm:text-[10px] font-black tracking-[0.2em] sm:tracking-[0.4em] text-txt">KUNJ_SHAH</span>
+                 <span className="text-[7px] sm:text-[8px] font-mono text-primary/40 uppercase tracking-wider sm:tracking-widest group-hover:text-primary transition-colors hidden sm:block">Technical Researcher</span>
               </div>
            </Link>
 
@@ -71,7 +71,7 @@ export function Layout({ children }: LayoutProps) {
               ))}
            </nav>
 
-           <div className="flex items-center gap-4">
+           <div className="flex items-center gap-2 sm:gap-4">
                <button 
                  onClick={() => setIsCommandOpen(true)}
                  className="hidden md:flex items-center gap-3 px-4 py-2 border border-border hover:border-primary/40 transition-all text-[9px] font-mono text-muted hover:text-txt uppercase tracking-widest bg-surface/50 rounded-full"
@@ -82,8 +82,9 @@ export function Layout({ children }: LayoutProps) {
                </button>
                <ThemeToggle />
                <button 
-                 className="lg:hidden w-10 h-10 border border-border flex items-center justify-center text-txt"
+                 className="lg:hidden w-10 h-10 sm:w-11 sm:h-11 border border-border flex items-center justify-center text-txt rounded-lg min-h-[44px] min-w-[44px]"
                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                 aria-label="Toggle menu"
                >
                   {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                </button>
@@ -98,20 +99,20 @@ export function Layout({ children }: LayoutProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-bg flex flex-col justify-center items-center lg:hidden"
+            className="fixed inset-0 z-[60] bg-bg flex flex-col justify-center items-center lg:hidden safe-area-inset"
           >
-             <nav className="flex flex-col gap-10 text-center">
+             <nav className="flex flex-col gap-6 sm:gap-10 text-center px-6">
                 {navLinks.map((link, i) => (
                    <motion.div
                      initial={{ opacity: 0, y: 20 }}
                      animate={{ opacity: 1, y: 0 }}
-                     transition={{ delay: i * 0.1 }}
+                     transition={{ delay: i * 0.08 }}
                      key={link.label}
                    >
                      <NavLink 
                        to={link.href} 
                        onClick={() => setIsMobileMenuOpen(false)}
-                       className={({ isActive }: { isActive: boolean }) => `text-4xl font-black transition-all uppercase tracking-tighter ${isActive ? 'text-primary' : 'text-muted'}`}
+                       className={({ isActive }: { isActive: boolean }) => `text-2xl sm:text-4xl font-black transition-all uppercase tracking-tight sm:tracking-tighter py-2 block min-h-[44px] ${isActive ? 'text-primary' : 'text-muted hover:text-txt'}`}
                      >
                         {link.label}
                      </NavLink>
@@ -120,9 +121,10 @@ export function Layout({ children }: LayoutProps) {
              </nav>
              <button 
                onClick={() => setIsMobileMenuOpen(false)}
-               className="absolute top-10 right-10 w-12 h-12 border border-border flex items-center justify-center text-txt"
+               className="absolute top-4 right-4 sm:top-10 sm:right-10 w-12 h-12 border border-border flex items-center justify-center text-txt rounded-lg min-h-[44px] min-w-[44px]"
+               aria-label="Close menu"
              >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
              </button>
           </motion.div>
         )}
@@ -135,35 +137,41 @@ export function Layout({ children }: LayoutProps) {
       <AIAssistant />
 
       {/* Symmetrical Balanced Footer */}
-      <footer className="border-t border-border bg-bg py-32 relative">
+      <footer className="border-t border-border bg-bg py-12 sm:py-20 md:py-32 relative">
         <div className="container-aligned">
-           <div className="grid md:grid-cols-3 gap-24 items-start">
-              <div className="space-y-8">
-                 <Link to="/" className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-txt text-bg flex items-center justify-center font-black text-2xl">K</div>
-                    <span className="text-xs font-black tracking-[0.6em] text-txt">SHAH_KUNJ</span>
+           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 sm:gap-16 md:gap-24 items-start">
+              <div className="space-y-6 sm:space-y-8">
+                 <Link to="/" className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-txt text-bg flex items-center justify-center font-black text-xl sm:text-2xl">K</div>
+                    <span className="text-[10px] sm:text-xs font-black tracking-[0.3em] sm:tracking-[0.6em] text-txt">SHAH_KUNJ</span>
                  </Link>
-                 <p className="text-[11px] text-muted font-mono leading-relaxed uppercase tracking-tight italic opacity-60">
-                    Exploring the intersection of autonomous systems and neural architectures. 3rd Year CS Undergrad at Indus University. Specialized in Agentic Flow and MLOps.
+                 <p className="text-[10px] sm:text-[11px] text-muted font-mono leading-relaxed uppercase tracking-tight italic opacity-60">
+                    Exploring the intersection of autonomous systems and neural architectures. 3rd Year CS Undergrad. Specialized in Agentic Flow and MLOps.
                  </p>
               </div>
 
-              <div className="space-y-10">
-                 <h4 className="text-[10px] font-black text-txt tracking-[0.4em] uppercase">// KNOWLEDGE_MAP</h4>
-                 <div className="grid grid-cols-2 gap-4 font-mono text-[10px] text-muted">
-                    {navLinks.map(link => (
-                       <Link key={link.label} to={link.href} className="hover:text-primary transition-colors uppercase tracking-widest">{link.label}</Link>
-                    ))}
+              <div className="space-y-6 sm:space-y-10">
+                 <h4 className="text-[9px] sm:text-[10px] font-black text-txt tracking-[0.3em] sm:tracking-[0.4em] uppercase">// KNOWLEDGE_MAP</h4>
+                 <div className="grid grid-cols-2 gap-3 sm:gap-4 font-mono text-[9px] sm:text-[10px] text-muted">
+                    <Link to="/" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">HOME</Link>
+                    <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">ABOUT</Link>
+                    <Link to="/projects" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">PROJECTS</Link>
+                    <Link to="/skills" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">SKILLS</Link>
+                    <Link to="/experience" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">EXPERIENCE</Link>
+                    <Link to="/education" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">EDUCATION</Link>
+                    <Link to="/labs" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">LABS</Link>
+                    <Link to="/blogs" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">BLOGS</Link>
+                    <Link to="/contact" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">CONTACT</Link>
                  </div>
               </div>
 
-              <div className="space-y-10 md:text-right flex flex-col md:items-end">
-                 <h4 className="text-[10px] font-black text-txt tracking-[0.4em] uppercase">// SYSTEM_STATUS</h4>
-                 <div className="flex items-center gap-3 px-3 py-1.5 border border-primary/20 bg-primary/5 text-primary rounded-full">
+              <div className="space-y-6 sm:space-y-10 sm:col-span-2 md:col-span-1 md:text-right flex flex-col md:items-end">
+                 <h4 className="text-[9px] sm:text-[10px] font-black text-txt tracking-[0.3em] sm:tracking-[0.4em] uppercase">// SYSTEM_STATUS</h4>
+                 <div className="flex items-center gap-2 sm:gap-3 px-3 py-1.5 border border-primary/20 bg-primary/5 text-primary rounded-full w-fit">
                     <div className="w-1.5 h-1.5 bg-primary animate-pulse"></div>
-                    <span className="text-[9px] font-mono tracking-widest font-black uppercase">Active Undergrad Phase</span>
+                    <span className="text-[8px] sm:text-[9px] font-mono tracking-wider sm:tracking-widest font-black uppercase">Active Undergrad Phase</span>
                  </div>
-                 <div className="pt-8 text-[9px] font-mono text-muted/30 uppercase tracking-widest">
+                 <div className="pt-4 sm:pt-8 text-[8px] sm:text-[9px] font-mono text-muted/30 uppercase tracking-wider sm:tracking-widest">
                     Ahmedabad // IN <br/>
                     © 2026 Kunj Shah
                  </div>

@@ -6,7 +6,7 @@ export function Home() {
     <motion.div 
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
-      className="space-y-40"
+      className="space-y-24 sm:space-y-32 md:space-y-40"
     >
       <Hero />
       {/* You can add a preview of projects or other sections here if desired, 

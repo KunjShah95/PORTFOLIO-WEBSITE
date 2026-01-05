@@ -185,10 +185,10 @@ export function AIAssistant() {
     <>
       <button 
         onClick={startBoot}
-        className="fixed bottom-8 right-8 z-[110] w-16 h-16 bg-txt text-bg hover:bg-primary transition-all duration-500 shadow-[0_0_30px_rgba(16,185,129,0.2)] flex items-center justify-center group overflow-hidden border-glow rounded-full"
+        className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[110] w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-txt text-bg hover:bg-primary transition-all duration-500 shadow-[0_0_30px_rgba(16,185,129,0.2)] flex items-center justify-center group overflow-hidden border-glow rounded-full min-h-[48px] min-w-[48px]"
       >
-        <div className="absolute inset-0 border-2 border-primary/20 group-hover:scale-110 transition-transform"></div>
-        <Cpu className="w-7 h-7 group-hover:rotate-180 transition-transform duration-1000" />
+        <div className="absolute inset-0 border-2 border-primary/20 group-hover:scale-110 transition-transform rounded-full"></div>
+        <Cpu className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 group-hover:rotate-180 transition-transform duration-1000" />
         <div className="absolute -top-10 -left-10 w-20 h-20 bg-primary/20 blur-2xl group-hover:top-0 group-hover:left-0 transition-all duration-700"></div>
       </button>
 
@@ -199,32 +199,32 @@ export function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-0 right-0 md:bottom-28 md:right-8 z-[110] w-full md:w-[450px] lg:w-[500px] h-[100dvh] md:h-[600px] lg:h-[700px] max-h-[100dvh] md:max-h-[calc(100vh-140px)] bg-bg border-t md:border border-primary/20 shadow-[0_0_100px_rgba(16,185,129,0.1)] flex flex-col overflow-hidden md:rounded-[2rem]"
+            className="fixed bottom-0 right-0 sm:bottom-20 sm:right-4 md:bottom-28 md:right-8 z-[110] w-full sm:w-[90vw] md:w-[450px] lg:w-[500px] h-[100dvh] sm:h-[70vh] md:h-[600px] lg:h-[700px] max-h-[100dvh] sm:max-h-[calc(100vh-100px)] md:max-h-[calc(100vh-140px)] bg-bg border-t sm:border border-primary/20 shadow-[0_0_100px_rgba(16,185,129,0.1)] flex flex-col overflow-hidden sm:rounded-2xl md:rounded-[2rem]"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-8 py-6 border-b border-primary/10 bg-surface/40 backdrop-blur-xl">
-               <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <BrainCircuit className="w-5 h-5 text-primary animate-pulse" />
+            <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-b border-primary/10 bg-surface/40 backdrop-blur-xl">
+               <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                    <BrainCircuit className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary animate-pulse" />
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-[11px] font-black font-mono tracking-[0.3em] text-txt uppercase">NEURAL_PROXY // V.2.9</span>
-                    <span className="text-[8px] font-mono text-primary uppercase tracking-[0.2em] font-bold">STATUS: FULL_KNOWLEDGE_SYNC</span>
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[9px] sm:text-[10px] md:text-[11px] font-black font-mono tracking-[0.2em] sm:tracking-[0.3em] text-txt uppercase truncate">NEURAL_PROXY // V.2.9</span>
+                    <span className="text-[7px] sm:text-[8px] font-mono text-primary uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold">STATUS: FULL_SYNC</span>
                   </div>
                </div>
-               <div className="flex items-center gap-6">
-                  <div className="flex items-center gap-2">
+               <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+                  <div className="hidden sm:flex items-center gap-2">
                     <div className="w-2 h-2 bg-primary animate-pulse"></div>
                     <Activity className="w-4 h-4 text-primary" />
                   </div>
-                  <button onClick={() => setIsOpen(false)} className="text-muted hover:text-txt transition-all transform hover:rotate-90">
-                     <X className="w-6 h-6" />
+                  <button onClick={() => setIsOpen(false)} className="text-muted hover:text-txt transition-all transform hover:rotate-90 p-1 min-h-[44px] min-w-[44px] flex items-center justify-center">
+                     <X className="w-5 h-5 sm:w-6 sm:h-6" />
                   </button>
                </div>
             </div>
 
             {/* Chat Body */}
-            <div ref={scrollRef} className="flex-1 p-10 overflow-y-auto font-mono text-[10px] space-y-8 custom-scrollbar bg-academic-dots bg-[length:20px_20px]">
+            <div ref={scrollRef} className="flex-1 p-4 sm:p-6 md:p-10 overflow-y-auto font-mono text-[9px] sm:text-[10px] space-y-4 sm:space-y-6 md:space-y-8 custom-scrollbar bg-academic-dots bg-[length:20px_20px]">
                {messages.map((m, i) => (
                  <div key={i} className={`flex flex-col ${m.role === 'user' ? 'items-end' : 'items-start'}`}>
                     <div className="flex items-center gap-3 mb-2 opacity-30">
@@ -272,10 +272,10 @@ export function AIAssistant() {
             </div>
 
             {/* Input Area */}
-            <div className="p-8 border-t border-primary/10 bg-bg">
+            <div className="p-4 sm:p-6 md:p-8 border-t border-primary/10 bg-bg safe-area-inset">
                <div className="relative flex items-center group">
-                  <div className="absolute left-6 text-primary group-focus-within:text-txt transition-colors">
-                    <Search className="w-4 h-4" />
+                  <div className="absolute left-4 sm:left-5 md:left-6 text-primary group-focus-within:text-txt transition-colors">
+                    <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                   <input 
                     type="text"
@@ -283,15 +283,15 @@ export function AIAssistant() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                    placeholder={isBooting ? "SYNC_IN_PROGRESS..." : isThinking ? "INDEXING..." : "QUERY_KUNJ_VAULT..."}
-                    className="w-full bg-surface/50 border border-primary/10 pl-16 pr-20 py-5 text-[11px] font-black font-mono text-txt placeholder:text-muted/20 focus:outline-none focus:border-primary/40 transition-all uppercase tracking-[0.2em] disabled:opacity-50 border-glow italic rounded-full"
+                    placeholder={isBooting ? "SYNC..." : isThinking ? "INDEXING..." : "QUERY_VAULT..."}
+                    className="w-full bg-surface/50 border border-primary/10 pl-10 sm:pl-12 md:pl-16 pr-14 sm:pr-16 md:pr-20 py-3.5 sm:py-4 md:py-5 text-[10px] sm:text-[11px] font-black font-mono text-txt placeholder:text-muted/20 focus:outline-none focus:border-primary/40 transition-all uppercase tracking-[0.15em] sm:tracking-[0.2em] disabled:opacity-50 border-glow italic rounded-full min-h-[48px]"
                   />
                   <button 
                     onClick={handleSend}
                     disabled={isBooting || isThinking}
-                    className="absolute right-6 text-muted hover:text-primary transition-all p-2 hover:bg-primary/5 disabled:opacity-0"
+                    className="absolute right-2 sm:right-4 md:right-6 text-muted hover:text-primary transition-all p-2 hover:bg-primary/5 disabled:opacity-0 min-h-[44px] min-w-[44px] flex items-center justify-center"
                   >
-                    <Send className="w-5 h-5" />
+                    <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                </div>
             </div>
