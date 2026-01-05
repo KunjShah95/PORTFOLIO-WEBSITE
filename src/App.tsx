@@ -9,6 +9,7 @@ import { Education } from './components/Education'
 import { ResearchLabs } from './components/ResearchLabs'
 import { Experience } from './components/Experience'
 import { Writing } from './components/Writing'
+import { AIVideoCreation } from './components/AIVideoCreation'
 import { BlogsPage } from './pages/BlogsPage'
 import { ProjectsPage } from './pages/ProjectsPage'
 import { SkillsPage } from './pages/SkillsPage'
@@ -17,15 +18,20 @@ import { EducationPage } from './pages/EducationPage'
 import { ExperiencePage } from './pages/ExperiencePage'
 import { AboutPage } from './pages/AboutPage'
 import { ContactPage } from './pages/ContactPage'
+import { AIVideoPage } from './pages/AIVideoPage'
 
 import { ResearcherLive } from './components/ResearcherLive'
 import { Contact } from './components/Contact'
 
+import { SEO } from './components/SEO'
+
 function Home() {
   return (
     <div className="space-y-0">
+       <SEO />
        <Hero />
        <Experience />
+       <AIVideoCreation />
        <Projects />
        <ResearcherLive />
        <Skills />
@@ -53,6 +59,7 @@ function App() {
             <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/education" element={<EducationPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/ai-videos" element={<AIVideoPage />} />
           </Routes>
           </Layout>
         </ThemeProvider>

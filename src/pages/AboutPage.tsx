@@ -1,9 +1,15 @@
 import { motion } from 'framer-motion'
 import { User, Target, Zap, Shield, Cpu, Activity } from 'lucide-react'
+import { SEO } from '../components/SEO'
 
 export function AboutPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-16 sm:space-y-24 md:space-y-32">
+      <SEO 
+        title="About"
+        description="Learn about Kunj Shah, an AI/ML Engineer specializing in autonomous systems, agentic workflows, and LLM orchestration. 3rd Year CS student exploring MLOps."
+        url="https://kunjshah.dev/about"
+      />
       <section className="space-y-10 sm:space-y-16">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-border pb-6 sm:pb-8 gap-4">
           <div className="space-y-2 sm:space-y-3">

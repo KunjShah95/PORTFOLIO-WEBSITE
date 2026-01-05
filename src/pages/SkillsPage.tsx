@@ -1,9 +1,15 @@
 import { Skills } from '../components/Skills'
 import { motion } from 'framer-motion'
+import { SEO } from '../components/SEO'
 
 export function SkillsPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <SEO 
+        title="Skills & Technologies"
+        description="View Kunj Shah's technical skills and technology stack, including AI/ML frameworks, cloud infrastructure, and programming languages."
+        url="https://kunjshah.dev/skills"
+      />
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

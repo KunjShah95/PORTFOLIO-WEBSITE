@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { Hash, Terminal, ChevronRight, Calendar } from 'lucide-react'
+import { SEO } from '../components/SEO'
 
 export function BlogsPage() {
   const [activeTab, setActiveTab] = useState<'LOGS' | 'ARTICLES'>('LOGS')
@@ -41,6 +42,11 @@ export function BlogsPage() {
 
   return (
     <div className="pt-24 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen">
+      <SEO 
+        title="Research Logs & Articles"
+        description="Read Kunj Shah's technical logs and articles on MLOps, agentic workflows, and autonomous systems."
+        url="https://kunjshah.dev/blogs"
+      />
       <div className="container-aligned space-y-12 sm:space-y-16 md:space-y-24">
         {/* Aligned Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-6 sm:pb-8 md:pb-10 gap-6 sm:gap-8 md:gap-10">

@@ -26,6 +26,7 @@ export function Layout({ children }: LayoutProps) {
   const navLinks = [
     { label: 'HOME', href: '/' },
     { label: 'PROJECTS', href: '/projects' },
+    { label: 'AI VIDEOS', href: '/ai-videos' },
     { label: 'SKILLS', href: '/skills' },
     { label: 'LABS', href: '/labs' },
     { label: 'BLOGS', href: '/blogs' },
@@ -157,6 +158,7 @@ export function Layout({ children }: LayoutProps) {
                     <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">ABOUT</Link>
                     <Link to="/projects" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">PROJECTS</Link>
                     <Link to="/skills" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">SKILLS</Link>
+                     <Link to="/ai-videos" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">AI VIDEOS</Link>
                     <Link to="/experience" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">EXPERIENCE</Link>
                     <Link to="/education" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">EDUCATION</Link>
                     <Link to="/labs" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">LABS</Link>
