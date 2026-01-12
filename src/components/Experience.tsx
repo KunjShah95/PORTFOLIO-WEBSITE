@@ -15,7 +15,6 @@ export function Experience() {
 
   return (
     <section id="experience" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
-      {/* Background Decor */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent hidden lg:block"></div>
 
       <div className="container-aligned space-y-12 sm:space-y-16 md:space-y-24 relative z-10">
@@ -47,7 +46,6 @@ export function Experience() {
               
               <div className="group grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-12 p-6 sm:p-8 md:p-12 lg:p-16 border border-border bg-surface/20 hover:border-primary/30 transition-all duration-700 relative overflow-hidden border-glow items-start lg:items-center ml-8 sm:ml-10 lg:ml-0">
                 <div className="lg:col-span-3 space-y-4 sm:space-y-6 md:space-y-8 relative">
-                   {/* Node Marker */}
                    <div className="absolute -left-[36px] sm:-left-[46px] lg:-left-[18px] top-0 lg:top-1/2 lg:-translate-y-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-primary border-3 sm:border-4 border-bg group-hover:scale-150 transition-all z-20"></div>
                    
                    <div className="space-y-1 sm:space-y-2 lg:pl-8">
@@ -56,7 +54,7 @@ export function Experience() {
                    </div>
                    <div className="flex items-center gap-2 sm:gap-3 text-[8px] sm:text-[9px] font-mono text-muted uppercase tracking-[0.1em] sm:tracking-[0.2em] font-black opacity-60 lg:pl-8">
                       <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-secondary flex-shrink-0" />
-                      REMOTE // DISTRIBUTED
+                      REMOTE | DISTRIBUTED
                    </div>
                 </div>
 
@@ -84,7 +82,6 @@ export function Experience() {
                    </div>
                 </div>
 
-                {/* Hover Glow Effect */}
                 <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
               </div>
             </motion.div>

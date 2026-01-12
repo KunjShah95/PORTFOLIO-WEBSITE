@@ -19,16 +19,16 @@ import { ExperiencePage } from './pages/ExperiencePage'
 import { AboutPage } from './pages/AboutPage'
 import { ContactPage } from './pages/ContactPage'
 import { AIVideoPage } from './pages/AIVideoPage'
+import { ProjectDetailPage } from './pages/ProjectDetailPage'
 
 import { ResearcherLive } from './components/ResearcherLive'
 import { Contact } from './components/Contact'
-
 import { SEO } from './components/SEO'
 
 function Home() {
   return (
     <div className="space-y-0">
-       <SEO />
+       <SEO title="Kunj Shah | AI Engineer & Agent Builder" />
        <Hero />
        <Experience />
        <AIVideoCreation />
@@ -53,6 +53,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/:slug" element={<ProjectDetailPage />} />
             <Route path="/skills" element={<SkillsPage />} />
             <Route path="/labs" element={<LabsPage />} />
             <Route path="/experience" element={<ExperiencePage />} />

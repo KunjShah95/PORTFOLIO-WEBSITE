@@ -6,8 +6,8 @@ export function ContactPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
       <SEO 
-        title="Contact"
-        description="Get in touch with Kunj Shah for collaboration on AI/ML projects, consulting, or research opportunities."
+        title="Hire & Consult | AI Systems Engineering"
+        description="Initiate contact for high-stakes AI engineering projects, autonomous agent development, and technical consulting with Kunj Shah."
         url="https://kunjshah.dev/contact"
       />
       <motion.div 

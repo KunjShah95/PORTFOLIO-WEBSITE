@@ -26,6 +26,7 @@ export function Layout({ children }: LayoutProps) {
   const navLinks = [
     { label: 'HOME', href: '/' },
     { label: 'PROJECTS', href: '/projects' },
+    { label: 'RESUME', href: '/resume.pdf' },
     { label: 'AI VIDEOS', href: '/ai-videos' },
     { label: 'SKILLS', href: '/skills' },
     { label: 'LABS', href: '/labs' },
@@ -36,8 +37,8 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-bg text-txt selection:bg-primary/20 selection:text-primary">
       <Helmet>
-        <title>Kunj Shah // Technical Researcher</title>
-        <meta name="description" content="Portfolio of Kunj Shah - 3rd Year CS Undergrad, AI Researcher, and Full Stack Builder." />
+        <title>Kunj Shah | AI Engineer & Agent Builder</title>
+        <meta name="description" content="Portfolio of Kunj Shah - AI Systems Engineer & Autonomous Agent Builder." />
       </Helmet>
 
       <CommandMenu open={isCommandOpen} setOpen={setIsCommandOpen} />
@@ -49,7 +50,7 @@ export function Layout({ children }: LayoutProps) {
               <div className="w-8 h-8 sm:w-9 sm:h-9 bg-txt text-bg flex items-center justify-center font-black text-lg sm:text-xl transition-all group-hover:bg-primary group-hover:text-white shadow-glow">K</div>
               <div className="flex flex-col">
                  <span className="text-[8px] sm:text-[10px] font-black tracking-[0.2em] sm:tracking-[0.4em] text-txt">KUNJ_SHAH</span>
-                 <span className="text-[7px] sm:text-[8px] font-mono text-primary/40 uppercase tracking-wider sm:tracking-widest group-hover:text-primary transition-colors hidden sm:block">Technical Researcher</span>
+                 <span className="text-[7px] sm:text-[8px] font-mono text-primary/40 uppercase tracking-wider sm:tracking-widest group-hover:text-primary transition-colors hidden sm:block">AI Engineer & Builder</span>
               </div>
            </Link>
 
@@ -152,7 +153,7 @@ export function Layout({ children }: LayoutProps) {
               </div>
 
               <div className="space-y-6 sm:space-y-10">
-                 <h4 className="text-[9px] sm:text-[10px] font-black text-txt tracking-[0.3em] sm:tracking-[0.4em] uppercase">// KNOWLEDGE_MAP</h4>
+                 <h4 className="text-[9px] sm:text-[10px] font-black text-txt tracking-[0.3em] sm:tracking-[0.4em] uppercase">| KNOWLEDGE_MAP</h4>
                  <div className="grid grid-cols-2 gap-3 sm:gap-4 font-mono text-[9px] sm:text-[10px] text-muted">
                     <Link to="/" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">HOME</Link>
                     <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wider sm:tracking-widest py-1 min-h-[44px] flex items-center">ABOUT</Link>
@@ -168,13 +169,13 @@ export function Layout({ children }: LayoutProps) {
               </div>
 
               <div className="space-y-6 sm:space-y-10 sm:col-span-2 md:col-span-1 md:text-right flex flex-col md:items-end">
-                 <h4 className="text-[9px] sm:text-[10px] font-black text-txt tracking-[0.3em] sm:tracking-[0.4em] uppercase">// SYSTEM_STATUS</h4>
+                 <h4 className="text-[9px] sm:text-[10px] font-black text-txt tracking-[0.3em] sm:tracking-[0.4em] uppercase">| SYSTEM_STATUS</h4>
                  <div className="flex items-center gap-2 sm:gap-3 px-3 py-1.5 border border-primary/20 bg-primary/5 text-primary rounded-full w-fit">
                     <div className="w-1.5 h-1.5 bg-primary animate-pulse"></div>
                     <span className="text-[8px] sm:text-[9px] font-mono tracking-wider sm:tracking-widest font-black uppercase">Active Undergrad Phase</span>
                  </div>
                  <div className="pt-4 sm:pt-8 text-[8px] sm:text-[9px] font-mono text-muted/30 uppercase tracking-wider sm:tracking-widest">
-                    Ahmedabad // IN <br/>
+                    Ahmedabad | IN <br/>
                     © 2026 Kunj Shah
                  </div>
               </div>

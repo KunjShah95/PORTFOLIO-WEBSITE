@@ -3,9 +3,9 @@ import { Beaker, Cpu, ArrowDown, GraduationCap } from 'lucide-react'
 
 export function Hero() {
   const stats = [
-    { icon: GraduationCap, label: 'DEGREE_PHASE', value: '3RD_YEAR' },
-    { icon: Cpu, label: 'COMPUTE_FOCUS', value: 'AGENTS/LLM' },
-    { icon: Beaker, label: 'LABS_EXPLORED', value: '04' },
+    { icon: GraduationCap, label: 'SYSTEM_STATUS', value: 'AGENT_BUILDER' },
+    { icon: Cpu, label: 'COMPUTE_FOCUS', value: 'AI_SYSTEMS' },
+    { icon: Beaker, label: 'PROJECTS_DEPLOYED', value: '12+' },
   ]
 
   return (
@@ -20,8 +20,8 @@ export function Hero() {
            className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 bg-primary/5 border border-primary/20 text-primary font-mono text-[7px] sm:text-[9px] tracking-[0.3em] sm:tracking-[0.6em] font-black uppercase mb-6 sm:mb-12"
         >
           <div className="w-1 h-2 sm:h-3 bg-primary animate-pulse"></div>
-          <span className="hidden sm:inline">PROTOCOL_UNDERGRAD_PHASE_03</span>
-          <span className="sm:hidden">UNDERGRAD_03</span>
+          <span className="hidden sm:inline">AI_SYSTEMS_ENGINEER // AUTONOMOUS_AGENT_BUILDER</span>
+          <span className="sm:hidden">AI_SYSTEMS_ENGINEER</span>
         </motion.div>
         
         {/* Massive Dynamic Heading */}
@@ -31,13 +31,13 @@ export function Hero() {
            transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
            className="space-y-4 sm:space-y-6"
         >
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[140px] font-black tracking-[-0.05em] uppercase leading-[0.85]">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[120px] font-black tracking-[-0.05em] uppercase leading-[0.85]">
             <span className="text-txt italic">Kunj</span> <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary italic inline-block pr-2 sm:pr-4">Shah</span>
           </h1>
           
           <p className="max-w-3xl mx-auto text-[10px] sm:text-xs md:text-sm text-muted font-mono uppercase tracking-[0.15em] sm:tracking-[0.3em] leading-relaxed pt-4 sm:pt-8 opacity-60 px-2">
-             Building <span className="text-txt">autonomous systems</span> and <span className="text-txt">neural architectures</span>. 3rd Year CS student exploring <span className="text-primary">MLOps</span> and <span className="text-txt">Agentic Intelligence</span>.
+             Engineering <span className="text-txt">autonomous intelligence</span> and <span className="text-txt">scalable AI systems</span>. specialized in <span className="text-primary">Agentic Flow</span>, <span className="text-txt">MLOps</span>, and <span className="text-txt">Computer Vision</span>.
           </p>
         </motion.div>
 
@@ -52,13 +52,19 @@ export function Hero() {
             href="/projects" 
             className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-txt text-bg font-black text-[9px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] uppercase transition-all rounded-full hover:bg-primary hover:text-white hover:scale-105 active:scale-95 shadow-2xl text-center min-h-[48px] flex items-center justify-center"
           >
-             Explore_Archive
+             Projects
           </a>
           <a 
-            href="/blogs" 
+            href="/resume.pdf" 
             className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 border border-border bg-txt/5 text-txt font-black text-[9px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] uppercase transition-all rounded-full hover:border-primary/40 hover:bg-txt/10 text-center min-h-[48px] flex items-center justify-center"
           >
-             Research_Log
+             Resume
+          </a>
+          <a 
+            href="/contact" 
+            className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 border border-border bg-txt/5 text-txt font-black text-[9px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] uppercase transition-all rounded-full hover:border-primary/40 hover:bg-txt/10 text-center min-h-[48px] flex items-center justify-center"
+          >
+             Contact
           </a>
         </motion.div>
 

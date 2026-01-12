@@ -2,15 +2,14 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Send, Cpu, Activity, Search, BrainCircuit, Globe } from 'lucide-react'
 
-// KNOWLEDGE_CORE: Encoded Dossier of Kunj Shah
 const KUNJ_DOSSIER = {
   identity: {
     name: "Kunj Shah",
-    persona: "3rd-year Technical Researcher & AI Engineer",
-    institution: "Indus University",
+    persona: "AI Engineer & Systems Builder",
+    institution: "Ahmedabad, IN",
     location: "Global / Distributed",
-    contact: "kunjkshahdeveloper@gmail.com",
-    focus: ["Autonomous Systems", "Neural Architectures", "MLOps", "Agentic Intelligence"]
+    contact: "kunjkshah05@gmail.com",
+    focus: ["AI Systems", "Autonomous Agents", "MLOps", "Computer Vision"]
   },
   experience: [
     {
@@ -36,24 +35,24 @@ const KUNJ_DOSSIER = {
   ],
   projects: [
     {
-      slug: "SENTINEL_CLI",
-      desc: "AI code guard with 13+ specialized security analyzers.",
-      stack: "Node.js, AI_Analyzers"
+      slug: "cinepulse",
+      desc: "Emotion-based movie recommender using NLP and vector search.",
+      stack: "Python, PyTorch, Vald"
     },
     {
-      slug: "AETHER_AI",
-      desc: "Multi-agent orchestration framework for autonomous tasks.",
-      stack: "Python, LangChain"
+      slug: "gap-miner",
+      desc: "AI-powered skill gap analyzer using multi-agent semantic extraction.",
+      stack: "Llama-3, LangChain, FastAPI"
     },
     {
-      slug: "NEURAL_TOKENIZER",
-      desc: "Custom BPE tokenizer for Sanskrit preservation and GPT fine-tuning.",
-      stack: "PyTorch, NLP"
+      slug: "railway-inspection",
+      desc: "Real-time CV pipeline for automated wagon defect detection.",
+      stack: "C++, OpenCV, vLLM"
     },
     {
-       slug: "RESUME_MASTER",
-       desc: "Semantic resume-job matching using distributed LLM logic.",
-       stack: "Python, LLM"
+      slug: "upi-fraud-guard",
+      desc: "Advanced transaction fraud detection for imbalanced datasets.",
+      stack: "Scikit-learn, XGBoost, Flask"
     }
   ],
   investigations: [
@@ -71,7 +70,7 @@ const KUNJ_DOSSIER = {
   stack: {
     orchestration: ["LangChain", "CrewAI", "Recursive RAG", "Tool Use"],
     mlops: ["DVC Versioning", "MLFlow", "SageMaker", "Kubeflow"],
-    deep_learning: ["PyTorch", "HuggingFace", "Model Quantization", "CUDA"],
+    deep_learning: ["PyTorch", "HuggingFace", "Model Quantization", "vLLM"],
     full_stack: ["FastAPI", "NextJS 15", "Vector DBs", "Redis Cache"]
   },
   learning: ["LLM_DISTILLATION", "MULTIMODAL_RAG", "QUANTUM_LOGIC", "MLOPS_GOVERNANCE", "GRAPH_NEURAL_NETS"]
@@ -135,7 +134,6 @@ export function AIAssistant() {
 
     let response = ''
     
-    // Comprehensive Logic Handlers
     if (query.includes('who') || query.includes('kunj')) {
       response = `IDENT_SCAN: ${KUNJ_DOSSIER.identity.name} is a ${KUNJ_DOSSIER.identity.persona} at ${KUNJ_DOSSIER.identity.institution}. He specializes in ${KUNJ_DOSSIER.identity.focus.join(", ")}.`
     } 
@@ -144,11 +142,11 @@ export function AIAssistant() {
       response = `NEURAL_HISTORY_LOG:\n${items}`;
     }
     else if (query.includes('project') || query.includes('github') || query.includes('sentinel') || query.includes('aether')) {
-      const items = KUNJ_DOSSIER.projects.map(p => `[${p.slug}: ${p.desc} // STACK: ${p.stack}]`).join('\n');
+      const items = KUNJ_DOSSIER.projects.map(p => `[${p.slug}: ${p.desc} | STACK: ${p.stack}]`).join('\n');
       response = `DEPLOYMENT_REGISTRY:\n${items}\nFULL_ARCHIVE: github.com/KunjShah95`;
     } 
     else if (query.includes('research') || query.includes('labs') || query.includes('investigation') || query.includes('memory') || query.includes('protocol')) {
-      const items = KUNJ_DOSSIER.investigations.map(i => `[${i.title}: ${i.focus} // STACK: ${i.stack}]`).join('\n');
+      const items = KUNJ_DOSSIER.investigations.map(i => `[${i.title}: ${i.focus} | STACK: ${i.stack}]`).join('\n');
       response = `INVESTIGATION_ARCHIVE:\n${items}`;
     }
     else if (query.includes('skill') || query.includes('tech') || query.includes('stack') || query.includes('capable')) {
@@ -201,14 +199,13 @@ export function AIAssistant() {
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             className="fixed bottom-0 right-0 sm:bottom-20 sm:right-4 md:bottom-28 md:right-8 z-[110] w-full sm:w-[90vw] md:w-[450px] lg:w-[500px] h-[100dvh] sm:h-[70vh] md:h-[600px] lg:h-[700px] max-h-[100dvh] sm:max-h-[calc(100vh-100px)] md:max-h-[calc(100vh-140px)] bg-bg border-t sm:border border-primary/20 shadow-[0_0_100px_rgba(16,185,129,0.1)] flex flex-col overflow-hidden sm:rounded-2xl md:rounded-[2rem]"
           >
-            {/* Header */}
             <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-b border-primary/10 bg-surface/40 backdrop-blur-xl">
                <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                   <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
                     <BrainCircuit className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary animate-pulse" />
                   </div>
                   <div className="flex flex-col min-w-0">
-                    <span className="text-[9px] sm:text-[10px] md:text-[11px] font-black font-mono tracking-[0.2em] sm:tracking-[0.3em] text-txt uppercase truncate">NEURAL_PROXY // V.2.9</span>
+                    <span className="text-[9px] sm:text-[10px] md:text-[11px] font-black font-mono tracking-[0.2em] sm:tracking-[0.3em] text-txt uppercase truncate">NEURAL_PROXY | V.2.9</span>
                     <span className="text-[7px] sm:text-[8px] font-mono text-primary uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold">STATUS: FULL_SYNC</span>
                   </div>
                </div>
@@ -223,7 +220,6 @@ export function AIAssistant() {
                </div>
             </div>
 
-            {/* Chat Body */}
             <div ref={scrollRef} className="flex-1 p-4 sm:p-6 md:p-10 overflow-y-auto font-mono text-[9px] sm:text-[10px] space-y-4 sm:space-y-6 md:space-y-8 custom-scrollbar bg-academic-dots bg-[length:20px_20px]">
                {messages.map((m, i) => (
                  <div key={i} className={`flex flex-col ${m.role === 'user' ? 'items-end' : 'items-start'}`}>
@@ -251,7 +247,6 @@ export function AIAssistant() {
                          </div>
                        )}
                        
-                       {/* Message Corner Brackets */}
                        <div className="absolute -top-[1px] -left-[1px] w-2 h-2 border-t border-l border-primary/40 group-hover/msg:border-primary transition-colors"></div>
                        <div className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b border-r border-primary/40 group-hover/msg:border-primary transition-colors"></div>
                     </div>
@@ -271,7 +266,6 @@ export function AIAssistant() {
                )}
             </div>
 
-            {/* Input Area */}
             <div className="p-4 sm:p-6 md:p-8 border-t border-primary/10 bg-bg safe-area-inset">
                <div className="relative flex items-center group">
                   <div className="absolute left-4 sm:left-5 md:left-6 text-primary group-focus-within:text-txt transition-colors">

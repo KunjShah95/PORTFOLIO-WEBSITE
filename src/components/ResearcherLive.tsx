@@ -2,19 +2,16 @@ import { motion } from 'framer-motion'
 import { Github, Music, Activity, ExternalLink, Globe, Calendar, GitBranch, ChevronDown, Star, GitFork, Loader2 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
-// GitHub username
 const GITHUB_USERNAME = 'KunjShah95'
 
-// Month names for display
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-// Blue themed colors matching website
 const BLUE_CONTRIBUTION_COLORS = [
-  'bg-secondary/10',    // Level 0 - Empty
-  'bg-secondary/30',    // Level 1 - Low
-  'bg-secondary/50',    // Level 2 - Medium-Low
-  'bg-secondary/70',    // Level 3 - Medium
-  'bg-secondary',       // Level 4 - High
+  'bg-secondary/10',
+  'bg-secondary/30',
+  'bg-secondary/50',
+  'bg-secondary/70',
+  'bg-secondary',
 ]
 
 interface GitHubRepo {
@@ -43,7 +40,6 @@ interface ContributionDay {
   level: number
 }
 
-// Get language color
 function getLanguageColor(language?: string | null): string {
   const colors: Record<string, string> = {
     'Python': 'bg-[#3572A5]',
@@ -65,10 +61,8 @@ function getLanguageColor(language?: string | null): string {
   return colors[language || ''] || 'bg-gray-500'
 }
 
-// Parse contribution data from GitHub contribution chart SVG
 async function fetchContributionData(username: string, year: number): Promise<ContributionDay[]> {
   try {
-    // Use GitHub's contribution calendar endpoint
     const response = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`)
     if (!response.ok) {
       throw new Error('Failed to fetch contributions')
@@ -97,10 +91,8 @@ export function ResearcherLive() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  // Available years for selection (last 5 years)
   const years = Array.from({ length: 5 }, (_, i) => currentYear - i)
 
-  // Fetch GitHub user data
   useEffect(() => {
     async function fetchUserData() {
       try {
@@ -116,7 +108,6 @@ export function ResearcherLive() {
     fetchUserData()
   }, [])
 
-  // Fetch repositories
   useEffect(() => {
     async function fetchRepos() {
       try {
@@ -125,7 +116,6 @@ export function ResearcherLive() {
         )
         if (response.ok) {
           const data: GitHubRepo[] = await response.json()
-          // Sort by most recently pushed
           const sortedRepos = data.sort((a, b) => 
             new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
           )
@@ -138,7 +128,6 @@ export function ResearcherLive() {
     fetchRepos()
   }, [])
 
-  // Fetch contribution data for selected year
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true)
@@ -252,7 +241,6 @@ export function ResearcherLive() {
             viewport={{ once: true }}
             className="lg:col-span-8 group bg-surface/20 border border-border p-8 lg:p-10 border-glow space-y-8 relative overflow-hidden rounded-2xl"
           >
-            {/* Header with Year Filter */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-secondary/10 border border-secondary/20 flex items-center justify-center rounded-xl">
@@ -265,7 +253,6 @@ export function ResearcherLive() {
               </div>
 
               <div className="flex items-center gap-3">
-                {/* Year Selector */}
                 <div className="relative">
                   <button
                     onClick={() => setIsYearDropdownOpen(!isYearDropdownOpen)}
@@ -307,7 +294,6 @@ export function ResearcherLive() {
               </div>
             </div>
 
-            {/* Total Contributions Badge */}
             <div className="flex items-center gap-4 py-4 px-5 bg-secondary/5 border border-secondary/10 rounded-xl">
               <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center">
                 <GitBranch className="w-5 h-5 text-secondary" />
@@ -324,7 +310,6 @@ export function ResearcherLive() {
               </div>
             </div>
 
-            {/* Contribution Grid */}
             <div className="relative">
               {isLoading ? (
                 <div className="flex items-center justify-center py-20">
