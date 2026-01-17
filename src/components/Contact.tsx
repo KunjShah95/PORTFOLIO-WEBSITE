@@ -1,39 +1,9 @@
 import { motion } from 'framer-motion'
-import { Linkedin, Github, Twitter, Mail, ExternalLink, MessageSquare } from 'lucide-react'
+import { MessageSquare } from 'lucide-react'
+
+import { SOCIALS } from '../data/portfolio'
 
 export function Contact() {
-  const socials = [
-    {
-      name: 'LINKEDIN',
-      url: 'https://www.linkedin.com/in/kunjshah05',
-      icon: Linkedin,
-      label: 'PROFESSIONAL_SYNC'
-    },
-    {
-      name: 'X_TWITTER',
-      url: 'https://x.com/kunjshah_dev',
-      icon: Twitter,
-      label: 'SIGNAL_STREAM'
-    },
-    {
-      name: 'GITHUB_V1',
-      url: 'https://github.com/KunjShah95',
-      icon: Github,
-      label: 'CORE_REPOSITORY'
-    },
-    {
-      name: 'GITHUB_V2',
-      url: 'https://github.com/KunjShah01',
-      icon: Github,
-      label: 'RESEARCH_LABS'
-    },
-    {
-      name: 'HUGGING_FACE',
-      url: 'https://huggingface.co/kunjshah01',
-      icon: ExternalLink,
-      label: 'MODEL_VAULT'
-    }
-  ]
 
   return (
     <section id="contact" className="py-16 sm:py-24 md:py-32 relative">
@@ -42,8 +12,8 @@ export function Contact() {
           {/* Header Area */}
           <div className="lg:col-span-12 border-b border-border pb-8 sm:pb-12 md:pb-16 space-y-4 sm:space-y-6">
             <div className="flex items-center gap-2 sm:gap-4 text-primary font-mono text-[8px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.6em] font-black uppercase">
-               <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4" />
-               COMMUNICATION_RELAY
+              <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4" />
+              COMMUNICATION_RELAY
             </div>
             <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter text-txt uppercase italic leading-none">
               INITIATE <span className="text-secondary opacity-60 not-italic">CONTACT</span>
@@ -52,8 +22,8 @@ export function Contact() {
 
           {/* Contact Methods */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            {socials.map((social, i) => (
-              <motion.a 
+            {SOCIALS.map((social, i) => (
+              <motion.a
                 key={social.name}
                 href={social.url}
                 target="_blank"
@@ -69,7 +39,7 @@ export function Contact() {
                   <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-black text-txt group-hover:text-primary transition-colors italic tracking-tighter truncate">{social.name}</div>
                 </div>
                 <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 border border-border flex items-center justify-center group-hover:border-primary/40 group-hover:bg-primary/5 transition-all flex-shrink-0 rounded-lg">
-                   <social.icon className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-muted group-hover:text-primary" />
+                  <social.icon className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-muted group-hover:text-primary" />
                 </div>
               </motion.a>
             ))}
@@ -77,7 +47,7 @@ export function Contact() {
 
           {/* Direct Email Module */}
           <div className="lg:col-span-4 h-full">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -101,19 +71,23 @@ export function Contact() {
               </div>
 
               <div className="pt-6 sm:pt-8 md:pt-10 relative z-10 space-y-3 sm:space-y-4">
-                <a 
-                  href="mailto:kunjkshah05@gmail.com" 
+                <a
+                  href="https://wa.me/919106878258"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group/btn flex items-center justify-center gap-2 sm:gap-3 w-full py-3.5 sm:py-4 md:py-5 bg-primary text-bg font-bold text-xs sm:text-sm tracking-wide hover:bg-txt transition-all duration-300 rounded-full shadow-lg shadow-primary/20 min-h-[48px]"
                 >
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:scale-110 transition-transform" />
-                  <span>Send Message</span>
+                  <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:scale-110 transition-transform" />
+                  <span>Chat on WhatsApp</span>
                 </a>
                 <div className="text-center">
-                  <a 
-                    href="mailto:kunjkshah05@gmail.com" 
+                  <a
+                    href="https://wa.me/919106878258"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-[10px] sm:text-xs text-muted/60 font-mono hover:text-primary transition-colors"
                   >
-                    kunjkshah05@gmail.com
+                    +91 91068 78258
                   </a>
                 </div>
               </div>

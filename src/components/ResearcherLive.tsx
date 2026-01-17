@@ -2,7 +2,9 @@ import { motion } from 'framer-motion'
 import { Github, Music, Activity, ExternalLink, Globe, Calendar, GitBranch, ChevronDown, Star, GitFork, Loader2 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
-const GITHUB_USERNAME = 'KunjShah95'
+import { IDENTITY } from '../data/portfolio'
+
+const GITHUB_USERNAME = IDENTITY.github_username
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
@@ -68,7 +70,7 @@ async function fetchContributionData(username: string, year: number): Promise<Co
       throw new Error('Failed to fetch contributions')
     }
     const data = await response.json()
-    
+
     return data.contributions.map((day: { date: string; count: number; level: number }) => ({
       date: day.date,
       count: day.count,
@@ -116,7 +118,7 @@ export function ResearcherLive() {
         )
         if (response.ok) {
           const data: GitHubRepo[] = await response.json()
-          const sortedRepos = data.sort((a, b) => 
+          const sortedRepos = data.sort((a, b) =>
             new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
           )
           setRepos(sortedRepos.slice(0, 8))
@@ -132,7 +134,7 @@ export function ResearcherLive() {
     async function fetchData() {
       setIsLoading(true)
       setError(null)
-      
+
       try {
         const data = await fetchContributionData(GITHUB_USERNAME, selectedYear)
         setContributionData(data)
@@ -144,17 +146,17 @@ export function ResearcherLive() {
         setIsLoading(false)
       }
     }
-    
+
     fetchData()
   }, [selectedYear])
 
   // Group contributions by week for grid display
   const getContributionGrid = () => {
     if (contributionData.length === 0) return []
-    
+
     const weeks: ContributionDay[][] = []
     let currentWeek: ContributionDay[] = []
-    
+
     // Pad the first week
     const firstDay = contributionData[0]
     if (firstDay) {
@@ -163,7 +165,7 @@ export function ResearcherLive() {
         currentWeek.push({ date: '', count: 0, level: -1 })
       }
     }
-    
+
     contributionData.forEach(day => {
       currentWeek.push(day)
       if (currentWeek.length === 7) {
@@ -171,14 +173,14 @@ export function ResearcherLive() {
         currentWeek = []
       }
     })
-    
+
     if (currentWeek.length > 0) {
       while (currentWeek.length < 7) {
         currentWeek.push({ date: '', count: 0, level: -1 })
       }
       weeks.push(currentWeek)
     }
-    
+
     return weeks
   }
 
@@ -186,7 +188,7 @@ export function ResearcherLive() {
   const getMonthLabels = () => {
     const labels: { month: string; weekIndex: number }[] = []
     const weeks = getContributionGrid()
-    
+
     weeks.forEach((week, index) => {
       const firstValidDay = week.find(d => d.date)
       if (firstValidDay) {
@@ -199,7 +201,7 @@ export function ResearcherLive() {
         }
       }
     })
-    
+
     return labels
   }
 
@@ -235,7 +237,7 @@ export function ResearcherLive() {
 
         <div className="grid lg:grid-cols-12 gap-8">
           {/* GitHub Contributions */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -262,7 +264,7 @@ export function ResearcherLive() {
                     <span>{selectedYear}</span>
                     <ChevronDown className={`w-4 h-4 transition-transform ${isYearDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  
+
                   {isYearDropdownOpen && (
                     <div className="absolute top-full right-0 mt-2 bg-surface border border-border rounded-xl overflow-hidden z-20 min-w-[120px] shadow-xl">
                       {years.map(year => (
@@ -272,9 +274,8 @@ export function ResearcherLive() {
                             setSelectedYear(year)
                             setIsYearDropdownOpen(false)
                           }}
-                          className={`w-full px-4 py-3 text-left text-sm hover:bg-secondary/10 transition-colors ${
-                            year === selectedYear ? 'bg-secondary/20 text-secondary' : 'text-txt'
-                          }`}
+                          className={`w-full px-4 py-3 text-left text-sm hover:bg-secondary/10 transition-colors ${year === selectedYear ? 'bg-secondary/20 text-secondary' : 'text-txt'
+                            }`}
                         >
                           {year}
                         </button>
@@ -283,9 +284,9 @@ export function ResearcherLive() {
                   )}
                 </div>
 
-                <a 
+                <a
                   href={`https://github.com/${GITHUB_USERNAME}`}
-                  target="_blank" 
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 border border-border hover:border-secondary/40 transition-all rounded-full group/link"
                 >
@@ -324,9 +325,9 @@ export function ResearcherLive() {
                   {/* Month Labels */}
                   <div className="flex mb-2 relative h-5">
                     {monthLabels.map((label, i) => (
-                      <div 
-                        key={i} 
-                        style={{ 
+                      <div
+                        key={i}
+                        style={{
                           position: 'absolute',
                           left: `${(label.weekIndex / weeks.length) * 100}%`,
                         }}
@@ -357,11 +358,10 @@ export function ResearcherLive() {
                           {week.map((day, dayIndex) => (
                             <div
                               key={`${weekIndex}-${dayIndex}`}
-                              className={`w-[12px] h-[12px] rounded-[2px] transition-all hover:ring-2 hover:ring-secondary/50 cursor-pointer ${
-                                day.level === -1 
-                                  ? 'bg-transparent' 
+                              className={`w-[12px] h-[12px] rounded-[2px] transition-all hover:ring-2 hover:ring-secondary/50 cursor-pointer ${day.level === -1
+                                  ? 'bg-transparent'
                                   : BLUE_CONTRIBUTION_COLORS[day.level] || BLUE_CONTRIBUTION_COLORS[0]
-                              }`}
+                                }`}
                               title={day.date ? `${day.date}: ${day.count} contributions` : ''}
                             />
                           ))}
@@ -387,7 +387,7 @@ export function ResearcherLive() {
           </motion.div>
 
           {/* Top Repositories - Real Data */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -475,7 +475,7 @@ export function ResearcherLive() {
         </div>
 
         {/* Spotify Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -494,12 +494,12 @@ export function ResearcherLive() {
             </div>
 
             <div className="lg:col-span-8 h-[152px] bg-bg/40 border border-border relative group/spotify rounded-xl overflow-hidden">
-              <iframe 
-                src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Ueb9CjXvhS?utm_source=generator&theme=0" 
-                width="100%" 
-                height="100%" 
-                frameBorder="0" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              <iframe
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Ueb9CjXvhS?utm_source=generator&theme=0"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
                 className="opacity-60 group-hover/spotify:opacity-100 transition-opacity duration-700"
               ></iframe>

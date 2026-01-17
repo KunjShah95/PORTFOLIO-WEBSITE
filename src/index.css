@@ -4,27 +4,35 @@
 
 @layer base {
   :root {
-    /* Light Mode (Premium Academic) */
-    --bg-main: 250 250 250; /* #FAFAFA */
+    /* Light Mode (Clean Editorial) */
+    --bg-main: 252 252 253; /* #FCFCFD */
     --surface-main: 255 255 255; /* #FFFFFF */
-    --surface-highlight: 244 244 245; /* #F4F4F5 */
-    --border-main: 228 228 231; /* #E4E4E7 */
-    --primary-rgb: 16 185 129; /* #10B981 */
-    --secondary-rgb: 59 130 246; /* #3B82F6 */
-    --txt-main: 9 9 11; /* #09090B */
-    --txt-muted: 113 113 122; /* #71717A */
-    --txt-dim: 161 161 170; /* #A1A1AA */
+    --surface-highlight: 241 245 249; /* #F1F5F9 */
+    --border-main: 226 232 240; /* #E2E8F0 */
+    
+    /* Vibrant Primary - Electric Emerald/Teal */
+    --primary-rgb: 0 200 150; /* #00C896 */
+    --secondary-rgb: 99 102 241; /* Indigo #6366F1 */
+    
+    --txt-main: 15 23 42; /* Slate 900 */
+    --txt-muted: 100 116 139; /* Slate 500 */
+    --txt-dim: 148 163 184; /* Slate 400 */
   }
 
   .dark {
-    /* Dark Mode (Void Surgical) */
-    --bg-main: 2 2 2; /* #020202 */
-    --surface-main: 8 8 8; /* #080808 */
-    --surface-highlight: 18 18 18; /* #121212 */
-    --border-main: 39 39 42; /* #27272A - Visible dark border */
-    --txt-main: 250 250 250; /* #FAFAFA */
-    --txt-muted: 161 161 170; /* #A1A1AA */
-    --txt-dim: 63 63 70; /* #3F3F46 */
+    /* Dark Mode (Obsidian Deep Space) */
+    --bg-main: 3 3 5; /* #030305 - Deepest Obsidian */
+    --surface-main: 10 10 12; /* #0A0A0C */
+    --surface-highlight: 20 20 25; /* #141419 */
+    --border-main: 30 30 35; /* #1E1E23 */
+    
+    /* Neon accents */
+    --primary-rgb: 45 212 191; /* Teal 400 #2DD4BF */
+    --secondary-rgb: 129 140 248; /* Indigo 400 #818CF8 */
+    
+    --txt-main: 248 250 252; /* Slate 50 */
+    --txt-muted: 148 163 184; /* Slate 400 */
+    --txt-dim: 71 85 105; /* Slate 600 */
   }
 
   html {

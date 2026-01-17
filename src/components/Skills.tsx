@@ -1,32 +1,6 @@
 import { motion } from 'framer-motion'
-import { Brain, Code2, Database, Terminal, Workflow, ChevronRight } from 'lucide-react'
-
-const skillGroups = [
-  {
-    category: 'Applied_GenAI',
-    icon: Brain,
-    description: 'Building practical semantic applications using modern LLM frameworks and orchestration tools.',
-    skills: ['LangChain / CrewAI', 'RAG Pipelines', 'Prompt Engineering', 'Agent Workflows']
-  },
-  {
-    category: 'Core_Machine_Learning',
-    icon: Workflow,
-    description: 'Solid academic foundation in neural networks, computer vision, and predictive modeling.',
-    skills: ['PyTorch / TensorFlow', 'Computer Vision (OpenCV)', 'NLP / Transformers', 'Data Science (Pandas)']
-  },
-  {
-    category: 'Full_Stack_Dev',
-    icon: Terminal,
-    description: 'Bridging the gap between AI models and user-facing applications with robust engineering.',
-    skills: ['React / TypeScript', 'FastAPI / Python', 'Database Design', 'API Integration']
-  },
-  {
-    category: 'DevOps_&_Tools',
-    icon: Database,
-    description: 'Proficiency in modern deployment workflows, version control, and cloud environments.',
-    skills: ['Git / GitHub', 'Docker / Containers', 'Linux / Bash', 'Cloud Deployment']
-  }
-]
+import { Code2, ChevronRight } from 'lucide-react'
+import { SKILL_GROUPS } from '../data/portfolio'
 
 export function Skills() {
   return (
@@ -34,7 +8,7 @@ export function Skills() {
       <div className="container-aligned">
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-12 mb-16 gap-8">
           <div className="space-y-4">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -53,7 +27,7 @@ export function Skills() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border">
-          {skillGroups.map((group, i) => (
+          {SKILL_GROUPS.map((group, i) => (
             <motion.div
               key={group.category}
               initial={{ opacity: 0 }}
@@ -78,7 +52,7 @@ export function Skills() {
                     {group.description}
                   </p>
                 </div>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {group.skills.map((skill) => (
                     <div key={skill} className="flex items-center gap-3 group/skill">
@@ -90,13 +64,13 @@ export function Skills() {
                   ))}
                 </div>
               </div>
-              
+
               <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-primary/10 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-1000"></div>
             </motion.div>
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
