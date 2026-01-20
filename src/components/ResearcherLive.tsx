@@ -1,19 +1,18 @@
 import { motion } from 'framer-motion'
-import { Github, Music, Activity, ExternalLink, Globe, Calendar, GitBranch, ChevronDown, Star, GitFork, Loader2 } from 'lucide-react'
+import { Github, Music, Activity, ExternalLink, Calendar, GitBranch, ChevronDown, Loader2 } from 'lucide-react'
 import { useState, useEffect } from 'react'
-
 import { IDENTITY } from '../data/portfolio'
 
 const GITHUB_USERNAME = IDENTITY.github_username
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-const BLUE_CONTRIBUTION_COLORS = [
-  'bg-secondary/10',
-  'bg-secondary/30',
-  'bg-secondary/50',
-  'bg-secondary/70',
-  'bg-secondary',
+const CONTRIBUTION_COLORS = [
+  'bg-surfaceHighlight',
+  'bg-primary/20',
+  'bg-primary/40',
+  'bg-primary/60',
+  'bg-primary',
 ]
 
 interface GitHubRepo {
@@ -150,14 +149,12 @@ export function ResearcherLive() {
     fetchData()
   }, [selectedYear])
 
-  // Group contributions by week for grid display
   const getContributionGrid = () => {
     if (contributionData.length === 0) return []
 
     const weeks: ContributionDay[][] = []
     let currentWeek: ContributionDay[] = []
 
-    // Pad the first week
     const firstDay = contributionData[0]
     if (firstDay) {
       const dayOfWeek = new Date(firstDay.date).getDay()
@@ -184,7 +181,6 @@ export function ResearcherLive() {
     return weeks
   }
 
-  // Get month labels with positions
   const getMonthLabels = () => {
     const labels: { month: string; weekIndex: number }[] = []
     const weeks = getContributionGrid()
@@ -209,25 +205,27 @@ export function ResearcherLive() {
   const monthLabels = getMonthLabels()
 
   return (
-    <section id="live" className="py-32">
-      <div className="container-aligned space-y-20">
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-10 gap-8">
+    <section id="live" className="section-padding relative overflow-hidden">
+      <div className="container-aligned space-y-16 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border/50 pb-8 gap-6">
           <div className="space-y-4">
-            <div className="flex items-center gap-3 text-primary font-mono text-[10px] tracking-[0.6em] font-black uppercase">
+            <div className="flex items-center gap-3 text-primary txt-mono text-xs tracking-widest font-bold uppercase">
               <Activity className="w-4 h-4" />
               LIVE_DATA_SYNC
             </div>
-            <h2 className="text-6xl font-black tracking-tighter text-txt uppercase italic">SYSTEM <span className="text-secondary opacity-60 not-italic">VITALITY</span></h2>
+            <h2 className="text-4xl sm:text-6xl font-black tracking-tight text-txt uppercase leading-none">
+              System <span className="text-muted font-light">Vitality</span>
+            </h2>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             {userStats && (
-              <div className="flex items-center gap-6 text-sm text-muted">
+              <div className="flex items-center gap-6 text-xs font-bold txt-mono text-muted uppercase tracking-wider">
                 <div className="flex items-center gap-2">
-                  <span className="text-txt font-bold">{userStats.public_repos}</span>
+                  <span className="text-txt">{userStats.public_repos}</span>
                   <span>repos</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-txt font-bold">{userStats.followers}</span>
+                  <span className="text-txt">{userStats.followers}</span>
                   <span>followers</span>
                 </div>
               </div>
@@ -241,16 +239,18 @@ export function ResearcherLive() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-8 group bg-surface/20 border border-border p-8 lg:p-10 border-glow space-y-8 relative overflow-hidden rounded-2xl"
+            className="lg:col-span-8 bg-surface border border-border p-8 rounded-lg space-y-8"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-secondary/10 border border-secondary/20 flex items-center justify-center rounded-xl">
-                  <Github className="w-6 h-6 text-secondary" />
+                <div className="p-3 bg-surfaceHighlight rounded-md">
+                  <Github className="w-6 h-6 text-txt" />
                 </div>
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono text-muted uppercase tracking-[0.4em] font-black">CONTRIBUTION GRAPH</span>
-                  <h3 className="text-2xl font-black text-txt tracking-tight">GitHub Activity</h3>
+                  <h3 className="text-xl font-bold text-txt">Contribution Graph</h3>
+                  <div className="text-xs text-muted font-light">
+                    {isLoading ? 'Syncing...' : `${totalContributions} contributions in ${selectedYear}`}
+                  </div>
                 </div>
               </div>
 
@@ -258,15 +258,15 @@ export function ResearcherLive() {
                 <div className="relative">
                   <button
                     onClick={() => setIsYearDropdownOpen(!isYearDropdownOpen)}
-                    className="flex items-center gap-2 px-4 py-2.5 bg-surface/50 border border-border hover:border-secondary/40 transition-all rounded-full text-sm font-medium"
+                    className="flex items-center gap-2 px-3 py-1.5 bg-surfaceHighlight hover:bg-surfaceHighlight/80 transition-all rounded-sm text-xs font-bold txt-mono text-txt border border-border/50"
                   >
-                    <Calendar className="w-4 h-4 text-secondary" />
+                    <Calendar className="w-3 h-3 text-muted" />
                     <span>{selectedYear}</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform ${isYearDropdownOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-3 h-3 transition-transform ${isYearDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isYearDropdownOpen && (
-                    <div className="absolute top-full right-0 mt-2 bg-surface border border-border rounded-xl overflow-hidden z-20 min-w-[120px] shadow-xl">
+                    <div className="absolute top-full right-0 mt-2 bg-surface border border-border rounded-sm overflow-hidden z-20 min-w-[100px] shadow-xl">
                       {years.map(year => (
                         <button
                           key={year}
@@ -274,8 +274,7 @@ export function ResearcherLive() {
                             setSelectedYear(year)
                             setIsYearDropdownOpen(false)
                           }}
-                          className={`w-full px-4 py-3 text-left text-sm hover:bg-secondary/10 transition-colors ${year === selectedYear ? 'bg-secondary/20 text-secondary' : 'text-txt'
-                            }`}
+                          className={`w-full px-4 py-2 text-left text-xs hover:bg-surfaceHighlight transition-colors txt-mono ${year === selectedYear ? 'text-primary' : 'text-txt'}`}
                         >
                           {year}
                         </button>
@@ -283,46 +282,28 @@ export function ResearcherLive() {
                     </div>
                   )}
                 </div>
-
                 <a
                   href={`https://github.com/${GITHUB_USERNAME}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border border-border hover:border-secondary/40 transition-all rounded-full group/link"
+                  className="p-2 border border-border/50 hover:border-primary/40 hover:text-primary transition-all rounded-sm text-muted"
                 >
-                  <ExternalLink className="w-4 h-4 text-muted group-hover/link:text-secondary transition-colors" />
+                  <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-4 py-4 px-5 bg-secondary/5 border border-secondary/10 rounded-xl">
-              <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center">
-                <GitBranch className="w-5 h-5 text-secondary" />
-              </div>
-              <div>
-                <div className="text-2xl font-black text-txt">
-                  {isLoading ? (
-                    <Loader2 className="w-6 h-6 animate-spin" />
-                  ) : (
-                    totalContributions.toLocaleString()
-                  )}
-                </div>
-                <div className="text-xs text-muted font-mono">contributions in {selectedYear}</div>
-              </div>
-            </div>
-
-            <div className="relative">
+            <div className="relative overflow-x-auto custom-scrollbar pb-2">
               {isLoading ? (
-                <div className="flex items-center justify-center py-20">
-                  <Loader2 className="w-8 h-8 animate-spin text-secondary" />
+                <div className="flex items-center justify-center py-12">
+                  <Loader2 className="w-6 h-6 animate-spin text-muted" />
                 </div>
               ) : error ? (
-                <div className="flex items-center justify-center py-20 text-muted">
+                <div className="flex items-center justify-center py-12 text-sm text-muted">
                   {error}
                 </div>
               ) : (
-                <>
-                  {/* Month Labels */}
+                <div className="min-w-max">
                   <div className="flex mb-2 relative h-5">
                     {monthLabels.map((label, i) => (
                       <div
@@ -331,146 +312,81 @@ export function ResearcherLive() {
                           position: 'absolute',
                           left: `${(label.weekIndex / weeks.length) * 100}%`,
                         }}
-                        className="text-xs font-medium text-muted/80"
+                        className="text-[10px] font-bold text-muted uppercase tracking-wider"
                       >
                         {label.month}
                       </div>
                     ))}
                   </div>
-
-                  {/* Grid */}
-                  <div className="overflow-x-auto custom-scrollbar pb-4">
-                    <div className="flex gap-[3px] min-w-max">
-                      {/* Day labels */}
-                      <div className="flex flex-col gap-[3px] pr-2 text-[9px] font-mono text-muted/60">
-                        <div className="h-[12px]"></div>
-                        <div className="h-[12px] flex items-center">Mon</div>
-                        <div className="h-[12px]"></div>
-                        <div className="h-[12px] flex items-center">Wed</div>
-                        <div className="h-[12px]"></div>
-                        <div className="h-[12px] flex items-center">Fri</div>
-                        <div className="h-[12px]"></div>
-                      </div>
-
-                      {/* Weeks */}
-                      {weeks.map((week, weekIndex) => (
-                        <div key={weekIndex} className="flex flex-col gap-[3px]">
-                          {week.map((day, dayIndex) => (
-                            <div
-                              key={`${weekIndex}-${dayIndex}`}
-                              className={`w-[12px] h-[12px] rounded-[2px] transition-all hover:ring-2 hover:ring-secondary/50 cursor-pointer ${day.level === -1
-                                  ? 'bg-transparent'
-                                  : BLUE_CONTRIBUTION_COLORS[day.level] || BLUE_CONTRIBUTION_COLORS[0]
-                                }`}
-                              title={day.date ? `${day.date}: ${day.count} contributions` : ''}
-                            />
-                          ))}
-                        </div>
-                      ))}
+                  <div className="flex gap-[3px]">
+                    <div className="flex flex-col gap-[3px] pr-2 text-[8px] font-mono text-muted/60 pt-[15px]">
+                      <div className="h-[10px]"></div>
+                      <div className="h-[10px] flex items-center">Mon</div>
+                      <div className="h-[10px]"></div>
+                      <div className="h-[10px] flex items-center">Wed</div>
+                      <div className="h-[10px]"></div>
+                      <div className="h-[10px] flex items-center">Fri</div>
+                      <div className="h-[10px]"></div>
                     </div>
-                  </div>
-
-                  {/* Legend */}
-                  <div className="flex items-center justify-end gap-2 mt-4 text-xs text-muted">
-                    <span>Less</span>
-                    {BLUE_CONTRIBUTION_COLORS.map((color, i) => (
-                      <div key={i} className={`w-[12px] h-[12px] rounded-[2px] ${color}`} />
+                    {weeks.map((week, weekIndex) => (
+                      <div key={weekIndex} className="flex flex-col gap-[3px]">
+                        {week.map((day, dayIndex) => (
+                          <div
+                            key={`${weekIndex}-${dayIndex}`}
+                            className={`w-[10px] h-[10px] rounded-[1px] ${day.level === -1 ? 'bg-transparent' : CONTRIBUTION_COLORS[day.level] || CONTRIBUTION_COLORS[0]
+                              }`}
+                            title={day.date ? `${day.date}: ${day.count} contributions` : ''}
+                          />
+                        ))}
+                      </div>
                     ))}
-                    <span>More</span>
                   </div>
-                </>
+                </div>
               )}
             </div>
-
-            {/* Background Accent */}
-            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-secondary/5 blur-[100px] pointer-events-none"></div>
           </motion.div>
 
-          {/* Top Repositories - Real Data */}
+          {/* Top Repositories */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="lg:col-span-4 group bg-surface/20 border border-border p-8 border-glow space-y-6 relative overflow-hidden rounded-2xl"
+            className="lg:col-span-4 bg-surface border border-border p-8 rounded-lg space-y-6 flex flex-col"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-primary/10 border border-primary/20 flex items-center justify-center rounded-lg">
-                <GitBranch className="w-5 h-5 text-primary" />
-              </div>
-              <div className="space-y-0.5">
-                <span className="text-[9px] font-mono text-muted uppercase tracking-[0.3em] font-bold">TOP REPOS</span>
-                <h3 className="text-lg font-bold text-txt tracking-tight">Recent Activity</h3>
-              </div>
+            <div className="flex items-center gap-3">
+              <GitBranch className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-bold text-txt uppercase tracking-wide">Recent Activity</h3>
             </div>
 
-            <div className="space-y-3 max-h-[420px] overflow-y-auto custom-scrollbar pr-2">
-              {repos.length === 0 ? (
-                <div className="flex items-center justify-center py-10">
-                  <Loader2 className="w-6 h-6 animate-spin text-muted" />
-                </div>
-              ) : (
-                repos.map((repo, i) => (
-                  <motion.a
-                    key={repo.id}
-                    href={repo.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="block p-4 bg-surface/30 border border-border hover:border-primary/30 transition-all rounded-xl group/repo"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex-1 min-w-0">
-                        <div className="font-medium text-txt group-hover/repo:text-primary transition-colors truncate text-sm">
-                          {repo.name}
-                        </div>
-                        {repo.description && (
-                          <p className="text-[10px] text-muted/60 mt-1 line-clamp-2">
-                            {repo.description}
-                          </p>
-                        )}
-                        <div className="flex items-center gap-3 mt-2 flex-wrap">
-                          {repo.language && (
-                            <div className="flex items-center gap-1.5">
-                              <div className={`w-2.5 h-2.5 rounded-full ${getLanguageColor(repo.language)}`} />
-                              <span className="text-[10px] text-muted">{repo.language}</span>
-                            </div>
-                          )}
-                          {repo.stargazers_count > 0 && (
-                            <div className="flex items-center gap-1">
-                              <Star className="w-3 h-3 text-yellow-500" />
-                              <span className="text-[10px] text-muted">{repo.stargazers_count}</span>
-                            </div>
-                          )}
-                          {repo.forks_count > 0 && (
-                            <div className="flex items-center gap-1">
-                              <GitFork className="w-3 h-3 text-muted" />
-                              <span className="text-[10px] text-muted">{repo.forks_count}</span>
-                            </div>
-                          )}
-                        </div>
+            <div className="space-y-3 overflow-y-auto custom-scrollbar pr-2 flex-grow">
+              {repos.map((repo) => (
+                <a
+                  key={repo.id}
+                  href={repo.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-4 border border-border/50 hover:border-primary/40 bg-surfaceHighlight/20 hover:bg-surfaceHighlight/50 transition-all rounded-sm group"
+                >
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="text-sm font-bold text-txt group-hover:text-primary transition-colors truncate max-w-[180px]">{repo.name}</span>
+                    <ExternalLink className="w-3 h-3 text-muted/50 group-hover:text-primary transition-colors" />
+                  </div>
+                  {repo.description && (
+                    <p className="text-[10px] text-muted line-clamp-2 mb-3 leading-relaxed">{repo.description}</p>
+                  )}
+                  <div className="flex items-center gap-3 text-[10px] text-muted/60 txt-mono">
+                    {repo.language && (
+                      <div className="flex items-center gap-1.5">
+                        <div className={`w-2 h-2 rounded-full ${getLanguageColor(repo.language)}`} />
+                        {repo.language}
                       </div>
-                      <ExternalLink className="w-4 h-4 text-muted/40 group-hover/repo:text-primary transition-colors flex-shrink-0" />
-                    </div>
-                  </motion.a>
-                ))
-              )}
+                    )}
+                    <span>★ {repo.stargazers_count}</span>
+                  </div>
+                </a>
+              ))}
             </div>
-
-            <a
-              href={`https://github.com/${GITHUB_USERNAME}?tab=repositories`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full py-3 text-center text-sm text-muted hover:text-primary border border-border hover:border-primary/20 rounded-xl transition-all"
-            >
-              View all repositories →
-            </a>
-
-            {/* Background Accent */}
-            <div className="absolute -top-20 -left-20 w-48 h-48 bg-primary/5 blur-[80px] pointer-events-none"></div>
           </motion.div>
         </div>
 
@@ -480,39 +396,29 @@ export function ResearcherLive() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="group bg-surface/20 border border-border p-8 border-glow relative overflow-hidden rounded-2xl"
+          className="bg-surface border border-border p-6 rounded-lg flex flex-col md:flex-row items-center gap-6"
         >
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-4 flex items-center gap-4">
-              <div className="w-12 h-12 bg-[#1DB954]/10 border border-[#1DB954]/20 flex items-center justify-center rounded-xl">
-                <Music className="w-6 h-6 text-[#1DB954]" />
-              </div>
-              <div className="space-y-1">
-                <span className="text-[10px] font-mono text-muted uppercase tracking-[0.4em] font-black">RESEARCH_VIBES</span>
-                <h3 className="text-xl font-bold text-txt tracking-tight">Focus Playlist</h3>
-              </div>
+          <div className="flex items-center gap-4 min-w-[200px]">
+            <div className="p-3 bg-green-500/10 rounded-full">
+              <Music className="w-6 h-6 text-green-500" />
             </div>
-
-            <div className="lg:col-span-8 h-[152px] bg-bg/40 border border-border relative group/spotify rounded-xl overflow-hidden">
-              <iframe
-                src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Ueb9CjXvhS?utm_source=generator&theme=0"
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                className="opacity-60 group-hover/spotify:opacity-100 transition-opacity duration-700"
-              ></iframe>
+            <div>
+              <div className="text-[10px] txt-mono font-bold text-muted uppercase tracking-widest">Research Vibes</div>
+              <h3 className="text-lg font-bold text-txt">Focus Playlist</h3>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 mt-6">
-            <Globe className="w-3.5 h-3.5 text-[#1DB954] animate-pulse" />
-            <span className="text-[9px] font-mono text-muted uppercase tracking-[0.3em]">STREAMING_FROM_CORE_NETWORK</span>
+          <div className="flex-grow w-full h-[80px] rounded-lg overflow-hidden border border-border/50">
+            <iframe
+              src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Ueb9CjXvhS?utm_source=generator&theme=0"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              className="opacity-80 hover:opacity-100 transition-opacity"
+            ></iframe>
           </div>
-
-          {/* Background Accent */}
-          <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-[#1DB954]/5 blur-[80px] pointer-events-none"></div>
         </motion.div>
       </div>
     </section>

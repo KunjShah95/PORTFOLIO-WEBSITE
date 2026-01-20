@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { Trophy } from 'lucide-react'
+import { Trophy, Calendar } from 'lucide-react'
+import { SEO } from '../components/SEO'
 
 export function HackathonsPage() {
   const hackathons = [
@@ -27,48 +28,64 @@ export function HackathonsPage() {
   ]
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-8 sm:space-y-12">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-border pb-4 sm:pb-6 gap-3">
-        <div className="space-y-1 sm:space-y-2">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight text-txt mb-1 sm:mb-2">Hackathon_Record</h2>
-          <p className="text-muted text-xs sm:text-sm font-mono tracking-wider sm:tracking-widest uppercase">// COMPETITIVE_ENGAGEMENTS</p>
-        </div>
-      </div>
+    <div className="min-h-screen pt-32 pb-20">
+      <SEO
+        title="Hackathons"
+        description="Hackathon achievements and awards won by Kunj Shah. Competitive programming and rapid prototyping."
+        url="https://kunjshah.dev/hackathons"
+      />
 
-      <div className="grid grid-cols-1 gap-4 sm:gap-6">
-        {hackathons.map((h, i) => (
-          <motion.div 
-            key={i}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="group relative p-5 sm:p-6 md:p-8 bg-surface/50 border border-border hover:border-primary/30 transition-all"
-          >
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
-              <div className="space-y-3 sm:space-y-4">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
-                    <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-txt uppercase tracking-tight truncate">{h.title}</h3>
-                    <p className="text-primary text-[9px] sm:text-[10px] font-mono font-bold tracking-wider sm:tracking-widest">{h.award}</p>
-                  </div>
-                </div>
-                <div className="space-y-1.5 sm:space-y-2 border-l border-border pl-3 sm:pl-4">
-                   <p className="text-xs sm:text-sm font-mono text-muted uppercase tracking-wide sm:tracking-wider">PROJECT: {h.project}</p>
-                   <p className="text-xs sm:text-sm text-muted max-w-2xl">{h.description}</p>
-                </div>
-              </div>
-              <div className="text-left md:text-right flex-shrink-0">
-                <span className="text-xl sm:text-2xl font-mono text-txt/10 font-black tracking-tighter group-hover:text-primary/20 transition-colors">{h.date}</span>
-              </div>
+      <div className="container-aligned space-y-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border/50 pb-8 gap-8">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 text-primary txt-mono text-xs tracking-widest font-bold uppercase">
+              <Trophy className="w-4 h-4" />
+              Competitions
             </div>
-            
-            {/* Hover Beam Effect */}
-            <div className="absolute inset-0 border border-transparent group-hover:border-primary/20 transition-all pointer-events-none"></div>
-          </motion.div>
-        ))}
+            <h1 className="text-5xl sm:text-7xl font-black tracking-tight text-txt uppercase leading-none">
+              Hackathon <span className="text-muted font-light">Record</span>
+            </h1>
+          </div>
+        </div>
+
+        <div className="grid gap-6">
+          {hackathons.map((h, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="group p-8 border border-border bg-surface rounded-lg hover:border-primary/40 transition-all flex flex-col md:grid md:grid-cols-12 gap-8 items-start md:items-center"
+            >
+              <div className="md:col-span-8 flex items-start gap-6">
+                <div className="p-3 bg-surfaceHighlight rounded-md hidden sm:block">
+                  <Trophy className="w-5 h-5 text-primary" />
+                </div>
+                <div className="space-y-3">
+                  <div className="space-y-1">
+                    <h3 className="text-xl font-bold text-txt uppercase tracking-wide group-hover:text-primary transition-colors">
+                      {h.title.replace(/_/g, ' ')}
+                    </h3>
+                    <div className="text-xs font-bold txt-mono text-primary uppercase tracking-wider">{h.award}</div>
+                  </div>
+
+                  <div className="pl-4 border-l-2 border-border/50 space-y-1">
+                    <div className="text-[10px] font-bold txt-mono text-muted uppercase tracking-widest">Project: {h.project}</div>
+                    <p className="text-sm text-muted font-light leading-relaxed max-w-2xl">{h.description}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="md:col-span-4 flex justify-start md:justify-end w-full">
+                <div className="flex items-center gap-2 text-xs font-bold txt-mono text-muted uppercase tracking-wider bg-surfaceHighlight px-3 py-1.5 rounded-sm">
+                  <Calendar className="w-3 h-3" />
+                  {h.date}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   )

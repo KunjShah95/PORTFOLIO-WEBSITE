@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Github, Layout, Microscope, Activity, Code2 } from 'lucide-react'
+import { ArrowLeft, Github, Layout, Microscope, Activity, Code2, ArrowRight } from 'lucide-react'
 import { SEO } from '../components/SEO'
 
 const projectData: Record<string, any> = {
@@ -93,155 +93,151 @@ export function ProjectDetailPage() {
   if (!project) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center space-y-4">
-        <h1 className="text-4xl font-black italic">PROJECT_NOT_FOUND</h1>
-        <Link to="/projects" className="text-primary hover:underline uppercase font-mono tracking-widest">Back to Registry</Link>
+        <h1 className="text-4xl font-black">Project Not Found</h1>
+        <Link to="/projects" className="text-primary hover:underline uppercase font-mono tracking-widest text-sm">Back to Registry</Link>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen pt-24 sm:pt-32 pb-20">
-      <SEO 
+    <div className="min-h-screen pt-32 pb-20">
+      <SEO
         title={`${project.title} | Case Study`}
         description={project.desc}
       />
-      
+
       <div className="container-aligned">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           className="mb-12"
         >
-          <Link to="/projects" className="group inline-flex items-center gap-2 text-muted hover:text-primary transition-colors font-mono text-xs uppercase tracking-widest font-black">
+          <Link to="/projects" className="group inline-flex items-center gap-2 text-muted hover:text-primary transition-colors font-mono text-xs uppercase tracking-widest font-bold">
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            BACK_TO_REGISTRY
+            Back to Registry
           </Link>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start border-b border-border pb-16">
-          <div className="lg:col-span-8 space-y-6">
-             <div className="space-y-2">
-                <div className="text-[10px] font-mono text-primary uppercase tracking-[0.4em] font-black">{project.category}</div>
-                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-txt tracking-tighter uppercase italic leading-none">{project.title}</h1>
-             </div>
-             <p className="text-lg sm:text-xl text-txt font-medium max-w-2xl leading-relaxed opacity-80 italic">
-               {project.problem}
-             </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start border-b border-border/50 pb-16">
+          <div className="lg:col-span-8 space-y-8">
+            <div className="space-y-4">
+              <div className="text-xs font-bold txt-mono text-primary uppercase tracking-widest">{project.category}</div>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-txt tracking-tight uppercase leading-none">
+                {project.title}
+              </h1>
+            </div>
+            <p className="text-lg sm:text-xl text-muted font-light leading-relaxed max-w-3xl">
+              {project.problem}
+            </p>
           </div>
           <div className="lg:col-span-4 flex flex-col gap-6">
-             <div className="p-8 border border-border bg-surface/20 space-y-6">
-                <div className="space-y-1">
-                   <div className="text-[9px] font-mono text-muted uppercase tracking-widest">TECHNOLOGY_STACK</div>
-                   <div className="flex flex-wrap gap-2 pt-2">
-                      {project.tech.map((t: string) => (
-                        <span key={t} className="px-3 py-1 bg-txt/5 border border-border text-[10px] font-bold font-mono text-txt uppercase tracking-wider">{t}</span>
-                      ))}
-                   </div>
+            <div className="p-6 border border-border bg-surface rounded-lg space-y-6">
+              <div className="space-y-2">
+                <div className="text-xs font-bold txt-mono text-muted uppercase tracking-widest">Tech Stack</div>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((t: string) => (
+                    <span key={t} className="px-2 py-1 bg-surfaceHighlight rounded-sm text-[10px] font-bold txt-mono text-muted uppercase tracking-wider">{t}</span>
+                  ))}
                 </div>
-                <div className="pt-6 border-t border-border flex gap-4">
-                   <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-txt text-bg font-black text-[10px] tracking-[0.2em] uppercase hover:bg-primary hover:text-white transition-all">
-                      <Github className="w-4 h-4" /> REPO
-                   </a>
-                </div>
-             </div>
+              </div>
+              <div className="pt-4 border-t border-border/50">
+                <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full py-3 bg-txt text-bg rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-primary transition-colors shadow-lg hover:shadow-primary/20">
+                  <Github className="w-4 h-4" /> View Source
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 py-20">
-           
-           <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="space-y-8"
-           >
-              <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 flex items-center justify-center border border-primary/20 bg-primary/5 text-primary">
-                    <Layout className="w-6 h-6" />
-                 </div>
-                 <h2 className="text-2xl font-black italic tracking-tighter uppercase">System Architecture</h2>
-              </div>
-              <div className="text-muted font-mono text-sm leading-relaxed uppercase tracking-tight italic border-l-2 border-primary/20 pl-6">
-                 {project.architecture}
-              </div>
-           </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 py-20">
 
-           
-           <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.2 }}
-             className="space-y-8"
-           >
-              <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 flex items-center justify-center border border-primary/20 bg-primary/5 text-primary">
-                    <Microscope className="w-6 h-6" />
-                 </div>
-                 <h2 className="text-2xl font-black italic tracking-tighter uppercase">AI Techniques</h2>
-              </div>
-              <ul className="space-y-4">
-                 {project.ml_techniques.map((tech: string, i: number) => (
-                   <li key={i} className="flex items-start gap-3 text-[11px] font-mono text-txt uppercase tracking-wider">
-                      <div className="mt-1 w-1.5 h-1.5 bg-primary rounded-full shrink-0"></div>
-                      {tech}
-                   </li>
-                 ))}
-              </ul>
-           </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <div className="flex items-center gap-3 text-primary">
+              <Layout className="w-6 h-6" />
+              <h2 className="text-2xl font-bold text-txt uppercase tracking-tight">System Architecture</h2>
+            </div>
+            <div className="text-muted font-light leading-relaxed border-l-2 border-primary/20 pl-6">
+              {project.architecture}
+            </div>
+          </motion.div>
 
-           
-           <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="space-y-8"
-           >
-              <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 flex items-center justify-center border border-primary/20 bg-primary/5 text-primary">
-                    <Code2 className="w-6 h-6" />
-                 </div>
-                 <h2 className="text-2xl font-black italic tracking-tighter uppercase">Engineering Decisions</h2>
-              </div>
-              <div className="text-muted font-mono text-sm leading-relaxed uppercase tracking-tight italic border-l-2 border-primary/20 pl-6">
-                 {project.decisions}
-              </div>
-           </motion.div>
 
-           
-           <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.2 }}
-             className="space-y-8"
-           >
-              <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 flex items-center justify-center border border-primary/20 bg-primary/5 text-primary">
-                    <Activity className="w-6 h-6" />
-                 </div>
-                 <h2 className="text-2xl font-black italic tracking-tighter uppercase">Outcomes & Metrics</h2>
-              </div>
-              <ul className="space-y-4">
-                 {project.outcomes.map((metric: string, i: number) => (
-                   <li key={i} className="flex items-start gap-4 p-4 border border-border bg-surface/5">
-                      <div className="text-primary font-black font-mono text-xs">0{i+1}</div>
-                      <div className="text-[10px] font-mono text-txt uppercase tracking-wider leading-relaxed">{metric}</div>
-                   </li>
-                 ))}
-              </ul>
-           </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="space-y-6"
+          >
+            <div className="flex items-center gap-3 text-primary">
+              <Microscope className="w-6 h-6" />
+              <h2 className="text-2xl font-bold text-txt uppercase tracking-tight">AI Techniques</h2>
+            </div>
+            <ul className="space-y-3">
+              {project.ml_techniques.map((tech: string, i: number) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-muted font-light">
+                  <div className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full shrink-0"></div>
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="space-y-6"
+          >
+            <div className="flex items-center gap-3 text-primary">
+              <Code2 className="w-6 h-6" />
+              <h2 className="text-2xl font-bold text-txt uppercase tracking-tight">Engineering Decisions</h2>
+            </div>
+            <div className="text-muted font-light leading-relaxed border-l-2 border-primary/20 pl-6">
+              {project.decisions}
+            </div>
+          </motion.div>
+
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="space-y-6"
+          >
+            <div className="flex items-center gap-3 text-primary">
+              <Activity className="w-6 h-6" />
+              <h2 className="text-2xl font-bold text-txt uppercase tracking-tight">Outcomes & Metrics</h2>
+            </div>
+            <ul className="space-y-4">
+              {project.outcomes.map((metric: string, i: number) => (
+                <li key={i} className="flex items-start gap-4 p-4 border border-border/50 bg-surface/30 rounded-sm">
+                  <div className="text-primary font-bold txt-mono text-xl">0{i + 1}</div>
+                  <div className="text-sm text-muted font-light leading-relaxed">{metric}</div>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
 
-        
-        <div className="mt-20 pt-20 border-t border-border flex flex-col items-center">
-            <h3 className="text-[10px] font-mono text-muted uppercase tracking-[0.5em] mb-12">NEXT_PROJECT</h3>
-            <Link 
-              to={slug === 'cinepulse' ? '/projects/gap-miner' : '/projects/cinepulse'} 
-              className="text-4xl sm:text-6xl md:text-8xl font-black italic tracking-tighter uppercase hover:text-primary transition-colors text-center"
-            >
-              {slug === 'cinepulse' ? 'GAP_MINER' : 'CINEPULSE'}
-            </Link>
+
+        <div className="mt-20 pt-20 border-t border-border/50 flex flex-col items-center space-y-4">
+          <h3 className="text-xs font-bold txt-mono text-muted uppercase tracking-widest">Next Case Study</h3>
+          <Link
+            to={slug === 'cinepulse' ? '/projects/gap-miner' : '/projects/cinepulse'}
+            className="group flex items-center gap-4 text-3xl sm:text-5xl font-black text-txt uppercase tracking-tight hover:text-primary transition-colors"
+          >
+            {slug === 'cinepulse' ? 'GAP Miner' : 'CinePulse'}
+            <ArrowRight className="w-8 h-8 sm:w-12 sm:h-12 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+          </Link>
         </div>
       </div>
     </div>
