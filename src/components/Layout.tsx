@@ -138,46 +138,97 @@ export function Layout({ children }: LayoutProps) {
 
          <AIAssistant />
 
-         {/* Academic Footer */}
-         <footer className="border-t border-border/50 bg-surface/30 section-padding">
-            <div className="container-aligned">
+         {/* Industrial Footer */}
+         <footer className="border-t border-primary/20 bg-surface/20 section-padding relative overflow-hidden">
+            <div className="absolute inset-0 opacity-5">
+               <svg className="w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                  <defs>
+                     <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="currentColor" strokeWidth="0.5" />
+                     </pattern>
+                  </defs>
+                  <rect width="1000" height="1000" fill="url(#grid)" />
+               </svg>
+            </div>
+
+            <div className="container-aligned relative z-10">
                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 sm:gap-16">
+                  {/* Brand Section */}
                   <div className="col-span-1 md:col-span-2 space-y-6">
-                     <Link to="/" className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded-sm bg-primary text-white flex items-center justify-center font-bold text-xs">K</div>
-                        <span className="text-xs font-black tracking-widest text-txt uppercase">SHAH_KUNJ</span>
+                     <Link to="/" className="flex items-center gap-3 group">
+                        <div className="w-8 h-8 bg-primary/80 group-hover:bg-primary transition-colors text-white flex items-center justify-center font-black text-xs border border-primary/40 rounded-sm">
+                           K
+                        </div>
+                        <div className="flex flex-col">
+                           <span className="text-xs font-black tracking-widest text-txt group-hover:text-primary transition-colors uppercase">KUNJ SHAH</span>
+                           <span className="text-[10px] txt-mono text-muted/60 uppercase tracking-wider">AI Systems Engineer</span>
+                        </div>
                      </Link>
-                     <p className="text-sm text-muted leading-relaxed max-w-sm font-light">
-                        Exploring the intersection of autonomous systems and neural architectures.
-                        Building the next generation of intelligent agents.
+                     <p className="text-sm text-muted/60 leading-relaxed max-w-sm font-light">
+                        Architecting autonomous systems at the intersection of neural networks and industrial computation.
+                        Crafting the next generation of intelligent agents.
                      </p>
-                     <div className="flex gap-4 pt-4">
-                        <a href="https://github.com" target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors txt-mono text-xs uppercase font-bold">Github</a>
-                        <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors txt-mono text-xs uppercase font-bold">Twitter</a>
-                        <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors txt-mono text-xs uppercase font-bold">LinkedIn</a>
+                     <div className="flex gap-6 pt-4 border-t border-primary/10">
+                        <a
+                           href="https://github.com"
+                           target="_blank"
+                           rel="noreferrer"
+                           className="txt-mono text-xs text-muted/60 hover:text-primary transition-colors font-bold uppercase tracking-wider hover:translate-x-1 duration-300"
+                        >
+                           Github →
+                        </a>
+                        <a
+                           href="https://twitter.com"
+                           target="_blank"
+                           rel="noreferrer"
+                           className="txt-mono text-xs text-muted/60 hover:text-primary transition-colors font-bold uppercase tracking-wider hover:translate-x-1 duration-300"
+                        >
+                           Twitter →
+                        </a>
+                        <a
+                           href="https://linkedin.com"
+                           target="_blank"
+                           rel="noreferrer"
+                           className="txt-mono text-xs text-muted/60 hover:text-primary transition-colors font-bold uppercase tracking-wider hover:translate-x-1 duration-300"
+                        >
+                           LinkedIn →
+                        </a>
                      </div>
                   </div>
 
+                  {/* Navigation Map */}
                   <div className="space-y-6">
-                     <h4 className="text-xs font-black text-txt tracking-widest uppercase mb-4">Sitemap</h4>
-                     <div className="flex flex-col gap-3">
-                        <Link to="/projects" className="text-sm text-muted hover:text-primary transition-colors hover:pl-2 duration-300">Projects</Link>
-                        <Link to="/skills" className="text-sm text-muted hover:text-primary transition-colors hover:pl-2 duration-300">Capabilities</Link>
-                        <Link to="/labs" className="text-sm text-muted hover:text-primary transition-colors hover:pl-2 duration-300">Research Labs</Link>
-                        <Link to="/contact" className="text-sm text-muted hover:text-primary transition-colors hover:pl-2 duration-300">Contact</Link>
+                     <h4 className="text-xs font-black text-txt tracking-widest uppercase border-b border-primary/20 pb-3">NAVIGATION</h4>
+                     <div className="flex flex-col gap-2 txt-mono">
+                        <Link to="/projects" className="text-xs text-muted/60 hover:text-primary transition-all hover:pl-2 duration-300 uppercase tracking-wider font-bold">→ Projects</Link>
+                        <Link to="/skills" className="text-xs text-muted/60 hover:text-primary transition-all hover:pl-2 duration-300 uppercase tracking-wider font-bold">→ Capabilities</Link>
+                        <Link to="/labs" className="text-xs text-muted/60 hover:text-primary transition-all hover:pl-2 duration-300 uppercase tracking-wider font-bold">→ Research Labs</Link>
+                        <Link to="/blogs" className="text-xs text-muted/60 hover:text-primary transition-all hover:pl-2 duration-300 uppercase tracking-wider font-bold">→ Archive</Link>
                      </div>
                   </div>
 
+                  {/* System Status */}
                   <div className="space-y-6">
-                     <h4 className="text-xs font-black text-txt tracking-widest uppercase mb-4">Status</h4>
-                     <div className="flex items-center gap-2 px-3 py-1.5 border border-primary/20 bg-primary/5 text-primary rounded-full w-fit">
-                        <div className="w-1.5 h-1.5 bg-primary animate-pulse rounded-full"></div>
-                        <span className="text-[10px] txt-mono tracking-widest font-bold uppercase">Open for Work</span>
+                     <h4 className="text-xs font-black text-txt tracking-widest uppercase border-b border-primary/20 pb-3">SYSTEM_STATUS</h4>
+                     <div className="space-y-4">
+                        <div className="flex items-center gap-3 px-4 py-3 border border-primary/30 bg-primary/5 rounded-sm">
+                           <div className="w-2 h-2 bg-primary/80 animate-pulse rounded-full shadow-lg shadow-primary/40"></div>
+                           <span className="txt-mono text-[11px] tracking-widest font-bold text-primary uppercase">ONLINE</span>
+                        </div>
+                        <div className="txt-mono text-xs text-muted/50 space-y-1">
+                           <p>© 2024 - 2025 Kunj Shah</p>
+                           <p>Built on Vite + React</p>
+                           <p>Deployed on Vercel Edge</p>
+                        </div>
                      </div>
-                     <div className="text-xs text-muted/50 pt-2">
-                        © 2026 Kunj Shah <br />
-                        Deployed on Vercel Edge
-                     </div>
+                  </div>
+               </div>
+
+               {/* Divider */}
+               <div className="border-t border-primary/10 mt-12 pt-8">
+                  <div className="flex items-center justify-between txt-mono text-[10px] text-muted/40 uppercase tracking-wider">
+                     <span>SYSTEM_v2.1 | INDUSTRIAL_VOID</span>
+                     <span>KUNJ_SHAH.DEV</span>
                   </div>
                </div>
             </div>

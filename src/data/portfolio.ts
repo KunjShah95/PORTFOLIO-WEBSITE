@@ -1,4 +1,4 @@
-import { Project, Experience, SkillGroup, Education, UserIdentity, Social } from '../types';
+import { Project, Experience, SkillGroup, Education, UserIdentity, Social, Blog, LogEntry } from '../types';
 import { Brain, Database, Terminal, Workflow, ExternalLink, Github, Twitter, Linkedin } from 'lucide-react';
 
 export const IDENTITY: UserIdentity = {
@@ -134,4 +134,116 @@ export const SOCIALS: Social[] = [
         icon: ExternalLink,
         label: 'MODEL_VAULT'
     }
+];
+
+export const BLOGS: Blog[] = [
+    {
+        id: 'B001',
+        title: 'Building Production-Grade Agentic Systems',
+        slug: 'agentic-systems-production',
+        category: 'SYSTEMS_ARCHITECTURE',
+        excerpt: 'Deep dive into designing autonomous agents that are reliable, scalable, and production-ready. Covering orchestration frameworks, error handling, and distributed reasoning.',
+        date: 'JAN 2026',
+        readTime: 12,
+        tags: ['AGENTS', 'SYSTEMS', 'PRODUCTION', 'ARCHITECTURE'],
+        featured: true,
+    },
+    {
+        id: 'B002',
+        title: 'MLOps at Scale: Lessons from High-Frequency Model Deployments',
+        slug: 'mlops-scale-deployments',
+        category: 'DEVOPS_INFRASTRUCTURE',
+        excerpt: 'Practical guide to managing continuous model updates in production. Best practices for versioning, monitoring, rollback strategies, and cost optimization.',
+        date: 'DEC 2025',
+        readTime: 10,
+        tags: ['MLOPS', 'DEPLOYMENT', 'INFRASTRUCTURE', 'MONITORING'],
+        featured: true,
+    },
+    {
+        id: 'B003',
+        title: 'Computer Vision at Edge: Optimizing YOLOv8 for Real-Time Inference',
+        slug: 'cv-edge-optimization',
+        category: 'COMPUTER_VISION',
+        excerpt: 'Techniques for deploying vision models on edge devices. Motion deblurring, quantization strategies, and achieving sub-100ms latency on industrial hardware.',
+        date: 'NOV 2025',
+        readTime: 14,
+        tags: ['VISION', 'EDGE', 'OPTIMIZATION', 'INFERENCE'],
+        featured: true,
+    },
+    {
+        id: 'B004',
+        title: 'RAG Pipelines: Semantic Search and Contextual Retrieval',
+        slug: 'rag-semantic-search',
+        category: 'GENERATIVE_AI',
+        excerpt: 'Comprehensive guide to building Retrieval-Augmented Generation systems. Vector database selection, embedding strategies, and improving LLM accuracy with external knowledge.',
+        date: 'OCT 2025',
+        readTime: 11,
+        tags: ['RAG', 'LLM', 'EMBEDDINGS', 'SEMANTIC_SEARCH'],
+        featured: false,
+    },
+    {
+        id: 'B005',
+        title: 'Prompt Engineering for Complex Multi-Step Reasoning',
+        slug: 'prompt-engineering-reasoning',
+        category: 'GENERATIVE_AI',
+        excerpt: 'Advanced prompting techniques for breaking down complex problems. Chain-of-thought patterns, structured outputs, and evaluating reasoning quality.',
+        date: 'SEP 2025',
+        readTime: 9,
+        tags: ['PROMPTS', 'LLM', 'REASONING', 'ENGINEERING'],
+        featured: false,
+    },
+    {
+        id: 'B006',
+        title: 'Anomaly Detection in High-Dimensional Data Streams',
+        slug: 'anomaly-detection-streams',
+        category: 'MACHINE_LEARNING',
+        excerpt: 'Building robust anomaly detection systems for real-time data. Handling concept drift, feature engineering, and deployment considerations for fraud and security.',
+        date: 'AUG 2025',
+        readTime: 13,
+        tags: ['ANOMALY', 'STREAMING', 'DETECTION', 'PRODUCTION'],
+        featured: false,
+    },
+];
+
+export const LOGS: LogEntry[] = [
+    {
+        id: 'LOG001',
+        date: '2026-01-27',
+        hash: 'A3F7C2',
+        module: 'AGENT_ORCHESTRATION',
+        action: 'DEPLOY_CREW_FRAMEWORK_v1',
+        details: 'Deployed hierarchical multi-agent system with task delegation and autonomous problem-solving capabilities. 99.2% uptime achieved.',
+    },
+    {
+        id: 'LOG002',
+        date: '2026-01-25',
+        hash: 'B9E5F1',
+        module: 'MLOPS_PIPELINE',
+        action: 'INTEGRATE_MONITORING_SUITE',
+        details: 'Added comprehensive ML monitoring with prometheus, grafana dashboards, and automated drift detection triggers.',
+    },
+    {
+        id: 'LOG003',
+        date: '2026-01-23',
+        hash: 'C4D2A8',
+        module: 'DATA_SYSTEMS',
+        action: 'OPTIMIZE_VECTOR_INDEX',
+        details: 'Implemented HNSW indexing for semantic search. Reduced query latency from 450ms to 32ms at scale.',
+    },
+    {
+        id: 'LOG004',
+        date: '2026-01-20',
+        hash: 'D7B1E6',
+        module: 'INFERENCE_ENGINE',
+        action: 'QUANTIZE_VISION_MODEL',
+        details: 'Converted YOLOv8 to INT8 with 4.2x speedup. Maintained 98.7% accuracy on validation set.',
+    },
+    {
+        id: 'LOG005',
+        date: '2026-01-18',
+        hash: 'E2F9C3',
+        module: 'FRONTEND_SYSTEMS',
+        action: 'REDESIGN_TO_INDUSTRIAL_THEME',
+        details: 'Completed VOID/INDUSTRIAL aesthetic redesign. Implemented kinetic scroll-linked animations and 3D perspective grid.',
+    },
 ];

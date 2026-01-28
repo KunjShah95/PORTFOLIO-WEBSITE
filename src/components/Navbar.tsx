@@ -1,4 +1,5 @@
 import { Command } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 interface NavbarProps {
   onOpenCommand: () => void
@@ -6,27 +7,40 @@ interface NavbarProps {
 
 export function Navbar({ onOpenCommand }: NavbarProps) {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-black/50 backdrop-blur-md border-b border-white/5 supports-[backdrop-filter]:bg-background/20">
-      <div className="mx-auto max-w-2xl px-6 md:px-0 lg:max-w-3xl flex items-center justify-between py-4">
-        <a href="/" className="text-lg font-bold tracking-tighter text-white hover:text-neutral-300 transition-colors">
-          ramx<span className="text-neutral-600">.in</span>
+    <motion.nav
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="fixed top-0 left-0 right-0 z-40 bg-bg/80 backdrop-blur-md border-b border-primary/20"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 flex items-center justify-between py-4">
+        {/* Logo */}
+        <a
+          href="/"
+          className="text-sm font-bold tracking-widest txt-mono text-txt hover:text-primary transition-colors uppercase"
+        >
+          KUNJ_SHAH
         </a>
-        <div className="flex items-center gap-6">
-          <ul className="hidden items-center gap-6 text-sm font-medium text-neutral-400 sm:flex">
-            <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
-            <li><a href="#projects" className="hover:text-white transition-colors">Work</a></li>
-            <li><a href="#experience" className="hover:text-white transition-colors">Experience</a></li>
+
+        {/* Nav Links */}
+        <div className="flex items-center gap-8">
+          <ul className="hidden items-center gap-8 text-xs font-bold txt-mono uppercase sm:flex text-muted/70 hover:text-muted transition-colors">
+            <li><a href="#about" className="hover:text-primary transition-colors">About</a></li>
+            <li><a href="#projects" className="hover:text-primary transition-colors">Projects</a></li>
+            <li><a href="#labs" className="hover:text-primary transition-colors">Labs</a></li>
           </ul>
-          <button 
+
+          {/* Command Palette */}
+          <button
             onClick={onOpenCommand}
-            className="group flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-900/50 px-4 py-1.5 text-xs text-neutral-400 hover:border-neutral-700 hover:text-white transition-all hover:bg-neutral-800"
+            className="group flex items-center gap-2 px-3 py-1.5 border border-primary/30 bg-primary/5 hover:border-primary/60 hover:bg-primary/10 text-xs text-muted hover:text-primary font-bold txt-mono uppercase transition-all rounded-sm"
           >
-            <Command className="h-3 w-3 group-hover:text-white transition-colors" />
-            <span>Search</span>
-            <kbd className="hidden rounded bg-neutral-800 px-1.5 font-sans text-[10px] text-neutral-500 sm:inline-block border border-neutral-700 group-hover:text-neutral-400 transition-colors">⌘K</kbd>
+            <Command className="w-3 h-3" />
+            <span className="hidden sm:inline">Search</span>
+            <kbd className="hidden rounded bg-primary/10 px-1.5 font-sans text-[9px] text-muted sm:inline-block border border-primary/30 group-hover:border-primary/60 group-hover:text-primary transition-colors">⌘K</kbd>
           </button>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   )
 }

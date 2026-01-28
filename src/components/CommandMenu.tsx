@@ -33,7 +33,7 @@ export function CommandMenu({ open, setOpen }: CommandMenuProps) {
     { icon: Activity, label: 'RESEARCH_LABS', shortcut: 'R', path: '/labs' },
   ]
 
-  const filteredCommands = commands.filter(cmd => 
+  const filteredCommands = commands.filter(cmd =>
     cmd.label.toLowerCase().includes(search.toLowerCase())
   )
 
@@ -70,58 +70,58 @@ export function CommandMenu({ open, setOpen }: CommandMenuProps) {
                 placeholder="Query_System_Protocols..."
               />
               <div className="flex items-center gap-3">
-                 <kbd className="inline-flex select-none items-center gap-1 border border-border bg-surface/5 px-3 py-1 font-mono text-[9px] font-black text-muted uppercase">
-                    ESC
-                 </kbd>
+                <kbd className="inline-flex select-none items-center gap-1 border border-border bg-surface/5 px-3 py-1 font-mono text-[9px] font-black text-muted uppercase">
+                  ESC
+                </kbd>
               </div>
             </div>
-            
+
             <div className="p-4 max-h-[400px] overflow-y-auto custom-scrollbar">
               <div className="mb-6 px-6 pt-4 text-[8px] font-black font-mono text-muted/30 uppercase tracking-[0.5em] italic">Station_Registry</div>
               <div className="space-y-1">
-                 {filteredCommands.length > 0 ? (
-                    filteredCommands.map((cmd) => (
-                      <button 
-                         key={cmd.label}
-                         onClick={() => handleAction(cmd.path)}
-                         className="flex w-full items-center justify-between px-6 py-5 text-[10px] group transition-all duration-500 hover:bg-surface/5 border border-transparent hover:border-border"
-                      >
-                         <div className="flex items-center gap-6">
-                            <div className="w-12 h-12 bg-surface/5 border border-border group-hover:border-primary/40 group-hover:bg-primary/5 transition-all flex items-center justify-center">
-                               <cmd.icon className="h-4 w-4 text-muted group-hover:text-primary transition-colors" />
-                            </div>
-                            <span className="font-black font-mono tracking-[0.3em] uppercase text-muted group-hover:text-txt transition-colors italic">{cmd.label}</span>
-                         </div>
-                         {cmd.shortcut && (
-                            <span className="text-[9px] font-black font-mono text-muted/20 group-hover:text-primary transition-all tracking-widest italic">{cmd.shortcut}</span>
-                         )}
-                      </button>
-                    ))
-                 ) : (
-                    <div className="px-6 py-24 text-center space-y-6">
-                       <Terminal className="w-12 h-12 text-txt/5 mx-auto" />
-                       <p className="text-[10px] font-black font-mono text-muted/20 uppercase tracking-[0.5em] italic">
-                          NULL_MATCH: SYSTEM_OFFLINE
-                       </p>
-                    </div>
-                 )}
+                {filteredCommands.length > 0 ? (
+                  filteredCommands.map((cmd) => (
+                    <button
+                      key={cmd.label}
+                      onClick={() => handleAction(cmd.path)}
+                      className="flex w-full items-center justify-between px-6 py-5 text-[10px] group transition-all duration-500 hover:bg-surface/5 border border-transparent hover:border-border"
+                    >
+                      <div className="flex items-center gap-6">
+                        <div className="w-12 h-12 bg-surface/5 border border-border group-hover:border-primary/40 group-hover:bg-primary/5 transition-all flex items-center justify-center">
+                          <cmd.icon className="h-4 w-4 text-muted group-hover:text-primary transition-colors" />
+                        </div>
+                        <span className="font-black font-mono tracking-[0.3em] uppercase text-muted group-hover:text-txt transition-colors italic">{cmd.label}</span>
+                      </div>
+                      {cmd.shortcut && (
+                        <span className="text-[9px] font-black font-mono text-muted/20 group-hover:text-primary transition-all tracking-widest italic">{cmd.shortcut}</span>
+                      )}
+                    </button>
+                  ))
+                ) : (
+                  <div className="px-6 py-24 text-center space-y-6">
+                    <Terminal className="w-12 h-12 text-txt/5 mx-auto" />
+                    <p className="text-[10px] font-black font-mono text-muted/20 uppercase tracking-[0.5em] italic">
+                      NULL_MATCH: SYSTEM_OFFLINE
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
 
             <div className="p-8 border-t border-border bg-surface/40 flex items-center justify-between text-[8px] font-black font-mono text-muted/20 uppercase tracking-[0.6em] italic">
-               <div className="flex items-center gap-10">
-                  <span className="flex items-center gap-3">
-                    <Command className="w-3 h-3 text-primary" />
-                    Console_v2.1
-                  </span>
-                  <span>Ahmedabad // IN</span>
-               </div>
-               <div className="flex items-center gap-8">
-                  <div className="flex items-center gap-3">
-                     <span className="text-txt opacity-40">ENTER</span>
-                     <span>Select</span>
-                  </div>
-               </div>
+              <div className="flex items-center gap-10">
+                <span className="flex items-center gap-3">
+                  <Command className="w-3 h-3 text-primary" />
+                  Console_v2.1
+                </span>
+                <span>Ahmedabad // IN</span>
+              </div>
+              <div className="flex items-center gap-8">
+                <div className="flex items-center gap-3">
+                  <span className="text-txt opacity-40">ENTER</span>
+                  <span>Select</span>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

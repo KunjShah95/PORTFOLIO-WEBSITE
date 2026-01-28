@@ -1,129 +1,217 @@
-import { motion } from 'framer-motion'
-import { Beaker, Cpu, ArrowDown, GraduationCap } from 'lucide-react'
+import { useScroll, useTransform, motion } from 'framer-motion'
+import { useRef } from 'react'
+import { ArrowDown } from 'lucide-react'
 
 export function Hero() {
-  const stats = [
-    { icon: GraduationCap, label: 'SYSTEM_STATUS', value: 'AGENT_BUILDER' },
-    { icon: Cpu, label: 'COMPUTE_FOCUS', value: 'AI_SYSTEMS' },
-    { icon: Beaker, label: 'PROJECTS_DEPLOYED', value: '12+' },
-  ]
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollY } = useScroll()
+
+  // Sophisticated scroll animations
+  const scaleProgress = useTransform(scrollY, [0, 500], [1, 0.75])
+  const opacityProgress = useTransform(scrollY, [400, 700], [1, 0])
+  const yProgress = useTransform(scrollY, [0, 600], [0, 150])
+
+  // Grid animations
+  const gridOpacity = useTransform(scrollY, [0, 300], [0.4, 0.1])
+  const gridScale = useTransform(scrollY, [0, 500], [1, 1.5])
 
   return (
-    <section id="about" className="min-h-screen flex flex-col items-center justify-center section-padding relative overflow-hidden">
-      <div className="container-aligned relative z-10 flex flex-col items-center text-center">
-
-        {/* Academic Status Badge */}
+    <section
+      ref={containerRef}
+      id="about"
+      className="relative h-screen overflow-hidden"
+    >
+      {/* Fixed viewport */}
+      <div className="fixed inset-0 bg-bg flex flex-col items-center justify-center overflow-hidden">
+        {/* Animated Grid Background */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 bg-primary/5 border border-primary/20 text-primary txt-mono text-[10px] sm:text-xs tracking-[0.2em] font-bold uppercase mb-6 sm:mb-12 rounded-full"
+          style={{
+            opacity: gridOpacity,
+            scale: gridScale,
+          }}
+          className="absolute inset-0 pointer-events-none"
         >
-          <div className="w-1.5 h-1.5 bg-primary animate-pulse rounded-full"></div>
-          <span className="hidden sm:inline">AI_SYSTEMS_ENGINEER // AUTONOMOUS_AGENT_BUILDER</span>
-          <span className="sm:hidden">AI_SYSTEMS_ENGINEER</span>
-        </motion.div>
+          <div className="w-full h-full relative">
+            {/* Perspective grid lines */}
+            <svg className="absolute inset-0 w-full h-full" style={{ perspective: '1000px' }}>
+              <defs>
+                <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                  <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgb(255 79 0 / 0.15)" strokeWidth="1" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
 
-        {/* Massive Dynamic Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-4 sm:space-y-6"
-        >
-          <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[140px] font-black tracking-[-0.02em] leading-[0.9] text-txt select-none">
-            KUNJ <span className="text-muted/20">SHAH</span>
-          </h1>
-
-          <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-muted font-sans font-light tracking-wide leading-relaxed pt-4 sm:pt-8 px-2">
-            Engineering <span className="text-primary font-medium">autonomous intelligence</span> and <span className="text-txt font-medium">scalable AI systems</span>.
-            Specialized in <span className="txt-mono text-xs text-primary border-b border-primary/30 pb-0.5 mx-1">Agentic Flow</span>,
-            <span className="txt-mono text-xs text-secondary border-b border-secondary/30 pb-0.5 mx-1">MLOps</span>, and
-            <span className="txt-mono text-xs text-accent border-b border-accent/30 pb-0.5 mx-1">Computer Vision</span>.
-          </p>
-        </motion.div>
-
-        {/* Action Interface */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 1 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-12 sm:mt-16 w-full px-4 sm:px-0"
-        >
-          <a
-            href="/projects"
-            className="w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 bg-primary text-white font-bold text-xs sm:text-sm tracking-widest uppercase transition-all rounded-sm hover:translate-y-[-2px] hover:shadow-lg hover:shadow-primary/20 text-center min-h-[44px] flex items-center justify-center"
-          >
-            Deployments
-          </a>
-          <a
-            href="/resume.pdf"
-            className="w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 border border-border bg-surface hover:bg-surfaceHighlight text-txt font-bold text-xs sm:text-sm tracking-widest uppercase transition-all rounded-sm text-center min-h-[44px] flex items-center justify-center"
-          >
-            Resume
-          </a>
-        </motion.div>
-
-        {/* Featured Project Showcase */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 1 }}
-          className="mt-20 sm:mt-32 w-full max-w-3xl px-4 sm:px-0"
-        >
-          <div className="glass-panel p-1 rounded-2xl">
-            <div className="bg-surface/50 rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-4 opacity-50">
-                <div className="flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
-                  <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
-                  <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
-                </div>
-              </div>
-
-              <div className="w-full md:w-2/3 text-left space-y-4">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                  <span className="txt-mono text-[10px] uppercase tracking-widest text-primary font-bold">Latest Deployment</span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-txt">CinePulse</h3>
-                <p className="text-muted text-sm leading-relaxed">
-                  Emotion-based movie recommender using NLP classification and embedding-based similarity matching. Built for high-concurrency environments.
-                </p>
-              </div>
-
-              <div className="w-full md:w-1/3 flex justify-start md:justify-end">
-                <a href="/projects/cinepulse" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-txt hover:text-primary transition-colors border-b border-border pb-1 hover:border-primary">
-                  Analyze System <ArrowDown className="w-3 h-3 -rotate-90" />
-                </a>
-              </div>
-
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-            </div>
+            {/* Grid glow elements */}
+            <motion.div
+              className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 blur-[100px] rounded-full"
+              animate={{ y: [0, 40, 0] }}
+              transition={{ duration: 8, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/3 blur-[120px] rounded-full"
+              animate={{ y: [0, -40, 0] }}
+              transition={{ duration: 10, repeat: Infinity, delay: 1 }}
+            />
           </div>
         </motion.div>
 
-        {/* Stats Row */}
+        {/* Main Content Container */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
-          className="mt-20 sm:mt-24 w-full max-w-5xl grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 pt-8 sm:pt-12 px-4 border-t border-border/50"
+          style={{
+            scale: scaleProgress,
+            opacity: opacityProgress,
+            y: yProgress,
+          }}
+          className="relative z-20 container-aligned flex flex-col items-center gap-12"
         >
-          {stats.map((s, i) => (
-            <div key={i} className="flex flex-row sm:flex-col items-center justify-between sm:justify-center gap-4 p-4 border border-border/50 rounded-lg hover:border-primary/20 transition-colors bg-surface/30">
-              <div className="flex items-center gap-3 sm:flex-col sm:gap-4">
-                <div className="p-2 bg-primary/10 rounded-md text-primary">
-                  <s.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+          {/* Top Badge - Animated Entry */}
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="flex items-center gap-3 px-4 py-2 border border-primary/40 bg-primary/5 rounded-full txt-mono text-xs tracking-widest font-bold uppercase"
+          >
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-2 h-2 bg-primary rounded-full"
+            />
+            ENGINEERING_AUTONOMOUS_SYSTEMS
+          </motion.div>
+
+          {/* Main Title - Cinematic Reveal */}
+          <div className="relative overflow-hidden">
+            <div className="flex flex-col items-center gap-0">
+              {['KUNJ', 'SHAH'].map((word, wordIdx) => (
+                <div key={word} className="overflow-hidden">
+                  <motion.h1
+                    initial={{ opacity: 0, y: 120, rotateX: -90 }}
+                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                    transition={{
+                      delay: wordIdx * 0.2,
+                      duration: 1.2,
+                      ease: [0.23, 1, 0.32, 1],
+                      type: 'spring',
+                      stiffness: 40,
+                      damping: 12,
+                    }}
+                    className="text-7xl sm:text-8xl md:text-9xl lg:text-[180px] font-black tracking-[-0.04em] leading-[0.9] text-txt uppercase whitespace-nowrap"
+                    style={{ perspective: '1200px' }}
+                  >
+                    {word}
+                  </motion.h1>
                 </div>
-                <div className="text-[10px] txt-mono text-muted uppercase tracking-widest font-bold">{s.label}</div>
-              </div>
-              <div className="text-lg sm:text-2xl font-bold text-txt">{s.value}</div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Descriptive Tagline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="max-w-3xl text-center space-y-6"
+          >
+            <p className="text-lg sm:text-xl md:text-2xl text-muted font-light leading-relaxed tracking-wide">
+              Building <span className="text-primary font-bold">production-grade AI systems</span> that
+              <br className="hidden sm:block" />
+              scale intelligently across distributed infrastructure
+            </p>
+
+            {/* Tech Stack Tags */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="flex flex-wrap justify-center gap-3"
+            >
+              {['AGENTS', 'MLOPS', 'SYSTEMS', 'INFERENCE'].map((tag, i) => (
+                <motion.span
+                  key={tag}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.8 + i * 0.1 }}
+                  className="px-3 py-1 text-xs font-bold txt-mono tracking-widest uppercase border border-primary/40 bg-primary/10 rounded-full text-primary/80"
+                >
+                  {tag}
+                </motion.span>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* CTA Buttons - Modern Design */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 pt-8"
+          >
+            {/* Primary CTA */}
+            <a
+              href="/projects"
+              className="group relative px-10 py-4 bg-primary text-white font-bold text-sm tracking-widest uppercase overflow-hidden rounded-sm transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,79,0,0.4)]"
+            >
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                Explore Work
+                <ArrowDown className="w-4 h-4 -rotate-90 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <motion.div
+                className="absolute inset-0 bg-primary/80"
+                initial={{ y: '100%' }}
+                whileHover={{ y: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+            </a>
+
+            {/* Secondary CTA */}
+            <a
+              href="/blogs"
+              className="px-10 py-4 border-2 border-primary/60 text-txt font-bold text-sm tracking-widest uppercase rounded-sm hover:border-primary hover:bg-primary/10 transition-all duration-300"
+            >
+              Read Articles
+            </a>
+          </motion.div>
+
+          {/* Stats Row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="pt-16 border-t border-primary/20 flex gap-12"
+          >
+            {[
+              { label: 'Projects', value: '12+' },
+              { label: 'Articles', value: '6' },
+              { label: 'Years Active', value: '2+' },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-2xl sm:text-3xl font-black text-primary mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-xs txt-mono text-muted uppercase tracking-widest">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
 
+        {/* Scroll Indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-xs txt-mono text-muted/60 uppercase tracking-widest">Scroll to explore</span>
+            <ArrowDown className="w-5 h-5 text-primary/60" />
+          </div>
+        </motion.div>
       </div>
+
+      {/* Scroll spacer */}
+      <div className="relative h-screen" />
     </section>
   )
 }
