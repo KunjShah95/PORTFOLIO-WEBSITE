@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Terminal, BookOpen } from 'lucide-react'
+import { ArrowRight, BookOpen } from 'lucide-react'
 import { BLOGS } from '../data/portfolio'
 
 export function Writing() {
@@ -66,8 +66,8 @@ export function Writing() {
 
                         <div className="flex flex-wrap gap-2">
                            {blog.tags.map(tag => (
-                              <span
-                                 key={tag}
+                              <span 
+                                 key={tag} 
                                  className="text-[10px] font-bold txt-mono text-muted/70 uppercase tracking-wider px-2 py-1 border border-primary/20 rounded-sm bg-primary/5"
                               >
                                  {tag}

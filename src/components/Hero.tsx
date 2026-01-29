@@ -10,7 +10,7 @@ export function Hero() {
   const scaleProgress = useTransform(scrollY, [0, 500], [1, 0.75])
   const opacityProgress = useTransform(scrollY, [400, 700], [1, 0])
   const yProgress = useTransform(scrollY, [0, 600], [0, 150])
-
+  
   // Grid animations
   const gridOpacity = useTransform(scrollY, [0, 300], [0.4, 0.1])
   const gridScale = useTransform(scrollY, [0, 500], [1, 1.5])
@@ -41,7 +41,7 @@ export function Hero() {
               </defs>
               <rect width="100%" height="100%" fill="url(#grid)" />
             </svg>
-
+            
             {/* Grid glow elements */}
             <motion.div
               className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 blur-[100px] rounded-full"
@@ -114,11 +114,11 @@ export function Hero() {
             className="max-w-3xl text-center space-y-6"
           >
             <p className="text-lg sm:text-xl md:text-2xl text-muted font-light leading-relaxed tracking-wide">
-              Building <span className="text-primary font-bold">production-grade AI systems</span> that
+              Building <span className="text-primary font-bold">production-grade AI systems</span> that 
               <br className="hidden sm:block" />
               scale intelligently across distributed infrastructure
             </p>
-
+            
             {/* Tech Stack Tags */}
             <motion.div
               initial={{ opacity: 0 }}

@@ -15,8 +15,8 @@ export function Navbar({ onOpenCommand }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 flex items-center justify-between py-4">
         {/* Logo */}
-        <a
-          href="/"
+        <a 
+          href="/" 
           className="text-sm font-bold tracking-widest txt-mono text-txt hover:text-primary transition-colors uppercase"
         >
           KUNJ_SHAH
@@ -31,7 +31,7 @@ export function Navbar({ onOpenCommand }: NavbarProps) {
           </ul>
 
           {/* Command Palette */}
-          <button
+          <button 
             onClick={onOpenCommand}
             className="group flex items-center gap-2 px-3 py-1.5 border border-primary/30 bg-primary/5 hover:border-primary/60 hover:bg-primary/10 text-xs text-muted hover:text-primary font-bold txt-mono uppercase transition-all rounded-sm"
           >
