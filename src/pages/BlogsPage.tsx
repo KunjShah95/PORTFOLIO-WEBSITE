@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import { Hash, Terminal, ArrowUpRight, BookOpen } from 'lucide-react'
+import { Hash, ArrowUpRight, BookOpen } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import { BLOGS, LOGS } from '../data/portfolio'
 

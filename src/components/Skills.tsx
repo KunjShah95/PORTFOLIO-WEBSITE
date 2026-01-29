@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ChevronRight, Cpu } from 'lucide-react'
+import { Cpu } from 'lucide-react'
 import { SKILL_GROUPS } from '../data/portfolio'
 
 export function Skills() {
